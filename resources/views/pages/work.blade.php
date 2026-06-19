@@ -10,7 +10,7 @@
     'cta1Route'   => 'contact',
     'cta2Label'   => 'Our Services',
     'cta2Route'   => 'services',
-    'badges'      => ['20+ Projects Completed', 'Laravel & PHP', 'AI-Powered Apps', 'US · UK · AU Clients'],
+    'badges'      => ['20+ Projects Completed', 'Laravel & PHP', 'AI-Powered Apps', 'Clients Worldwide'],
 ])
 
 <section class="py-24 bg-brand-black min-h-screen" x-data="{ activeTab: 'All' }">
@@ -39,15 +39,16 @@
         {{-- Projects Grid --}}
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             @foreach($projects as $index => $project)
-            <div x-show="activeTab === 'All' || activeTab === '{{ $project['category'] }}'"
-                 x-transition:enter="transition ease-out duration-300"
-                 x-transition:enter-start="opacity-0 scale-95"
-                 x-transition:enter-end="opacity-100 scale-100"
-                 x-transition:leave="transition ease-in duration-150"
-                 x-transition:leave-start="opacity-100 scale-100"
-                 x-transition:leave-end="opacity-0 scale-95"
-                 class="group relative overflow-hidden rounded-2xl bg-brand-card border border-white/5 hover:border-brand-blue/40 transition"
-                 data-aos="fade-up" data-aos-delay="{{ $index * 50 }}">
+            <a href="{{ route('work.detail', $project['slug']) }}"
+               x-show="activeTab === 'All' || activeTab === '{{ $project['category'] }}'"
+               x-transition:enter="transition ease-out duration-300"
+               x-transition:enter-start="opacity-0 scale-95"
+               x-transition:enter-end="opacity-100 scale-100"
+               x-transition:leave="transition ease-in duration-150"
+               x-transition:leave-start="opacity-100 scale-100"
+               x-transition:leave-end="opacity-0 scale-95"
+               class="group block relative overflow-hidden rounded-2xl bg-brand-card border border-white/5 hover:border-brand-blue/40 transition hover:no-underline text-white"
+               data-aos="fade-up" data-aos-delay="{{ $index * 50 }}">
                 <div class="h-56 bg-gradient-to-br from-brand-blue/20 to-brand-black flex items-center justify-center relative overflow-hidden">
                     <img src="{{ asset('images/projects/' . $project['image']) }}" alt="{{ $project['title'] }}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500">
                     <div class="absolute inset-0 bg-brand-dark/50 group-hover:bg-brand-dark/10 transition duration-500"></div>
@@ -64,7 +65,7 @@
                         @endforeach
                     </div>
                 </div>
-            </div>
+            </a>
             @endforeach
         </div>
 

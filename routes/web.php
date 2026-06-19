@@ -8,6 +8,7 @@ Route::get('/',          [PageController::class, 'home'])->name('home');
 Route::get('/services',  [PageController::class, 'services'])->name('services');
 Route::get('/services/{slug}', [PageController::class, 'serviceDetail'])->name('services.detail');
 Route::get('/work',      [PageController::class, 'work'])->name('work');
+Route::get('/work/{slug}', [PageController::class, 'workDetail'])->name('work.detail');
 Route::get('/ai-solutions', [PageController::class, 'aiSolutions'])->name('ai-solutions');
 Route::get('/blog',          [PageController::class, 'blog'])->name('blog');
 Route::get('/blog/{slug}',   [PageController::class, 'blogDetail'])->name('blog.detail');

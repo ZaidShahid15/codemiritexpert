@@ -47,14 +47,7 @@ class PageController extends Controller
             ['slug' => 'business-systems', 'icon' => 'chart-bar', 'title' => 'Business Systems', 'desc' => 'Custom ERP, inventory, HR, and operations management systems.'],
         ];
 
-        $projects = [
-            ['title' => 'Law Firm Website', 'category' => 'Website', 'tag' => 'Legal', 'image' => 'project-1.jpg'],
-            ['title' => 'Business Management System', 'category' => 'Web App', 'tag' => 'Business', 'image' => 'project-2.jpg'],
-            ['title' => 'AI Chatbot Integration', 'category' => 'AI Tool', 'tag' => 'AI', 'image' => 'project-3.jpg'],
-            ['title' => 'eCommerce Store', 'category' => 'eCommerce', 'tag' => 'Retail', 'image' => 'project-4.jpg'],
-            ['title' => 'Booking System', 'category' => 'Web App', 'tag' => 'Healthcare', 'image' => 'project-5.jpg'],
-            ['title' => 'Inventory Management System', 'category' => 'Web App', 'tag' => 'Logistics', 'image' => 'project-6.jpg'],
-        ];
+        $projects = array_values($this->getDetailedProjects());
 
         $posts = $this->getBlogPosts();
         return view('pages.home', compact('stats', 'services', 'projects', 'faqs', 'posts'));
@@ -263,18 +256,106 @@ class PageController extends Controller
     {
         $faqs = $this->getFaqs();
         $stats = $this->getStats();
-        $projects = [
-            ['title' => 'Law Firm Website', 'category' => 'Website', 'industry' => 'Legal Services', 'desc' => 'Modern, SEO-optimized website for a US-based law firm. Includes attorney profiles, practice areas, and contact form.', 'image' => 'project-1.jpg', 'tags' => ['Laravel', 'Tailwind CSS']],
-            ['title' => 'Business Management System', 'category' => 'Web App', 'industry' => 'Business', 'desc' => 'Full internal ERP with employee management, task assignment, and reporting dashboard.', 'image' => 'project-2.jpg', 'tags' => ['Laravel', 'MySQL', 'Livewire']],
-            ['title' => 'AI Chatbot Integration', 'category' => 'AI Tool', 'industry' => 'Tech / SaaS', 'desc' => "GPT-4 powered chatbot embedded into a client's website for 24/7 automated customer support.", 'image' => 'project-3.jpg', 'tags' => ['OpenAI', 'Laravel', 'JS']],
-            ['title' => 'eCommerce Store', 'category' => 'eCommerce', 'industry' => 'Retail', 'desc' => 'Full eCommerce platform with Stripe integration, product catalog, cart, and order management.', 'image' => 'project-4.jpg', 'tags' => ['Laravel', 'Stripe', 'MySQL']],
-            ['title' => 'Booking System', 'category' => 'Web App', 'industry' => 'Healthcare', 'desc' => 'Online appointment booking system for a clinic with real-time availability and email notifications.', 'image' => 'project-5.jpg', 'tags' => ['Laravel', 'Livewire', 'Tailwind']],
-            ['title' => 'Inventory Management System', 'category' => 'Web App', 'industry' => 'Logistics', 'desc' => 'Real-time inventory tracking with barcode support, low-stock alerts, and PDF reports.', 'image' => 'project-6.jpg', 'tags' => ['Laravel', 'MySQL', 'Charts.js']],
-        ];
+        $projects = array_values($this->getDetailedProjects());
 
         $categories = ['All', 'Website', 'Web App', 'AI Tool', 'eCommerce'];
 
         return view('pages.work', compact('projects', 'categories', 'faqs', 'stats'));
+    }
+
+    public function workDetail($slug)
+    {
+        $allProjects = $this->getDetailedProjects();
+        if (!array_key_exists($slug, $allProjects)) {
+            abort(404);
+        }
+        $project = $allProjects[$slug];
+        $faqs = $this->getFaqs();
+        return view('pages.work-detail', compact('project', 'faqs'));
+    }
+
+    private function getDetailedProjects()
+    {
+        return [
+            'law-firm-website' => [
+                'slug' => 'law-firm-website',
+                'title' => 'Law Firm Website',
+                'category' => 'Website',
+                'tag' => 'Legal',
+                'industry' => 'Legal Services',
+                'desc' => 'Modern, SEO-optimized website for an international law firm. Includes attorney profiles, practice areas, and contact form.',
+                'image' => 'project-1.jpg',
+                'tags' => ['Laravel', 'Tailwind CSS', 'Alpine.js', 'SEO'],
+                'challenge' => 'The client, a boutique international law firm, was running on an outdated WordPress template. The site suffered from slow loading speeds (over 5 seconds), was difficult to navigate on mobile, and failed to capture potential clients looking for consultation services.',
+                'solution' => 'We designed and hand-coded a custom website in PHP Laravel and Tailwind CSS. We built a fast attorney profile directory, responsive practice area cards, and a direct, secure consult inquiry funnel.',
+                'results' => 'Decreased loading times to under 1.2s, saw a 45% increase in local organic search rankings (SEO) within the first 60 days, and increased direct form leads by 30%.'
+            ],
+            'business-management-system' => [
+                'slug' => 'business-management-system',
+                'title' => 'Business Management System',
+                'category' => 'Web App',
+                'tag' => 'Business',
+                'industry' => 'Business',
+                'desc' => 'Full internal ERP with employee management, task assignment, and reporting dashboard.',
+                'image' => 'project-2.jpg',
+                'tags' => ['Laravel', 'MySQL', 'Livewire', 'Charts.js'],
+                'challenge' => 'A scaling logistics service provider was paying over $1,200/month for multiple siloed SaaS platforms. Employees had to manually transfer data between separate invoicing, scheduling, and payroll tools, leading to frequent data mismatches and overhead delays.',
+                'solution' => 'We built a bespoke administrative ERP portal in Laravel and Livewire. We integrated a centralized dashboard showing employee timesheets, job task assignments, real-time client invoicing pipelines, and automatic PDF payslip generators.',
+                'results' => 'Saved the client $14,000+ in annual licensing costs, completely centralized operational data, and reduced administrative task-delegation overhead by 50%.'
+            ],
+            'ai-chatbot-integration' => [
+                'slug' => 'ai-chatbot-integration',
+                'title' => 'AI Chatbot Integration',
+                'category' => 'AI Tool',
+                'tag' => 'AI',
+                'industry' => 'Tech / SaaS',
+                'desc' => "GPT-4 powered chatbot embedded into a client's website for 24/7 automated customer support.",
+                'image' => 'project-3.jpg',
+                'tags' => ['OpenAI API', 'Vector DB', 'Laravel', 'JS'],
+                'challenge' => 'A fast-growing online booking platform was overwhelmed by customer support tickets. Repetitive queries about booking conditions and documentation delayed support responses, driving client churn.',
+                'solution' => 'We integrated a GPT-4 powered support assistant via the OpenAI API. We structured their support manuals into mathematical vector embeddings (RAG) using pgvector, enabling the bot to answer platform-specific inquiries accurately in real-time.',
+                'results' => 'Autonomously resolved 70% of inbound customer queries without support team handoff, providing 24/7 instant support coverage and raising customer satisfaction scores.'
+            ],
+            'ecommerce-store' => [
+                'slug' => 'ecommerce-store',
+                'title' => 'eCommerce Store',
+                'category' => 'eCommerce',
+                'tag' => 'Retail',
+                'industry' => 'Retail',
+                'desc' => 'Full eCommerce platform with Stripe integration, product catalog, cart, and order management.',
+                'image' => 'project-4.jpg',
+                'tags' => ['Laravel', 'Stripe API', 'MySQL', 'Tailwind CSS'],
+                'challenge' => 'An online custom merchandise boutique wanted to move away from Shopify due to restrictive design templates, high app subscription fees, and transaction rate percentages that cut directly into margins.',
+                'solution' => 'We built a custom eCommerce storefront in Laravel. We designed an optimized single-page checkout flow, secure Stripe payments, discount coupon code controllers, and a simple inventory manager for their admin team.',
+                'results' => 'Reduced shopping cart abandonment by 18%, saved the company from Shopify transaction fees, and achieved page load speeds 3x faster than their old store.'
+            ],
+            'booking-system' => [
+                'slug' => 'booking-system',
+                'title' => 'Booking System',
+                'category' => 'Web App',
+                'tag' => 'Healthcare',
+                'industry' => 'Healthcare',
+                'desc' => 'Online appointment booking system for a clinic with real-time availability and email notifications.',
+                'image' => 'project-5.jpg',
+                'tags' => ['Laravel', 'Livewire', 'Tailwind CSS', 'Mail'],
+                'challenge' => 'A clinic managed patient appointments manually via call-ins, leading to double-bookings, receptionist strain, and a high rate of client no-shows (around 25%).',
+                'solution' => 'We developed an online scheduling application in Laravel Livewire. Patients can check real-time doctor availability and select slots. We set up automated email notifications and Twilio SMS reminders.',
+                'results' => 'Reduced clinic call volumes by 40%, completely eliminated double-bookings, and reduced patient no-show rates down to 8%.'
+            ],
+            'inventory-management-system' => [
+                'slug' => 'inventory-management-system',
+                'title' => 'Inventory Management System',
+                'category' => 'Web App',
+                'tag' => 'Logistics',
+                'industry' => 'Logistics',
+                'desc' => 'Real-time inventory tracking with barcode support, low-stock alerts, and PDF reports.',
+                'image' => 'project-6.jpg',
+                'tags' => ['Laravel', 'MySQL', 'Charts.js', 'PDF Builder'],
+                'challenge' => 'A warehouse distributor suffered from inventory discrepancies and delayed orders because stock audits were done on paper twice a week, which led to incorrect stock levels on their sales portal.',
+                'solution' => 'We engineered a warehouse inventory database with barcode scanner compatibility. The system records stock changes in real-time, fires email alerts when items hit reorder thresholds, and generates one-click PDF audits.',
+                'results' => 'Brought warehouse tracking accuracy to 99.8%, saved staff 15 hours of manual audits per week, and eliminated sales delay errors completely.'
+            ]
+        ];
     }
 
     public function about()

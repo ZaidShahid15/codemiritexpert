@@ -36,7 +36,7 @@
 
         {{-- Trust badges --}}
         <div class="flex flex-wrap justify-center gap-6 text-sm font-grotesk text-brand-muted" data-aos="fade-up" data-aos-delay="300">
-            @foreach(['20+ Projects Delivered', 'Laravel Expert', 'AI Tools Integrated', 'Clients in US · UK · AU'] as $badge)
+            @foreach(['20+ Projects Delivered', 'Laravel Expert', 'AI Tools Integrated', 'Clients Worldwide'] as $badge)
             <span class="flex items-center gap-2">
                 <span class="w-1.5 h-1.5 rounded-full bg-brand-blue"></span>
                 {{ $badge }}
@@ -279,7 +279,7 @@
                  x-transition:enter="transition ease-out duration-300"
                  x-transition:enter-start="opacity-0 scale-95"
                  x-transition:enter-end="opacity-100 scale-100">
-                <div class="project-card">
+                <a href="{{ route('work.detail', $project['slug']) }}" class="project-card block hover:no-underline text-white">
                     {{-- Image with overlay --}}
                     <div style="position:relative;overflow:hidden;">
                         <img src="{{ asset('images/projects/' . $project['image']) }}"
@@ -296,12 +296,12 @@
                     <div class="project-card-body">
                         <div class="project-cat">{{ $project['category'] }}</div>
                         <div class="project-title">{{ $project['title'] }}</div>
-                        <a href="{{ route('work') }}" class="project-link">
+                        <span class="project-link">
                             View Case Study
                             <span class="project-link-line"></span>
-                        </a>
+                        </span>
                     </div>
-                </div>
+                </a>
             </div>
             @endforeach
         </div>
