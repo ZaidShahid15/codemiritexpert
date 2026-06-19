@@ -151,10 +151,15 @@
     backdrop-filter: blur(16px);
     border: 1px solid rgba(255,255,255,0.05);
     border-radius: 14px;
-    padding: 40px;
+    padding: 24px;
     height: 100%;
     overflow: hidden;
     transition: border-color 0.3s;
+}
+@media (min-width: 640px) {
+    .service-card-inner {
+        padding: 40px;
+    }
 }
 .service-card-inner:hover { border-color: rgba(30,107,255,0.2); }
 .service-explore-arrow {
@@ -268,7 +273,7 @@
             @endforeach
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 min-h-[300px]">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 min-h-[300px]">
             @foreach($projects as $project)
             <div x-show="activeTab === 'All' || activeTab === '{{ $project['category'] }}'"
                  x-transition:enter="transition ease-out duration-300"
@@ -321,7 +326,7 @@
             <p class="font-inter text-brand-muted text-base max-w-xl mx-auto mt-4">We follow a proven, transparent process to take your vision from idea to launch.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
             <!-- Connector Line for Desktop -->
             <div class="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-blue/20 via-purple-500/20 to-brand-blue/20 -translate-y-12 hidden md:block z-0"></div>
 
@@ -665,7 +670,7 @@
             <p class="font-inter text-brand-muted mt-4 max-w-xl mx-auto">Read our latest developer updates, custom systems architectural guides, and AI integration strategies.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             @foreach(array_slice($posts, 0, 3) as $slug => $post)
             <div data-aos="fade-up" data-aos-delay="{{ $loop->index * 80 }}">
                 <div class="bg-brand-card border border-white/5 rounded-2xl overflow-hidden hover:border-brand-blue/30 transition-all duration-300 hover:-translate-y-1 group h-full flex flex-col justify-between">

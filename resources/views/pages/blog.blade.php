@@ -18,7 +18,7 @@
 <section class="py-24 bg-brand-black min-h-screen">
     <div class="max-w-6xl mx-auto px-6">
         
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             @foreach($posts as $slug => $post)
             <div data-aos="fade-up" data-aos-delay="{{ $loop->index * 80 }}">
                 <div class="bg-brand-card border border-white/5 rounded-2xl overflow-hidden hover:border-brand-blue/30 transition-all duration-300 hover:-translate-y-1 group h-full flex flex-col justify-between">

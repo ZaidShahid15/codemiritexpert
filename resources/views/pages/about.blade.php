@@ -17,7 +17,7 @@
     <div class="max-w-4xl mx-auto px-6">
         <div class="bg-brand-card border border-white/5 rounded-3xl p-10 md:p-14 mb-16" data-aos="fade-up">
             <h2 class="font-playfair text-3xl font-bold text-white mb-6">Our Core Values</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 @foreach($values as $value)
                 <div>
                     <div class="w-12 h-12 bg-brand-blue/10 rounded-xl flex items-center justify-center mb-5">

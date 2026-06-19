@@ -205,7 +205,7 @@
             <p class="font-inter text-brand-muted text-base max-w-xl mx-auto mt-4">We follow a proven, transparent process to take your vision from idea to launch.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
             <div class="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-blue/20 via-purple-500/20 to-brand-blue/20 -translate-y-12 hidden md:block z-0"></div>
 
             @foreach([
@@ -260,7 +260,7 @@
     <div class="max-w-4xl mx-auto px-6 relative z-10 text-center" data-aos="fade-up">
         <span class="font-grotesk text-brand-blue text-xs tracking-[0.25em] uppercase block mb-3 font-semibold">Our Guarantee</span>
         <h2 class="font-playfair text-3xl md:text-4xl font-bold text-white mb-6">Our Service Commitment</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 text-left">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 text-left">
             <div class="bg-brand-card/60 backdrop-blur-sm border border-white/5 p-8 rounded-2xl hover:border-brand-blue/20 transition-all duration-300">
                 <div class="text-brand-blue text-3xl mb-4">⏱</div>
                 <h4 class="font-grotesk text-lg font-semibold text-white mb-2">24-Hour Response</h4>

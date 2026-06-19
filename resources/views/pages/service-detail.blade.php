@@ -189,7 +189,7 @@
             <span class="font-grotesk text-brand-blue text-sm tracking-widest uppercase">Our Approach</span>
             <h2 class="font-playfair text-3xl md:text-4xl font-bold text-white mt-3">How We Deliver This Service</h2>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             @foreach([
                 ['step' => '01', 'title' => 'Discovery Call',   'desc' => 'We learn your goals, current challenges, and technical requirements in depth.'],
                 ['step' => '02', 'title' => 'Proposal & Plan', 'desc' => 'You receive a detailed project plan, timeline, and fixed-price quote.'],

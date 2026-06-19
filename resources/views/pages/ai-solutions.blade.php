@@ -173,7 +173,7 @@
             <p class="font-inter text-brand-muted text-base max-w-xl mx-auto mt-4">We follow a rigorous process to build secure, highly contextual, and fast AI integrations.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
             <div class="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-blue/20 via-purple-500/20 to-brand-blue/20 -translate-y-12 hidden md:block z-0"></div>
 
             @foreach([
