@@ -1,4 +1,4 @@
-<footer class="bg-brand-dark border-t border-white/5 pt-16 pb-8">
+<footer class="bg-brand-dark border-t border-white/5 pt-16 pb-28">
     <div class="max-w-7xl mx-auto px-6">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
             <div class="md:col-span-2">
