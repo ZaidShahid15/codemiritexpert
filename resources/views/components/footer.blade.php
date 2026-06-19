@@ -69,12 +69,12 @@
             <div>
                 <h4 class="font-grotesk text-sm text-white uppercase tracking-wider mb-5">Services</h4>
                 <ul class="space-y-3 font-inter text-sm text-brand-muted">
-                    <li>Custom Websites</li>
-                    <li>Web Applications</li>
-                    <li>AI Tool Integration</li>
-                    <li>eCommerce Development</li>
-                    <li>API Development</li>
-                    <li>Business Systems</li>
+                    <li><a href="{{ route('services.detail', 'custom-websites') }}" class="hover:text-white transition">Custom Websites</a></li>
+                    <li><a href="{{ route('services.detail', 'web-applications') }}" class="hover:text-white transition">Web Applications</a></li>
+                    <li><a href="{{ route('services.detail', 'ai-tools') }}" class="hover:text-white transition">AI Tool Integration</a></li>
+                    <li><a href="{{ route('services.detail', 'ecommerce') }}" class="hover:text-white transition">eCommerce Development</a></li>
+                    <li><a href="{{ route('services.detail', 'api-development') }}" class="hover:text-white transition">API Development</a></li>
+                    <li><a href="{{ route('services.detail', 'business-systems') }}" class="hover:text-white transition">Business Systems</a></li>
                 </ul>
             </div>
         </div>
