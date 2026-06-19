@@ -1,9 +1,30 @@
-<footer class="bg-brand-dark border-t border-white/5 py-16">
+<footer class="bg-brand-dark border-t border-white/5 pt-16 pb-8">
     <div class="max-w-7xl mx-auto px-6">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
             <div class="md:col-span-2">
-                <a href="{{ route('home') }}" class="flex items-center gap-3 mb-4">
-                    <img src="{{ asset('images/logo.png') }}" alt="Codemir IT Experts" class="h-10 w-auto" width="160" height="40" loading="lazy">
+                <a href="{{ route('home') }}" class="flex items-center gap-3 mb-4 group">
+                    <div style="
+                        width: 52px;
+                        height: 52px;
+                        border-radius: 14px;
+                        overflow: hidden;
+                        border: 1px solid rgba(255,255,255,0.10);
+                        background: transparent;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        transition: box-shadow 0.3s ease, border-color 0.3s ease;
+                    " class="logo-wrap-footer">
+                        <img src="{{ asset('images/logo.png') }}" alt="Codemir IT Experts"
+                             loading="lazy"
+                             style="
+                                 width: 100%;
+                                 height: 100%;
+                                 object-fit: contain;
+                                 mix-blend-mode: screen;
+                                 filter: brightness(1.1) contrast(1.05);
+                             ">
+                    </div>
                 </a>
                 <p class="font-inter text-brand-muted text-sm leading-relaxed max-w-sm mb-6">
                     Elevating businesses with top-notch IT services — from web development to AI tool integrations. Based in Pakistan, serving globally.
@@ -35,11 +56,13 @@
             <div>
                 <h4 class="font-grotesk text-sm text-white uppercase tracking-wider mb-5">Pages</h4>
                 <ul class="space-y-3 font-inter text-sm text-brand-muted">
-                    <li><a href="{{ route('home') }}"     class="hover:text-white transition">Home</a></li>
-                    <li><a href="{{ route('services') }}" class="hover:text-white transition">Services</a></li>
-                    <li><a href="{{ route('work') }}"     class="hover:text-white transition">Our Work</a></li>
-                    <li><a href="{{ route('about') }}"    class="hover:text-white transition">About</a></li>
-                    <li><a href="{{ route('contact') }}"  class="hover:text-white transition">Contact</a></li>
+                    <li><a href="{{ route('home') }}"         class="hover:text-white transition">Home</a></li>
+                    <li><a href="{{ route('services') }}"     class="hover:text-white transition">Services</a></li>
+                    <li><a href="{{ route('ai-solutions') }}" class="hover:text-white transition">AI Solutions</a></li>
+                    <li><a href="{{ route('work') }}"         class="hover:text-white transition">Our Work</a></li>
+                    <li><a href="{{ route('blog') }}"         class="hover:text-white transition">Blog</a></li>
+                    <li><a href="{{ route('about') }}"        class="hover:text-white transition">About</a></li>
+                    <li><a href="{{ route('contact') }}"      class="hover:text-white transition">Contact</a></li>
                 </ul>
             </div>
 
@@ -61,3 +84,10 @@
         </div>
     </div>
 </footer>
+
+<style>
+.logo-wrap-footer:hover {
+    box-shadow: 0 0 18px rgba(59, 130, 246, 0.35), 0 0 0 1px rgba(59,130,246,0.25);
+    border-color: rgba(59,130,246,0.35) !important;
+}
+</style>

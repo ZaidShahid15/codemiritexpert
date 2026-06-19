@@ -6,7 +6,7 @@
 @section('content')
 
 {{-- HERO --}}
-<section class="relative min-h-[calc(100vh-76px)] flex items-center justify-center overflow-hidden bg-brand-black py-16">
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-brand-black pt-12 pb-16">
     {{-- Animated grid background --}}
     <div class="absolute inset-0 opacity-10">
         <div class="absolute inset-0" style="background-image: linear-gradient(rgba(30,107,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(30,107,255,0.3) 1px, transparent 1px); background-size: 60px 60px;"></div>
@@ -77,68 +77,178 @@
     </div>
 </section>
 
-{{-- SERVICES --}}
+{{-- ECOSYSTEM / TRUSTED PARTNERS SHOWCASE --}}
+<section class="py-16 bg-brand-black border-b border-white/5 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-10">
+            
+            <div class="max-w-md text-center lg:text-left shrink-0" data-aos="fade-right">
+                <span class="font-grotesk text-brand-blue text-xs uppercase tracking-widest block mb-2 font-semibold">Integrations</span>
+                <h2 class="font-playfair text-2xl md:text-3xl font-bold text-white leading-tight">
+                    Powering Solutions with <span class="text-brand-blue">World-Class</span> Tech
+                </h2>
+                <p class="font-inter text-brand-muted text-sm mt-3 leading-relaxed">
+                    We build on robust, secure, and industry-standard ecosystems to ensure performance and reliability.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 w-full max-w-3xl" data-aos="fade-left">
+                @foreach([
+                    ['name' => 'Laravel',   'desc' => 'Core Architecture', 'color' => '#FF2E2E', 'icon' => '<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>'],
+                    ['name' => 'OpenAI',    'desc' => 'Generative AI API',  'color' => '#10B981', 'icon' => '<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 4.5v15m7.5-7.5h-15"/></svg>'],
+                    ['name' => 'AWS Cloud', 'desc' => 'Secure Hosting',    'color' => '#FF9900', 'icon' => '<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg>'],
+                    ['name' => 'Stripe',    'desc' => 'Payment Gateway',   'color' => '#635BFF', 'icon' => '<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg>'],
+                    ['name' => 'Tailwind',  'desc' => 'Fluid Design System','color' => '#06B6D4', 'icon' => '<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/></svg>'],
+                    ['name' => 'GitHub',    'desc' => 'Continuous CI/CD',  'color' => '#FFFFFF', 'icon' => '<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.137 20.162 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>']
+                ] as $partner)
+                <div class="group relative flex flex-col items-center justify-center p-6 rounded-2xl bg-white/2 hover:bg-white/5 border border-white/5 hover:border-white/10 transition-all duration-300 shadow-sm hover:shadow-md cursor-default transform hover:-translate-y-1">
+                    <div class="h-10 flex items-center justify-center mb-3">
+                        <div style="color: {{ $partner['color'] }};" class="opacity-60 group-hover:opacity-100 transition-opacity duration-300">
+                            {!! $partner['icon'] !!}
+                        </div>
+                    </div>
+                    <span class="text-sm font-semibold text-white transition-colors duration-300 group-hover:text-brand-blue">{{ $partner['name'] }}</span>
+                    <span class="text-[9px] tracking-wider uppercase text-brand-muted mt-1 font-medium">{{ $partner['desc'] }}</span>
+                </div>
+                @endforeach
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{{-- SERVICES — bitsolmarketing style animated border cards --}}
 <section class="py-24 bg-brand-black relative">
+
+<style>
+/* Rotating conic-gradient border cards */
+.service-card-wrap { position: relative; }
+.service-card-wrap::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: 16px;
+    background: conic-gradient(#000, #1e6bff 5%, #000 38%, #000 50%, #8b5cf6 60%, #000 87%);
+    filter: blur(4px);
+    transition: transform 2s ease;
+}
+.service-card-wrap:hover::before { transform: rotate(180deg); }
+.service-card-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    z-index: -1;
+    border-radius: 14px;
+    background: conic-gradient(#0d0d1a, #1e6bff 5%, #0d0d1a 14%, #0d0d1a 50%, #8b5cf6 60%, #0d0d1a 64%);
+    filter: blur(2px);
+    transition: transform 2s ease;
+}
+.service-card-wrap:hover::after { transform: rotate(-90deg); }
+.service-card-inner {
+    position: relative;
+    background: rgba(10,10,26,0.9);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 14px;
+    padding: 40px;
+    height: 100%;
+    overflow: hidden;
+    transition: border-color 0.3s;
+}
+.service-card-inner:hover { border-color: rgba(30,107,255,0.2); }
+.service-explore-arrow {
+    width: 20px;
+    height: 1px;
+    background: rgba(255,255,255,0.3);
+    transition: width 0.3s ease, background 0.3s ease;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+.service-card-wrap:hover .service-explore-arrow {
+    width: 32px;
+    background: #1e6bff;
+}
+</style>
     <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-16" data-aos="fade-up">
-            <span class="font-grotesk text-brand-blue text-sm tracking-widest uppercase">What We Build</span>
-            <h2 class="font-playfair text-4xl md:text-5xl font-bold text-white mt-3">For Your Business</h2>
+            <span class="font-grotesk text-brand-blue text-sm tracking-widest uppercase">Core Expertise</span>
+            <h2 class="font-playfair text-4xl md:text-5xl font-bold text-white mt-3">What We <span class="text-brand-blue">Build</span> For You</h2>
+            <p class="font-inter text-brand-muted mt-4 max-w-xl mx-auto">We combine deep technical expertise with creative innovation to solve your most complex digital challenges.</p>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             @foreach($services as $index => $service)
-            <a href="{{ route('services.detail', $service['slug']) }}" class="bg-brand-card border border-white/5 rounded-2xl p-8 hover:border-brand-blue/40 transition group block hover:-translate-y-1 duration-300" data-aos="fade-up" data-aos-delay="{{ $index * 80 }}">
-                <div class="w-12 h-12 bg-brand-blue/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-brand-blue/20 transition">
-                    @if($service['icon'] === 'globe')
-                        <svg class="w-6 h-6 text-brand-blue" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                        </svg>
-                    @elseif($service['icon'] === 'cog')
-                        <svg class="w-6 h-6 text-brand-blue" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.43l-1.003.828c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.43l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 0 1 0-.255c.007-.378-.138-.75-.43-.991l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.28z"></path>
-                            <circle cx="12" cy="12" r="3"></circle>
-                        </svg>
-                    @elseif($service['icon'] === 'cpu')
-                        <svg class="w-6 h-6 text-brand-blue" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <rect x="4" y="4" width="16" height="16" rx="2"></rect>
-                            <path d="M9 9h6v6H9zM9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 15h3M1 9h3M1 15h3"></path>
-                        </svg>
-                    @elseif($service['icon'] === 'shopping-cart')
-                        <svg class="w-6 h-6 text-brand-blue" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <circle cx="9" cy="21" r="1"></circle>
-                            <circle cx="20" cy="21" r="1"></circle>
-                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                        </svg>
-                    @elseif($service['icon'] === 'link')
-                        <svg class="w-6 h-6 text-brand-blue" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"></path>
-                        </svg>
-                    @elseif($service['icon'] === 'chart-bar')
-                        <svg class="w-6 h-6 text-brand-blue" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125z"></path>
-                        </svg>
-                    @else
-                        <span class="text-brand-blue text-xl">◈</span>
-                    @endif
-                </div>
-                <h3 class="font-playfair text-xl font-semibold text-white mb-3">{{ $service['title'] }}</h3>
-                <p class="font-inter text-brand-muted text-sm leading-relaxed mb-4">{{ $service['desc'] }}</p>
-                <div class="text-brand-blue text-xs font-semibold flex items-center gap-1 group-hover:text-white transition">
-                    Learn More &rarr;
-                </div>
-            </a>
+            <div class="service-card-wrap" data-aos="fade-up" data-aos-delay="{{ $index * 80 }}">
+                <a href="{{ route('services.detail', $service['slug']) }}" class="service-card-inner block h-full" style="text-decoration:none;">
+                    {{-- Icon --}}
+                    <div style="width:56px;height:56px;border-radius:16px;background:rgba(30,107,255,0.12);display:flex;align-items:center;justify-content:center;margin-bottom:28px;transition:transform 0.3s ease;" class="svc-icon">
+                        @if($service['icon'] === 'globe')
+                            <svg width="24" height="24" fill="none" stroke="#1e6bff" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        @elseif($service['icon'] === 'cog')
+                            <svg width="24" height="24" fill="none" stroke="#8b5cf6" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                        @elseif($service['icon'] === 'cpu')
+                            <svg width="24" height="24" fill="none" stroke="#10b981" stroke-width="2" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9zM9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 15h3M1 9h3M1 15h3"/></svg>
+                        @elseif($service['icon'] === 'shopping-cart')
+                            <svg width="24" height="24" fill="none" stroke="#f59e0b" stroke-width="2" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                        @elseif($service['icon'] === 'link')
+                            <svg width="24" height="24" fill="none" stroke="#1e6bff" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"/></svg>
+                        @elseif($service['icon'] === 'chart-bar')
+                            <svg width="24" height="24" fill="none" stroke="#8b5cf6" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125z"/></svg>
+                        @else
+                            <svg width="24" height="24" fill="none" stroke="#1e6bff" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                        @endif
+                    </div>
+                    {{-- Content --}}
+                    <h3 style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#fff;margin-bottom:14px;">{{ $service['title'] }}</h3>
+                    <p style="font-family:'Inter',sans-serif;font-size:14px;color:rgba(255,255,255,0.5);line-height:1.7;margin-bottom:24px;">{{ $service['desc'] }}</p>
+                    {{-- Explore link (bitsolmarketing style) --}}
+                    <div style="display:flex;align-items:center;font-size:13px;font-weight:700;color:rgba(255,255,255,0.7);font-family:'Space Grotesk',sans-serif;">
+                        Explore Service
+                        <span class="service-explore-arrow"></span>
+                    </div>
+                </a>
+            </div>
             @endforeach
         </div>
-        <div class="text-center mt-12">
-            <a href="{{ route('services') }}" class="inline-flex items-center gap-2 text-brand-blue font-semibold hover:underline">
-                See All Services →
+        <div class="text-center mt-14">
+            <a href="{{ route('services') }}" style="display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(30,107,255,0.4);color:#1e6bff;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;padding:14px 36px;border-radius:999px;transition:all 0.3s;" onmouseover="this.style.background='#1e6bff';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#1e6bff'">
+                View All Services →
             </a>
         </div>
     </div>
 </section>
 
-{{-- FEATURED WORK --}}
+{{-- FEATURED WORK — bitsolmarketing style --}}
 <section class="py-24 bg-brand-dark" x-data="{ activeTab: 'All' }">
+<style>
+.project-card {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    background: rgba(15,15,30,0.8);
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: border-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+.project-card:hover { border-color: rgba(30,107,255,0.35); transform: translateY(-4px); }
+.project-card-img { width:100%; height:220px; object-fit:cover; transition: transform 0.6s ease; display:block; }
+.project-card:hover .project-card-img { transform: scale(1.06); }
+.project-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 30%, rgba(5,5,20,0.92) 100%);
+    transition: background 0.4s;
+}
+.project-card:hover .project-card-overlay { background: linear-gradient(to bottom, rgba(5,5,20,0.3) 0%, rgba(5,5,20,0.95) 100%); }
+.project-card-body { padding: 24px; }
+.project-cat { font-family:'Space Grotesk',sans-serif; font-size:11px; text-transform:uppercase; letter-spacing:0.12em; color:#1e6bff; font-weight:600; }
+.project-title { font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:#fff; margin:8px 0 12px; }
+.project-link { font-family:'Space Grotesk',sans-serif; font-size:13px; font-weight:700; color:rgba(255,255,255,0.5); display:inline-flex; align-items:center; gap:6px; transition: color 0.2s; text-decoration:none; }
+.project-card:hover .project-link { color: #1e6bff; }
+.project-link-line { width:16px; height:1px; background:currentColor; display:inline-block; transition: width 0.3s; }
+.project-card:hover .project-link-line { width:28px; }
+</style>
     <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-12" data-aos="fade-up">
             <span class="font-grotesk text-brand-blue text-sm tracking-widest uppercase">Portfolio</span>
@@ -163,24 +273,36 @@
             <div x-show="activeTab === 'All' || activeTab === '{{ $project['category'] }}'"
                  x-transition:enter="transition ease-out duration-300"
                  x-transition:enter-start="opacity-0 scale-95"
-                 x-transition:enter-end="opacity-100 scale-100"
-                 class="group relative overflow-hidden rounded-2xl bg-brand-card border border-white/5 hover:border-brand-blue/40 transition">
-                <div class="h-48 bg-gradient-to-br from-brand-blue/20 to-brand-black flex items-center justify-center relative overflow-hidden">
-                    <span class="font-grotesk text-brand-muted text-sm z-10 hidden">{{ $project['tag'] }}</span>
-                    <img src="{{ asset('images/projects/' . $project['image']) }}" alt="{{ $project['title'] }}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500" width="400" height="250" loading="lazy">
-                    <div class="absolute inset-0 bg-brand-dark/50 group-hover:bg-brand-dark/10 transition duration-500"></div>
-                </div>
-                <div class="p-6">
-                    <span class="font-grotesk text-xs text-brand-blue uppercase tracking-wider">{{ $project['category'] }}</span>
-                    <h3 class="font-playfair text-lg font-semibold text-white mt-2 mb-3">{{ $project['title'] }}</h3>
-                    <a href="{{ route('work') }}" class="text-sm text-brand-muted hover:text-brand-blue transition">View Case Study →</a>
+                 x-transition:enter-end="opacity-100 scale-100">
+                <div class="project-card">
+                    {{-- Image with overlay --}}
+                    <div style="position:relative;overflow:hidden;">
+                        <img src="{{ asset('images/projects/' . $project['image']) }}"
+                             alt="{{ $project['title'] }}"
+                             class="project-card-img"
+                             width="400" height="220" loading="lazy">
+                        <div class="project-card-overlay"></div>
+                        {{-- Tag badge --}}
+                        <span style="position:absolute;top:14px;right:14px;background:rgba(30,107,255,0.85);backdrop-filter:blur(8px);color:#fff;font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:600;padding:4px 12px;border-radius:999px;letter-spacing:0.06em;">
+                            {{ $project['tag'] ?? $project['category'] }}
+                        </span>
+                    </div>
+                    {{-- Card body --}}
+                    <div class="project-card-body">
+                        <div class="project-cat">{{ $project['category'] }}</div>
+                        <div class="project-title">{{ $project['title'] }}</div>
+                        <a href="{{ route('work') }}" class="project-link">
+                            View Case Study
+                            <span class="project-link-line"></span>
+                        </a>
+                    </div>
                 </div>
             </div>
             @endforeach
         </div>
-        <div class="text-center mt-12">
-            <a href="{{ route('work') }}" class="border border-white/20 hover:border-brand-blue text-white font-semibold px-8 py-4 rounded-full transition">
-                View All Projects
+        <div class="text-center mt-14">
+            <a href="{{ route('work') }}" style="display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,0.15);color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;padding:14px 36px;border-radius:999px;transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(30,107,255,0.6)';this.style.color='#1e6bff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.15)';this.style.color='#fff'">
+                View All Projects →
             </a>
         </div>
     </div>
@@ -530,6 +652,65 @@
                 </div>
             </div>
         </div>
+    </div>
+</section>
+
+{{-- FEATURED INSIGHTS --}}
+<section class="py-24 bg-brand-black border-t border-white/5 relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6">
+        
+        <div class="text-center mb-16" data-aos="fade-up">
+            <span class="font-grotesk text-brand-blue text-sm tracking-widest uppercase">Company Insights</span>
+            <h2 class="font-playfair text-4xl md:text-5xl font-bold text-white mt-3">Latest From Our Blog</h2>
+            <p class="font-inter text-brand-muted mt-4 max-w-xl mx-auto">Read our latest developer updates, custom systems architectural guides, and AI integration strategies.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-14">
+            @foreach(array_slice($posts, 0, 3) as $slug => $post)
+            <div data-aos="fade-up" data-aos-delay="{{ $loop->index * 80 }}">
+                <div class="bg-brand-card border border-white/5 rounded-2xl overflow-hidden hover:border-brand-blue/30 transition-all duration-300 hover:-translate-y-1 group h-full flex flex-col justify-between">
+                    
+                    {{-- Header Gradient --}}
+                    <div class="relative h-44 bg-gradient-to-br from-brand-blue/20 to-purple-900/40 border-b border-white/5 flex items-center justify-center p-6 text-center select-none overflow-hidden">
+                        <div class="absolute -top-12 -left-12 w-24 h-24 bg-brand-blue/20 rounded-full blur-xl pointer-events-none"></div>
+                        <div class="z-10">
+                            <span class="font-grotesk text-[10px] uppercase tracking-widest text-brand-blue/80 bg-brand-blue/10 border border-brand-blue/20 px-3 py-1 rounded-full mb-3 inline-block">
+                                {{ $post['category'] }}
+                            </span>
+                            <h4 class="font-playfair text-base font-bold text-white line-clamp-2">{{ $post['title'] }}</h4>
+                        </div>
+                    </div>
+
+                    {{-- Body --}}
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-3 text-xs text-brand-muted mb-3 font-grotesk font-medium">
+                                <span>{{ $post['date'] }}</span>
+                                <span>·</span>
+                                <span>{{ $post['read_time'] }}</span>
+                            </div>
+                            <p class="font-inter text-brand-muted text-sm leading-relaxed mb-6">
+                                {{ $post['summary'] }}
+                            </p>
+                        </div>
+
+                        <a href="{{ route('blog.detail', $slug) }}" class="inline-flex items-center gap-2 text-sm font-semibold text-brand-blue group-hover:text-brand-blue-hover transition">
+                            Read Article
+                            <span class="transform translate-x-0 group-hover:translate-x-1 transition-transform">&rarr;</span>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+            @endforeach
+        </div>
+
+        <div class="text-center">
+            <a href="{{ route('blog') }}" class="inline-flex items-center gap-2 border border-white/10 hover:border-brand-blue hover:text-white text-brand-muted font-grotesk text-sm font-semibold px-8 py-3.5 rounded-full transition duration-300">
+                View All Articles &rarr;
+            </a>
+        </div>
+
     </div>
 </section>
 

@@ -1,23 +1,57 @@
 <nav x-data="{ open: false }"
-     class="sticky top-0 z-50 w-full bg-transparent py-3 px-4 md:px-8">
+     style="position: fixed; top: 0; left: 0; right: 0; z-index: 9999; display: flex; justify-content: center; padding: 16px 16px 0; pointer-events: none;">
 
-    {{-- Rounded Container --}}
-    <div class="max-w-7xl mx-auto bg-brand-dark border border-white/10 rounded-2xl px-5 py-3.5 transition-all duration-300">
+    <div style="
+        width: 100%;
+        max-width: 1100px;
+        background: rgba(10, 10, 22, 0.92);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255,255,255,0.10);
+        border-radius: 20px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04) inset;
+        padding: 10px 20px;
+        pointer-events: auto;
+    ">
         <div class="flex items-center justify-between gap-4">
 
             {{-- Logo --}}
-            <a href="{{ route('home') }}" class="flex items-center gap-3 flex-shrink-0">
-                <img src="{{ asset('images/logo.png') }}" alt="Codemir IT Experts" class="h-9 w-auto" width="160" height="36" fetchpriority="high">
+            <a href="{{ route('home') }}" class="flex items-center gap-3 flex-shrink-0 group">
+                <div style="
+                    width: 52px;
+                    height: 52px;
+                    border-radius: 14px;
+                    overflow: hidden;
+                    border: 1px solid rgba(255,255,255,0.10);
+                    background: transparent;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+                " class="logo-wrap">
+                    <img src="{{ asset('images/logo.png') }}"
+                         alt="Codemir IT Experts"
+                         fetchpriority="high"
+                         style="
+                             width: 100%;
+                             height: 100%;
+                             object-fit: contain;
+                             mix-blend-mode: screen;
+                             filter: brightness(1.1) contrast(1.05);
+                         ">
+                </div>
             </a>
 
             {{-- Desktop Nav --}}
             <ul class="hidden md:flex items-center gap-1 font-inter text-sm font-medium text-brand-muted">
                 @foreach([
-                    ['label' => 'Home',     'route' => 'home'],
-                    ['label' => 'Services', 'route' => 'services'],
-                    ['label' => 'Our Work', 'route' => 'work'],
-                    ['label' => 'About',    'route' => 'about'],
-                    ['label' => 'Contact',  'route' => 'contact'],
+                    ['label' => 'Home',         'route' => 'home'],
+                    ['label' => 'Services',     'route' => 'services'],
+                    ['label' => 'AI Solutions', 'route' => 'ai-solutions'],
+                    ['label' => 'Our Work',     'route' => 'work'],
+                    ['label' => 'Blog',         'route' => 'blog'],
+                    ['label' => 'About',        'route' => 'about'],
+                    ['label' => 'Contact',      'route' => 'contact'],
                 ] as $nav)
                 <li>
                     <a href="{{ route($nav['route']) }}"
@@ -58,11 +92,13 @@
              x-transition:leave-end="opacity-0 -translate-y-2"
              class="md:hidden mt-3 pt-3 border-t border-white/5 flex flex-col gap-1 font-inter text-sm">
             @foreach([
-                ['label' => 'Home',     'route' => 'home'],
-                ['label' => 'Services', 'route' => 'services'],
-                ['label' => 'Our Work', 'route' => 'work'],
-                ['label' => 'About',    'route' => 'about'],
-                ['label' => 'Contact',  'route' => 'contact'],
+                ['label' => 'Home',         'route' => 'home'],
+                ['label' => 'Services',     'route' => 'services'],
+                ['label' => 'AI Solutions', 'route' => 'ai-solutions'],
+                ['label' => 'Our Work',     'route' => 'work'],
+                ['label' => 'Blog',         'route' => 'blog'],
+                ['label' => 'About',        'route' => 'about'],
+                ['label' => 'Contact',      'route' => 'contact'],
             ] as $nav)
             <a href="{{ route($nav['route']) }}"
                class="block px-4 py-2.5 rounded-xl text-brand-muted hover:text-white hover:bg-white/5 transition
@@ -77,3 +113,10 @@
         </div>
     </div>
 </nav>
+
+<style>
+.logo-wrap:hover {
+    box-shadow: 0 0 18px rgba(59, 130, 246, 0.35), 0 0 0 1px rgba(59,130,246,0.25);
+    border-color: rgba(59,130,246,0.35) !important;
+}
+</style>

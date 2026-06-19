@@ -57,5 +57,70 @@
     </div>
 </section>
 
+{{-- STATS BANNER --}}
+<section class="bg-brand-dark border-y border-white/5 py-16 relative overflow-hidden">
+    <div class="max-w-5xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center relative z-10">
+        @foreach($stats as $stat)
+        <div data-aos="fade-up">
+            <div class="font-playfair text-4xl md:text-5xl font-bold text-brand-blue mb-2">{{ $stat['number'] }}</div>
+            <div class="font-grotesk text-sm text-brand-muted uppercase tracking-wider">{{ $stat['label'] }}</div>
+        </div>
+        @endforeach
+    </div>
+</section>
+
+{{-- FOUNDER SPOTLIGHT --}}
+<section class="py-24 bg-brand-black relative">
+    <div class="max-w-4xl mx-auto px-6">
+        <div class="bg-brand-card border border-white/5 rounded-3xl p-10 md:p-14 flex flex-col md:flex-row gap-10 items-center" data-aos="fade-up">
+            <div class="w-32 h-32 md:w-48 md:h-48 rounded-2xl bg-brand-blue/10 border border-brand-blue/20 flex-shrink-0 overflow-hidden relative">
+                <img src="{{ asset('images/founder.png') }}" alt="Zaid Shahid — Founder Codemir IT Experts" class="w-full h-full object-cover" width="192" height="192" loading="lazy">
+            </div>
+            <div>
+                <span class="font-grotesk text-brand-blue text-sm uppercase tracking-wider">Founder</span>
+                <h2 class="font-playfair text-3xl font-bold text-white mt-2 mb-1">Zaid Shahid</h2>
+                <p class="font-inter text-brand-muted text-sm mb-5">Founder & Lead Developer, Codemir IT Experts · Faisalabad, Pakistan</p>
+                <blockquote class="font-playfair text-xl text-white/80 italic border-l-4 border-brand-blue pl-5 mb-6">
+                    "I don't just build websites. I build systems that work for your business 24/7."
+                </blockquote>
+                <div class="flex gap-4">
+                    <a href="https://www.linkedin.com/in/-zaid-shahid/" target="_blank" rel="noopener" aria-label="Founder LinkedIn Profile"
+                       class="bg-brand-blue hover:bg-brand-blue-hover text-white text-sm font-semibold px-5 py-2.5 rounded-full transition">
+                        LinkedIn Profile
+                    </a>
+                    <a href="https://github.com/ZaidShahid15" target="_blank" rel="noopener" aria-label="Founder GitHub Profile"
+                       class="border border-white/20 hover:border-white/60 text-white text-sm font-semibold px-5 py-2.5 rounded-full transition">
+                        GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{-- BOTTOM CTA BANNER --}}
+<section class="py-24 bg-gradient-to-b from-brand-black to-brand-dark relative overflow-hidden">
+    <div class="max-w-5xl mx-auto px-6 relative z-10 text-center" data-aos="fade-up">
+        <div class="inline-flex items-center gap-2 bg-brand-blue/10 border border-brand-blue/20 rounded-full px-4 py-1.5 mb-6">
+            <span class="w-2 h-2 rounded-full bg-brand-blue animate-pulse"></span>
+            <span class="font-grotesk text-xs text-brand-blue uppercase tracking-wider font-semibold">Ready to scale?</span>
+        </div>
+        <h2 class="font-playfair text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+            Let's Build Something <span class="text-brand-blue">Extraordinary</span> Together
+        </h2>
+        <p class="font-inter text-brand-muted text-base max-w-xl mx-auto mb-10 leading-relaxed">
+            Whether you need a custom Laravel system, AI integration, or a high-converting landing page, our team is ready to bring your vision to life.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+            <a href="{{ route('contact') }}" class="bg-brand-blue hover:bg-brand-blue-hover text-white font-semibold px-8 py-4 rounded-full transition text-base shadow-lg shadow-brand-blue/20">
+                Get a Free Quote →
+            </a>
+            <a href="{{ route('work') }}" class="border border-white/20 hover:border-white/60 text-white font-semibold px-8 py-4 rounded-full transition text-base">
+                View Our Work
+            </a>
+        </div>
+    </div>
+</section>
+
 @include('components.faq')
 @endsection

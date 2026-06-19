@@ -10,7 +10,7 @@ class ContactController extends Controller
 {
     public function send(ContactFormRequest $request)
     {
-        Mail::to('codemiritexpert@gmail.com')->send(new ContactFormMail($request->validated()));
+        Mail::to(env('CONTACT_MAIL_RECEIVER', '1zaidshaikh234@gmail.com'))->send(new ContactFormMail($request->validated()));
         return back()->with('success', "Your message has been sent! We'll get back to you within 24 hours.");
     }
 }

@@ -23,15 +23,20 @@ class PageController extends Controller
         ];
     }
 
-    public function home()
+    private function getStats()
     {
-        $faqs = $this->getFaqs();
-        $stats = [
+        return [
             ['number' => '20+', 'label' => 'Projects Delivered'],
             ['number' => '100%', 'label' => 'Client Satisfaction'],
             ['number' => '3+', 'label' => 'Years Experience'],
             ['number' => '15+', 'label' => 'Technologies'],
         ];
+    }
+
+    public function home()
+    {
+        $faqs = $this->getFaqs();
+        $stats = $this->getStats();
 
         $services = [
             ['slug' => 'custom-websites', 'icon' => 'globe', 'title' => 'Custom Websites', 'desc' => 'Fast, mobile-first websites built with Laravel + Tailwind CSS that rank and convert.'],
@@ -51,12 +56,14 @@ class PageController extends Controller
             ['title' => 'Inventory Management System', 'category' => 'Web App', 'tag' => 'Logistics', 'image' => 'project-6.jpg'],
         ];
 
-        return view('pages.home', compact('stats', 'services', 'projects', 'faqs'));
+        $posts = $this->getBlogPosts();
+        return view('pages.home', compact('stats', 'services', 'projects', 'faqs', 'posts'));
     }
 
     public function services()
     {
         $faqs = $this->getFaqs();
+        $stats = $this->getStats();
         $services = [
             [
                 'slug' => 'custom-websites',
@@ -102,7 +109,7 @@ class PageController extends Controller
             ],
         ];
 
-        return view('pages.services', compact('services', 'faqs'));
+        return view('pages.services', compact('services', 'faqs', 'stats'));
     }
 
     public function serviceDetail($slug)
@@ -255,6 +262,7 @@ class PageController extends Controller
     public function work()
     {
         $faqs = $this->getFaqs();
+        $stats = $this->getStats();
         $projects = [
             ['title' => 'Law Firm Website', 'category' => 'Website', 'industry' => 'Legal Services', 'desc' => 'Modern, SEO-optimized website for a US-based law firm. Includes attorney profiles, practice areas, and contact form.', 'image' => 'project-1.jpg', 'tags' => ['Laravel', 'Tailwind CSS']],
             ['title' => 'Business Management System', 'category' => 'Web App', 'industry' => 'Business', 'desc' => 'Full internal ERP with employee management, task assignment, and reporting dashboard.', 'image' => 'project-2.jpg', 'tags' => ['Laravel', 'MySQL', 'Livewire']],
@@ -266,12 +274,13 @@ class PageController extends Controller
 
         $categories = ['All', 'Website', 'Web App', 'AI Tool', 'eCommerce'];
 
-        return view('pages.work', compact('projects', 'categories', 'faqs'));
+        return view('pages.work', compact('projects', 'categories', 'faqs', 'stats'));
     }
 
     public function about()
     {
         $faqs = $this->getFaqs();
+        $stats = $this->getStats();
         $technologies = [
             'PHP', 'Laravel', 'MySQL', 'JavaScript', 'HTML5', 'CSS3',
             'Bootstrap', 'Tailwind CSS', 'Alpine.js', 'Livewire', 'REST API', 'Git',
@@ -283,12 +292,127 @@ class PageController extends Controller
             ['icon' => 'handshake', 'title' => 'Partnership Over Transaction', 'desc' => 'We treat every project like our own business is on the line. Your growth is our goal.'],
         ];
 
-        return view('pages.about', compact('technologies', 'values', 'faqs'));
+        return view('pages.about', compact('technologies', 'values', 'faqs', 'stats'));
     }
 
     public function contact()
     {
         $faqs = $this->getFaqs();
-        return view('pages.contact', compact('faqs'));
+        $stats = $this->getStats();
+        return view('pages.contact', compact('faqs', 'stats'));
+    }
+
+    private function getBlogPosts()
+    {
+        return [
+            'clean-laravel-vs-wordpress' => [
+                'slug'      => 'clean-laravel-vs-wordpress',
+                'title'     => 'Why Clean Laravel Architecture Beats WordPress for Growing Agencies',
+                'category'  => 'Engineering',
+                'read_time' => '6 min read',
+                'date'      => 'June 12, 2026',
+                'author'    => 'Zaid Shahid',
+                'summary'   => 'We break down why hand-coded PHP Laravel systems offer superior page speed, customized administrative control, and bulletproof security compared to bloated WordPress templates.',
+                'image'     => 'blog-1.jpg',
+                'content'   => '<p>For years, WordPress has been the default recommendation for business websites. It’s easy to see why: drag-and-drop page builders and thousands of plugins allow relatively non-technical developers to stand up basic pages quickly. But as your business scales, this initial ease-of-use turns into a liability of sluggish page speeds, recurring security vulnerabilities, and layout limitations.</p>
+
+<h3>The Problem with WordPress Bloat</h3>
+<p>When you use a WordPress builder (like Elementor or Divi), you are loading megabytes of unoptimized CSS and JS files for simple layout components. Combine that with 15–20 active plugins for SEO, contact forms, custom fields, and backups, and your server response time plummets. Slow page speeds damage your Google rankings (Core Web Vitals) and frustrate potential clients.</p>
+
+<h3>Why PHP Laravel is Superior</h3>
+<p>Laravel is a robust, developer-first MVC framework designed for scalability. Here is how it transforms your digital presence:</p>
+<ul>
+    <li><strong>Raw Speed:</strong> Laravel renders pages in fractions of a second because it only loads the exact controller code and database queries needed for that page. Out-of-the-box support for redis caching and optimized query builders ensures blazing load times.</li>
+    <li><strong>Security:</strong> WordPress remains the #1 target for script bots due to insecure plugin code. Laravel includes built-in defenses against SQL Injection, Cross-Site Scripting (XSS), and CSRF attacks by default.</li>
+    <li><strong>Design Freedom:</strong> Instead of fighting a pre-made template stylesheet, Laravel Blade templates coupled with Tailwind CSS allow us to write tailored, pixel-perfect UI experiences that load instantly.</li>
+</ul>
+
+<h3>The Bottom Line</h3>
+<p>If you only need a simple, single-page brochure site, WordPress might suffice. But if your goal is an ultra-fast, modular website that can later integrate customer pipelines, client portal logins, or AI workflows, building in Laravel from Day 1 is the smartest investment you can make.</p>'
+            ],
+            'laravel-openai-integration-guide' => [
+                'slug'      => 'laravel-openai-integration-guide',
+                'title'     => 'Integrating GPT-4 & LLMs into Laravel Web Apps: A Practical Guide',
+                'category'  => 'AI & Automation',
+                'read_time' => '8 min read',
+                'date'      => 'May 28, 2026',
+                'author'    => 'Zaid Shahid',
+                'summary'   => 'Learn the step-by-step process of securely connecting OpenAI\'s API to your Laravel application, including vector database setups, prompt routing, and cost management.',
+                'image'     => 'blog-2.jpg',
+                'content'   => '<p>Generative AI is no longer a gimmick. Modern companies are integrating OpenAI APIs and local LLMs directly into their operations to automate data processing, summarize text, and power automated support agents. Laravel\'s modular design makes it the perfect framework to bridge these cutting-edge AI models with your company\'s business logic.</p>
+
+<h3>Establishing a Secure Connection</h3>
+<p>The first rule of API integrations: never expose your private API tokens. Laravel makes environment variables management simple. By registering the OpenAI SDK inside a Service Provider and utilizing `.env` variables, you can instantiate the AI client dynamically across your jobs and controllers.</p>
+
+<pre><code>// Example OpenAI client call inside a Laravel Job
+$response = OpenAI::client(config(\'services.openai.key\'))
+    ->chat()
+    ->create([
+        \'model\' => \'gpt-4-turbo\',
+        \'messages\' => [
+            [\'role\' => \'system\', \'content\' => \'You are a helpful customer support agent.\'],
+            [\'role\' => \'user\', \'content\' => $message]
+        ]
+    ]);
+</code></pre>
+
+<h3>Enhancing Answers with RAG (Retrieval-Augmented Generation)</h3>
+<p>Raw LLMs don’t know your business data. To make an AI helper answer custom questions about your services, we implement Retrieval-Augmented Generation (RAG). We convert your policy PDFs, product catalogues, and documentation pages into mathematical vectors (embeddings) and store them in a vector database like Pinecone or pgvector. When a customer inputs a question, we query the vector DB first, extract relevant context, and append it to the prompt sent to GPT-4. This guarantees accurate, personalized, and hacker-safe responses.</p>
+
+<h3>Managing Execution and Token Costs</h3>
+<p>API responses can be slow and expensive if not managed properly. To keep your application responsive, always dispatch AI queries asynchronously using <strong>Laravel Queues</strong>. Furthermore, implement rate limits and token count boundaries inside your validation layer to prevent API cost spikes from unexpected client requests.</p>'
+            ],
+            'building-custom-crm-laravel' => [
+                'slug'      => 'building-custom-crm-laravel',
+                'title'     => 'How to Build a Custom CRM that Your Sales Team Will Actually Use',
+                'category'  => 'Business Systems',
+                'read_time' => '5 min read',
+                'date'      => 'April 15, 2026',
+                'author'    => 'Zaid Shahid',
+                'summary'   => 'Generic CRM software is expensive and rarely fits unique sales pipelines. Here\'s how building a modular CRM using Livewire and Alpine.js drives higher staff adoption.',
+                'image'     => 'blog-3.jpg',
+                'content'   => '<p>Most businesses start tracking leads using a simple spreadsheet. As they grow, they sign up for heavy CRMs like Salesforce or HubSpot. However, after spending thousands of dollars on setup and monthly seats, they realize their employees are ignoring the tool because it is too complex and clunky for their actual daily tasks.</p>
+
+<h3>The Failure of Off-the-Shelf CRMs</h3>
+<p>Generic CRMs are bloated because they try to satisfy every industry at once. Your team is forced to click through dozens of irrelevant tabs, manually input data that should be automated, and deal with slow loading speeds. When software is frustrating, employees revert to spreadsheets or notepad files, causing client data fragmentation.</p>
+
+<h3>Building Custom & Modular CRMs</h3>
+<p>A custom CRM built on Laravel is designed to fit your existing sales pipeline like a glove. Rather than adapting your business to the software, the software adapts to you. Here is why custom builds win:</p>
+<ul>
+    <li><strong>Only the Features You Need:</strong> A clean, intuitive layout with your exact sales stages, lead forms, and communication logs. No unused tabs or confusing inputs.</li>
+    <li><strong>Automated Data Syncing:</strong> Automatically pull lead data from your contact form, social campaigns, and emails directly into the CRM database with no manual transcription needed.</li>
+    <li><strong>Zero Seat Fees:</strong> Stop paying monthly licensing fees for every new employee. Since you own the system, you can add unlimited users at no extra cost.</li>
+</ul>
+
+<h3>Creating Interactive Dashboards with Livewire</h3>
+<p>By leveraging Laravel Livewire and Alpine.js, we can build a fully responsive, real-time lead pipeline dashboard (like a kanban board) that lets users drag and drop lead cards across stages seamlessly. The page updates instantly in the database without requiring full browser reloads, providing a desktop-app-like experience directly in the web browser.</p>'
+            ]
+        ];
+    }
+
+    public function aiSolutions()
+    {
+        $faqs = $this->getFaqs();
+        $stats = $this->getStats();
+        return view('pages.ai-solutions', compact('faqs', 'stats'));
+    }
+
+    public function blog()
+    {
+        $posts = $this->getBlogPosts();
+        $faqs = $this->getFaqs();
+        $stats = $this->getStats();
+        return view('pages.blog', compact('posts', 'faqs', 'stats'));
+    }
+
+    public function blogDetail($slug)
+    {
+        $posts = $this->getBlogPosts();
+        if (!array_key_exists($slug, $posts)) {
+            abort(404);
+        }
+        $post = $posts[$slug];
+        $faqs = $this->getFaqs();
+        return view('pages.blog-detail', compact('post', 'posts', 'faqs'));
     }
 }

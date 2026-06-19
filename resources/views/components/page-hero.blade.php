@@ -9,7 +9,7 @@
     $badges      = $badges      ?? ['20+ Projects Delivered', 'Laravel Expert', 'AI Tools Integrated', 'Clients Worldwide'];
 @endphp
 
-<section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-brand-black py-16">
+<section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-brand-black pt-12 pb-20">
 
     {{-- Animated grid background --}}
     <div class="absolute inset-0 opacity-10">
