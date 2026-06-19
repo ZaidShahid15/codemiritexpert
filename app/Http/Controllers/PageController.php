@@ -496,4 +496,86 @@ $response = OpenAI::client(config(\'services.openai.key\'))
         $faqs = $this->getFaqs();
         return view('pages.blog-detail', compact('post', 'posts', 'faqs'));
     }
+
+    public function privacy()
+    {
+        $faqs = $this->getFaqs();
+        $stats = $this->getStats();
+        return view('pages.privacy', compact('faqs', 'stats'));
+    }
+
+    public function terms()
+    {
+        $faqs = $this->getFaqs();
+        $stats = $this->getStats();
+        return view('pages.terms', compact('faqs', 'stats'));
+    }
+
+    public function sitemap()
+    {
+        $faqs = $this->getFaqs();
+        $stats = $this->getStats();
+        $projects = array_values($this->getDetailedProjects());
+        $services = [
+            ['slug' => 'custom-websites', 'title' => 'Custom Website Development'],
+            ['slug' => 'web-applications', 'title' => 'Web Application Development'],
+            ['slug' => 'ai-tools', 'title' => 'AI Tool Integration'],
+            ['slug' => 'ecommerce', 'title' => 'eCommerce Development'],
+            ['slug' => 'api-development', 'title' => 'API Development & Integration'],
+            ['slug' => 'business-systems', 'title' => 'Business Management Systems'],
+        ];
+        $posts = $this->getBlogPosts();
+        return view('pages.sitemap', compact('faqs', 'stats', 'projects', 'services', 'posts'));
+    }
+
+    public function sitemapXml()
+    {
+        $urls = [
+            ['loc' => route('home'), 'lastmod' => now()->startOfMonth()->toAtomString(), 'changefreq' => 'weekly', 'priority' => '1.0'],
+            ['loc' => route('services'), 'lastmod' => now()->startOfMonth()->toAtomString(), 'changefreq' => 'weekly', 'priority' => '0.8'],
+            ['loc' => route('ai-solutions'), 'lastmod' => now()->startOfMonth()->toAtomString(), 'changefreq' => 'weekly', 'priority' => '0.8'],
+            ['loc' => route('work'), 'lastmod' => now()->startOfMonth()->toAtomString(), 'changefreq' => 'weekly', 'priority' => '0.8'],
+            ['loc' => route('blog'), 'lastmod' => now()->startOfWeek()->toAtomString(), 'changefreq' => 'daily', 'priority' => '0.8'],
+            ['loc' => route('about'), 'lastmod' => now()->startOfMonth()->toAtomString(), 'changefreq' => 'monthly', 'priority' => '0.5'],
+            ['loc' => route('contact'), 'lastmod' => now()->startOfMonth()->toAtomString(), 'changefreq' => 'monthly', 'priority' => '0.5'],
+            ['loc' => route('privacy'), 'lastmod' => now()->startOfMonth()->toAtomString(), 'changefreq' => 'monthly', 'priority' => '0.3'],
+            ['loc' => route('terms'), 'lastmod' => now()->startOfMonth()->toAtomString(), 'changefreq' => 'monthly', 'priority' => '0.3'],
+            ['loc' => route('sitemap'), 'lastmod' => now()->startOfMonth()->toAtomString(), 'changefreq' => 'monthly', 'priority' => '0.3'],
+        ];
+
+        // Add services
+        $services = ['custom-websites', 'web-applications', 'ai-tools', 'ecommerce', 'api-development', 'business-systems'];
+        foreach ($services as $service) {
+            $urls[] = [
+                'loc' => route('services.detail', $service),
+                'lastmod' => now()->startOfMonth()->toAtomString(),
+                'changefreq' => 'monthly',
+                'priority' => '0.7'
+            ];
+        }
+
+        // Add works
+        $projects = array_keys($this->getDetailedProjects());
+        foreach ($projects as $project) {
+            $urls[] = [
+                'loc' => route('work.detail', $project),
+                'lastmod' => now()->startOfMonth()->toAtomString(),
+                'changefreq' => 'monthly',
+                'priority' => '0.6'
+            ];
+        }
+
+        // Add blog posts
+        $posts = array_keys($this->getBlogPosts());
+        foreach ($posts as $post) {
+            $urls[] = [
+                'loc' => route('blog.detail', $post),
+                'lastmod' => now()->startOfWeek()->toAtomString(),
+                'changefreq' => 'weekly',
+                'priority' => '0.6'
+            ];
+        }
+
+        return response()->view('pages.sitemap-xml', compact('urls'))->header('Content-Type', 'text/xml');
+    }
 }

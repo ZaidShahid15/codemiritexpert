@@ -79,8 +79,13 @@
             </div>
         </div>
 
-        <div class="border-t border-white/5 pt-8 text-center">
+        <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
             <p class="font-inter text-brand-muted text-sm">© {{ date('Y') }} Codemir IT Experts. All Rights Reserved.</p>
+            <div class="flex flex-wrap justify-center gap-6 font-inter text-sm text-brand-muted">
+                <a href="{{ route('privacy') }}" class="hover:text-white transition">Privacy Policy</a>
+                <a href="{{ route('terms') }}" class="hover:text-white transition">Terms & Conditions</a>
+                <a href="{{ route('sitemap') }}" class="hover:text-white transition">Sitemap</a>
+            </div>
         </div>
     </div>
 </footer>
