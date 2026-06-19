@@ -211,7 +211,7 @@
             </div>
             @endforeach
         </div>
-        <div class="text-center mt-14">
+        <div class="text-center mt-20 md:mt-24">
             <a href="{{ route('services') }}" style="display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(30,107,255,0.4);color:#1e6bff;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;padding:14px 36px;border-radius:999px;transition:all 0.3s;" onmouseover="this.style.background='#1e6bff';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#1e6bff'">
                 View All Services →
             </a>
@@ -300,7 +300,7 @@
             </div>
             @endforeach
         </div>
-        <div class="text-center mt-14">
+        <div class="text-center mt-20 md:mt-24">
             <a href="{{ route('work') }}" style="display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,0.15);color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;padding:14px 36px;border-radius:999px;transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(30,107,255,0.6)';this.style.color='#1e6bff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.15)';this.style.color='#fff'">
                 View All Projects →
             </a>
@@ -665,7 +665,7 @@
             <p class="font-inter text-brand-muted mt-4 max-w-xl mx-auto">Read our latest developer updates, custom systems architectural guides, and AI integration strategies.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-14">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             @foreach(array_slice($posts, 0, 3) as $slug => $post)
             <div data-aos="fade-up" data-aos-delay="{{ $loop->index * 80 }}">
                 <div class="bg-brand-card border border-white/5 rounded-2xl overflow-hidden hover:border-brand-blue/30 transition-all duration-300 hover:-translate-y-1 group h-full flex flex-col justify-between">
@@ -705,7 +705,7 @@
             @endforeach
         </div>
 
-        <div class="text-center">
+        <div class="text-center mt-20 md:mt-24">
             <a href="{{ route('blog') }}" class="inline-flex items-center gap-2 border border-white/10 hover:border-brand-blue hover:text-white text-brand-muted font-grotesk text-sm font-semibold px-8 py-3.5 rounded-full transition duration-300">
                 View All Articles &rarr;
             </a>
