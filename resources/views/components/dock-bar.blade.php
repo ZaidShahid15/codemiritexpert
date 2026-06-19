@@ -67,7 +67,7 @@
 /* ── Dock wrapper: fixed at bottom center ── */
 #codemir-dock {
     position: fixed;
-    bottom: 24px;
+    bottom: calc(24px + env(safe-area-inset-bottom, 0px));
     left: 0;
     right: 0;
     display: flex;
