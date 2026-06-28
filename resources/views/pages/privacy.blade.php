@@ -41,7 +41,7 @@
                         Welcome to Codemir IT Experts. We are dedicated to respecting and protecting the privacy of our clients, website visitors, and partners. This Privacy Policy details the types of information we collect, how we handle, process, and secure that data, and the options available to you regarding our collection and use of your information.
                     </p>
                     <p>
-                        By accessing our website (<a href="{{ route('home') }}" class="text-brand-blue hover:underline">codemiritexpert.com</a>) and utilizing our custom web development or AI integration services, you acknowledge that you agree to the terms described in this policy.
+                        By accessing our website (<a href="{{ route('home') }}" class="text-brand-blue hover:underline">codemiritexpert.online</a>) and utilizing our custom web development or AI integration services, you acknowledge that you agree to the terms described in this policy.
                     </p>
                 </div>
 
