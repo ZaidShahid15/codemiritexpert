@@ -13,11 +13,16 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
 
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{{ url()->current() }}">
+
     <!-- Open Graph -->
     <meta property="og:title" content="@yield('title', 'Codemir IT Experts')">
     <meta property="og:description" content="@yield('meta_description', 'Custom Laravel web development agency.')">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:image" content="{{ asset('images/logo.png') }}">
+    <meta property="og:site_name" content="Codemir IT Experts">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
