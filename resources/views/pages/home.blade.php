@@ -29,8 +29,8 @@
             <a href="{{ route('contact') }}" class="bg-brand-blue hover:bg-brand-blue-hover text-white font-semibold px-8 py-4 rounded-full transition text-base">
                 Get a Free Quote →
             </a>
-            <a href="{{ route('work') }}" class="border border-white/20 hover:border-white/60 text-white font-semibold px-8 py-4 rounded-full transition text-base">
-                View Our Work
+            <a href="#audit-section" class="border border-brand-blue hover:bg-brand-blue/10 text-white font-semibold px-8 py-4 rounded-full transition text-base">
+                Get Your Free 5-Min Audit
             </a>
         </div>
 
@@ -42,6 +42,59 @@
                 {{ $badge }}
             </span>
             @endforeach
+        </div>
+    </div>
+</section>
+
+{{-- FREE AUDIT SECTION --}}
+<section id="audit-section" class="py-20 bg-brand-black border-y border-white/5 relative overflow-hidden">
+    <div class="absolute inset-0 bg-brand-blue/5 pointer-events-none"></div>
+    <div class="max-w-4xl mx-auto px-6 relative z-10">
+        <div class="bg-brand-card border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
+            <!-- Decorative glow inside card -->
+            <div class="absolute top-0 right-0 w-64 h-64 bg-brand-blue/20 rounded-full filter blur-[80px] pointer-events-none"></div>
+            
+            <div class="text-center mb-10 relative z-10">
+                <span class="font-grotesk text-brand-blue text-sm tracking-widest uppercase">No Commitment</span>
+                <h2 class="font-playfair text-3xl md:text-4xl font-bold text-white mt-2">Get Your Free 5-Min Audit</h2>
+                <p class="font-inter text-brand-muted mt-3 max-w-lg mx-auto">We'll review your website and send you an actionable report on how to improve performance, SEO, and conversions.</p>
+            </div>
+
+            @if(session('audit_success'))
+            <div class="mb-8 bg-green-500/10 border border-green-500/30 text-green-400 rounded-xl px-6 py-4 text-center font-inter relative z-10">
+                {{ session('audit_success') }}
+            </div>
+            @endif
+
+            <form action="{{ route('contact.audit') }}" method="POST" class="space-y-5 relative z-10">
+                @csrf
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div>
+                        <input type="text" name="name" placeholder="Your Name *" required class="w-full bg-brand-black/50 border border-white/10 focus:border-brand-blue rounded-xl px-4 py-3 text-white font-inter text-sm outline-none transition">
+                    </div>
+                    <div>
+                        <input type="email" name="email" placeholder="Email Address *" required class="w-full bg-brand-black/50 border border-white/10 focus:border-brand-blue rounded-xl px-4 py-3 text-white font-inter text-sm outline-none transition">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div>
+                        <input type="url" name="website_url" placeholder="Website URL (Optional)" class="w-full bg-brand-black/50 border border-white/10 focus:border-brand-blue rounded-xl px-4 py-3 text-white font-inter text-sm outline-none transition">
+                    </div>
+                    <div>
+                        <select name="business_type" required class="w-full bg-brand-black/50 border border-white/10 focus:border-brand-blue rounded-xl px-4 py-3 text-white font-inter text-sm outline-none transition">
+                            <option value="">Select Business Type *</option>
+                            <option value="eCommerce">eCommerce</option>
+                            <option value="SaaS / Tech">SaaS / Tech</option>
+                            <option value="Agency / Services">Agency / Services</option>
+                            <option value="Local Business">Local Business</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="w-full bg-brand-blue hover:bg-brand-blue-hover text-white font-semibold py-4 rounded-xl transition font-inter mt-4 shadow-lg shadow-brand-blue/20">
+                    Request Free Audit →
+                </button>
+            </form>
         </div>
     </div>
 </section>

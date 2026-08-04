@@ -16,6 +16,7 @@ Route::get('/about',     [PageController::class, 'about'])->name('about');
 Route::get('/contact',   [PageController::class, 'contact'])->name('contact');
 
 Route::post('/contact',  [ContactController::class, 'send'])->name('contact.send');
+Route::post('/audit-request', [ContactController::class, 'audit'])->name('contact.audit');
 
 Route::get('/privacy-policy', [PageController::class, 'privacy'])->name('privacy');
 Route::get('/terms-and-conditions', [PageController::class, 'terms'])->name('terms');
