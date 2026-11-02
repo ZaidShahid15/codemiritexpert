@@ -1,6 +1,6 @@
 @extends('layouts.app')
-@section('title', 'Futuristic AI Solutions | Codemir IT Experts')
-@section('meta_description', 'Scale your business operations with custom-trained AI chatbots, autonomous workflow agents, voice assistants, and natural language data extraction pipelines.')
+@section('title', 'AI Solutions — Custom Chatbots, Workflow Agents & Voice AI | Codemir IT Experts')
+@section('meta_description', 'Custom AI chatbots, autonomous workflow agents, voice assistants & NLP data pipelines. Integrate GPT-4, Claude & custom AI models into your business operations.')
 
 @section('content')
 @include('components.page-hero', [

@@ -2,6 +2,49 @@
 @section('title', $service['title'] . ' | Codemir IT Experts')
 @section('meta_description', $service['description'])
 
+@section('structured_data')
+<script type="application/ld+json">
+{
+    "@@context": "https://schema.org",
+    "@@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "{{ route('home') }}"
+        },
+        {
+            "@@type": "ListItem",
+            "position": 2,
+            "name": "Services",
+            "item": "{{ route('services') }}"
+        },
+        {
+            "@@type": "ListItem",
+            "position": 3,
+            "name": "{{ $service['title'] }}",
+            "item": "{{ url()->current() }}"
+        }
+    ]
+}
+</script>
+<script type="application/ld+json">
+{
+    "@@context": "https://schema.org",
+    "@@type": "Service",
+    "name": "{{ $service['title'] }}",
+    "description": "{{ $service['description'] }}",
+    "provider": {
+        "@@type": "Organization",
+        "name": "Codemir IT Experts",
+        "url": "https://codemiritexpert.online"
+    },
+    "areaServed": ["United States", "United Kingdom", "Australia", "Pakistan"]
+}
+</script>
+@endsection
+
 @section('content')
 
 @php

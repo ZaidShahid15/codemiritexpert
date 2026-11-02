@@ -1,5 +1,6 @@
 @extends('layouts.app')
-@section('title', 'About Us | Codemir IT Experts')
+@section('title', 'About Us — Laravel Development Agency Serving US, UK & Australia | Codemir IT Experts')
+@section('meta_description', 'Meet Zaid Shahid, founder of Codemir IT Experts — a Laravel & AI development agency in Pakistan building custom web apps for founders in the US, UK & Australia.')
 
 @section('content')
 @include('components.page-hero', [

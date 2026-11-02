@@ -111,9 +111,9 @@ class PageController extends Controller
             'custom-websites' => [
                 'slug' => 'custom-websites',
                 'icon' => 'globe',
-                'title' => 'Custom Website Development',
+                'title' => 'Custom Website Development — Fast, Mobile-First & SEO-Ready',
                 'hero_title' => 'Custom Websites Built for <span class="text-brand-blue">Performance & Conversion</span>',
-                'description' => 'Fast, mobile-first websites built with Laravel & Tailwind CSS that rank and convert.',
+                'description' => 'Hand-coded, mobile-first websites built with Laravel & Tailwind CSS. Fast load times, SEO-optimized, and designed to convert visitors into customers.',
                 'long_description' => 'We design and develop bespoke websites from the ground up. No bloated page builders, no generic templates. Every line of code is written with speed, SEO, and user experience in mind, ensuring your brand stands out and drives actual customer actions.',
                 'technologies' => ['PHP', 'Laravel', 'Blade', 'Tailwind CSS', 'Alpine.js', 'MySQL', 'SEO Best Practices'],
                 'features' => [
@@ -133,9 +133,9 @@ class PageController extends Controller
             'web-applications' => [
                 'slug' => 'web-applications',
                 'icon' => 'cog',
-                'title' => 'Web Application Development',
+                'title' => 'Custom Web Application Development — CRMs, Portals & Business Software',
                 'hero_title' => 'Scalable & Powerful <span class="text-brand-blue">Web Applications</span>',
-                'description' => 'CRMs, administrative portals, booking platforms, and custom business management software.',
+                'description' => 'Custom CRMs, admin portals, booking platforms & business management software built with Laravel. Scalable, secure & tailored to your workflows.',
                 'long_description' => 'Standard off-the-shelf software rarely fits a unique business workflow. We build custom SaaS platforms, customer relationship portals, administrative systems, and workflows that adapt to your team and grow seamlessly as you scale.',
                 'technologies' => ['Laravel', 'Livewire', 'Alpine.js', 'MySQL', 'React / Vue', 'Tailwind CSS'],
                 'features' => [
@@ -155,9 +155,9 @@ class PageController extends Controller
             'ai-tools' => [
                 'slug' => 'ai-tools',
                 'icon' => 'cpu',
-                'title' => 'AI Tool Integration',
+                'title' => 'AI Tool Integration — OpenAI GPT, Chatbots & Custom AI Models',
                 'hero_title' => 'AI-Powered Tools & <span class="text-brand-blue">Intelligent Automation</span>',
-                'description' => 'Integrate advanced OpenAI, Anthropic, or custom AI models directly into your business processes.',
+                'description' => 'Integrate GPT-4, Claude & custom AI models into your web apps. We build AI chatbots, automation workflows, RAG systems & intelligent business tools.',
                 'long_description' => 'Leverage the power of generative AI to transform customer service, content generation, data analysis, and workflow automation. We integrate secure AI capabilities directly into your Laravel web apps or stand-alone tools.',
                 'technologies' => ['OpenAI API', 'Anthropic Claude', 'Laravel', 'LangChain', 'Python', 'Vector DBs'],
                 'features' => [
@@ -177,9 +177,9 @@ class PageController extends Controller
             'ecommerce' => [
                 'slug' => 'ecommerce',
                 'icon' => 'shopping-cart',
-                'title' => 'eCommerce Development',
+                'title' => 'Custom eCommerce Development — Online Stores & Payment Gateways',
                 'hero_title' => 'High-Converting <span class="text-brand-blue">eCommerce Platforms</span>',
-                'description' => 'Full-featured custom online stores, smooth checkout funnels, and payment gateways.',
+                'description' => 'Custom-built eCommerce stores with Stripe integration, checkout optimization, inventory management & order tracking. No Shopify lock-in — fully custom Laravel builds.',
                 'long_description' => 'Standard eCommerce platforms restrict your catalog flexibility and charge high transaction fees. We build bespoke eCommerce platforms directly in Laravel, giving you complete checkout control, custom order states, and seamless database speed.',
                 'technologies' => ['Laravel', 'Stripe API', 'PayPal API', 'MySQL', 'Livewire', 'Tailwind CSS'],
                 'features' => [
@@ -199,9 +199,9 @@ class PageController extends Controller
             'api-development' => [
                 'slug' => 'api-development',
                 'icon' => 'link',
-                'title' => 'API Development & Integration',
+                'title' => 'API Development & Integration — REST APIs, Third-Party & Mobile Backends',
                 'hero_title' => 'Secure & Robust <span class="text-brand-blue">API Solutions</span>',
-                'description' => 'Custom RESTful APIs, third-party integrations, and web service connections.',
+                'description' => 'Custom RESTful API development, third-party integrations & mobile app backends. Scalable, secure Laravel APIs with OAuth, webhooks & full documentation.',
                 'long_description' => 'Connect separate software architectures smoothly. We develop well-documented, secure, and fast REST APIs, and integrate external services (CRMs, payment processors, maps, shipping APIs) to automate data synchronization.',
                 'technologies' => ['Laravel Sanctum', 'RESTful API', 'JSON', 'OAuth 2.0', 'Postman', 'Webhooks'],
                 'features' => [
@@ -221,9 +221,9 @@ class PageController extends Controller
             'business-systems' => [
                 'slug' => 'business-systems',
                 'icon' => 'chart-bar',
-                'title' => 'Business Management Systems',
+                'title' => 'Custom Business Systems — ERP, HR Portals & Inventory Management',
                 'hero_title' => 'Bespoke <span class="text-brand-blue">ERP & Business Software</span>',
-                'description' => 'Custom inventory systems, employee portals, customer pipelines, and HR tools.',
+                'description' => 'Custom ERP systems, employee portals, HR tools, inventory management & customer pipeline software. Built with Laravel for your exact business workflows.',
                 'long_description' => 'Generic ERP software is often expensive and filled with features you do not need. We build lightweight, fast, and exact business management systems that align perfectly with your internal operations and staffing structure.',
                 'technologies' => ['Laravel', 'MySQL', 'Livewire', 'Charts.js', 'PDF Generation', 'Tailwind CSS'],
                 'features' => [
@@ -279,11 +279,11 @@ class PageController extends Controller
         return [
             'law-firm-website' => [
                 'slug' => 'law-firm-website',
-                'title' => 'Law Firm Website',
+                'title' => 'Law Firm Website Development — SEO-Optimized & Modern Design',
                 'category' => 'Website',
                 'tag' => 'Legal',
                 'industry' => 'Legal Services',
-                'desc' => 'Modern, SEO-optimized website for an international law firm. Includes attorney profiles, practice areas, and contact form.',
+                'desc' => 'How we built a modern, SEO-optimized website for an international law firm with attorney profiles, practice areas & lead-generating contact forms.',
                 'image' => 'project-1.jpg',
                 'tags' => ['Laravel', 'Tailwind CSS', 'Alpine.js', 'SEO'],
                 'challenge' => 'The client, a boutique international law firm, was running on an outdated WordPress template. The site suffered from slow loading speeds (over 5 seconds), was difficult to navigate on mobile, and failed to capture potential clients looking for consultation services.',
@@ -292,11 +292,11 @@ class PageController extends Controller
             ],
             'business-management-system' => [
                 'slug' => 'business-management-system',
-                'title' => 'Business Management System',
+                'title' => 'Business Management System — Custom ERP with Dashboard',
                 'category' => 'Web App',
                 'tag' => 'Business',
                 'industry' => 'Business',
-                'desc' => 'Full internal ERP with employee management, task assignment, and reporting dashboard.',
+                'desc' => 'Full internal ERP with employee management, task assignment & reporting dashboard. Custom business management system built with Laravel.',
                 'image' => 'project-2.jpg',
                 'tags' => ['Laravel', 'MySQL', 'Livewire', 'Charts.js'],
                 'challenge' => 'A scaling logistics service provider was paying over $1,200/month for multiple siloed SaaS platforms. Employees had to manually transfer data between separate invoicing, scheduling, and payroll tools, leading to frequent data mismatches and overhead delays.',
@@ -305,11 +305,11 @@ class PageController extends Controller
             ],
             'ai-chatbot-integration' => [
                 'slug' => 'ai-chatbot-integration',
-                'title' => 'AI Chatbot Integration',
+                'title' => 'AI Chatbot Integration — GPT-4 Powered Customer Support',
                 'category' => 'AI Tool',
                 'tag' => 'AI',
                 'industry' => 'Tech / SaaS',
-                'desc' => "GPT-4 powered chatbot embedded into a client's website for 24/7 automated customer support.",
+                'desc' => 'GPT-4 powered chatbot embedded into a client website for 24/7 automated customer support. See the architecture, tech stack & results.',
                 'image' => 'project-3.jpg',
                 'tags' => ['OpenAI API', 'Vector DB', 'Laravel', 'JS'],
                 'challenge' => 'A fast-growing online booking platform was overwhelmed by customer support tickets. Repetitive queries about booking conditions and documentation delayed support responses, driving client churn.',
@@ -318,11 +318,11 @@ class PageController extends Controller
             ],
             'ecommerce-store' => [
                 'slug' => 'ecommerce-store',
-                'title' => 'eCommerce Store',
+                'title' => 'Custom eCommerce Store — Stripe, Cart & Order Management',
                 'category' => 'eCommerce',
                 'tag' => 'Retail',
                 'industry' => 'Retail',
-                'desc' => 'Full eCommerce platform with Stripe integration, product catalog, cart, and order management.',
+                'desc' => 'Full eCommerce platform with Stripe payment integration, product catalog, cart system & order management. See the complete build process and results.',
                 'image' => 'project-4.jpg',
                 'tags' => ['Laravel', 'Stripe API', 'MySQL', 'Tailwind CSS'],
                 'challenge' => 'An online custom merchandise boutique wanted to move away from Shopify due to restrictive design templates, high app subscription fees, and transaction rate percentages that cut directly into margins.',
@@ -331,11 +331,11 @@ class PageController extends Controller
             ],
             'booking-system' => [
                 'slug' => 'booking-system',
-                'title' => 'Booking System',
+                'title' => 'Online Booking System — Real-Time Scheduling for Clinics',
                 'category' => 'Web App',
                 'tag' => 'Healthcare',
                 'industry' => 'Healthcare',
-                'desc' => 'Online appointment booking system for a clinic with real-time availability and email notifications.',
+                'desc' => 'Custom appointment booking system with real-time availability, calendar sync & email notifications. Built for a clinic using Laravel.',
                 'image' => 'project-5.jpg',
                 'tags' => ['Laravel', 'Livewire', 'Tailwind CSS', 'Mail'],
                 'challenge' => 'A clinic managed patient appointments manually via call-ins, leading to double-bookings, receptionist strain, and a high rate of client no-shows (around 25%).',
@@ -344,11 +344,11 @@ class PageController extends Controller
             ],
             'inventory-management-system' => [
                 'slug' => 'inventory-management-system',
-                'title' => 'Inventory Management System',
+                'title' => 'Inventory Management System — Barcode Tracking & Alerts',
                 'category' => 'Web App',
                 'tag' => 'Logistics',
                 'industry' => 'Logistics',
-                'desc' => 'Real-time inventory tracking with barcode support, low-stock alerts, and PDF reports.',
+                'desc' => 'Real-time inventory tracking with barcode support, low-stock alerts & PDF reporting. Custom inventory management system built with Laravel.',
                 'image' => 'project-6.jpg',
                 'tags' => ['Laravel', 'MySQL', 'Charts.js', 'PDF Builder'],
                 'challenge' => 'A warehouse distributor suffered from inventory discrepancies and delayed orders because stock audits were done on paper twice a week, which led to incorrect stock levels on their sales portal.',
@@ -388,7 +388,7 @@ class PageController extends Controller
         return [
             'clean-laravel-vs-wordpress' => [
                 'slug'      => 'clean-laravel-vs-wordpress',
-                'title'     => 'Why Clean Laravel Architecture Beats WordPress for Growing Agencies',
+                'title'     => 'Laravel vs WordPress: Why Custom PHP Beats Templates for Growing Businesses',
                 'category'  => 'Engineering',
                 'read_time' => '6 min read',
                 'date'      => 'June 12, 2026',
@@ -413,7 +413,7 @@ class PageController extends Controller
             ],
             'laravel-openai-integration-guide' => [
                 'slug'      => 'laravel-openai-integration-guide',
-                'title'     => 'Integrating GPT-4 & LLMs into Laravel Web Apps: A Practical Guide',
+                'title'     => 'How to Integrate GPT-4 & LLMs into Laravel — Step-by-Step Guide',
                 'category'  => 'AI & Automation',
                 'read_time' => '8 min read',
                 'date'      => 'May 28, 2026',
@@ -445,7 +445,7 @@ $response = OpenAI::client(config(\'services.openai.key\'))
             ],
             'building-custom-crm-laravel' => [
                 'slug'      => 'building-custom-crm-laravel',
-                'title'     => 'How to Build a Custom CRM that Your Sales Team Will Actually Use',
+                'title'     => 'Build a Custom CRM Your Sales Team Will Actually Use — Laravel & Livewire Guide',
                 'category'  => 'Business Systems',
                 'read_time' => '5 min read',
                 'date'      => 'April 15, 2026',

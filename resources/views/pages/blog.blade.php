@@ -1,6 +1,6 @@
 @extends('layouts.app')
-@section('title', 'Insights & Blog | Codemir IT Experts')
-@section('meta_description', 'Deep dives into custom Laravel systems, RESTful API engineering, and AI automation workflows written by our experts.')
+@section('title', 'Blog — Laravel Development, AI Integration & Web Architecture Insights | Codemir IT Experts')
+@section('meta_description', 'Technical deep dives into Laravel architecture, GPT-4 API integration, custom CRM development & why hand-coded PHP beats WordPress. Written by Codemir IT Experts.')
 
 @section('content')
 @include('components.page-hero', [
@@ -23,27 +23,29 @@
             <div data-aos="fade-up" data-aos-delay="{{ $loop->index * 80 }}">
                 <div class="bg-brand-card border border-white/5 rounded-2xl overflow-hidden hover:border-brand-blue/30 transition-all duration-300 hover:-translate-y-1 group h-full flex flex-col justify-between">
                     
-                    {{-- Blog Card Header Image/Gradient --}}
-                    <div class="relative h-48 bg-gradient-to-br from-brand-blue/20 to-purple-900/40 border-b border-white/5 flex items-center justify-center p-6 text-center select-none overflow-hidden">
-                        <div class="absolute -top-12 -left-12 w-28 h-28 bg-brand-blue/20 rounded-full blur-xl pointer-events-none"></div>
-                        <div class="absolute -bottom-12 -right-12 w-28 h-28 bg-purple-500/20 rounded-full blur-xl pointer-events-none"></div>
-                        
-                        <div class="z-10">
-                            <span class="font-grotesk text-xs uppercase tracking-widest text-brand-blue/80 bg-brand-blue/10 border border-brand-blue/20 px-3 py-1 rounded-full mb-3 inline-block">
-                                {{ $post['category'] }}
-                            </span>
-                            <h4 class="font-playfair text-lg font-bold text-white line-clamp-2">{{ $post['title'] }}</h4>
-                        </div>
+                    {{-- Blog Card Cover Image --}}
+                    <div class="relative h-52 overflow-hidden bg-brand-dark border-b border-white/5">
+                        <img src="{{ asset('images/blogs/' . $post['image']) }}" 
+                             alt="{{ $post['title'] }}" 
+                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                             loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-card via-transparent to-black/20"></div>
+                        <span class="absolute top-4 left-4 font-grotesk text-xs uppercase tracking-widest text-white bg-brand-blue/90 backdrop-blur-md px-3.5 py-1.5 rounded-full font-semibold shadow-md">
+                            {{ $post['category'] }}
+                        </span>
                     </div>
 
                     {{-- Blog Card Body --}}
                     <div class="p-6 flex-1 flex flex-col justify-between">
                         <div>
-                            <div class="flex items-center gap-3 text-xs text-brand-muted mb-4 font-grotesk font-medium">
+                            <div class="flex items-center gap-3 text-xs text-brand-muted mb-3 font-grotesk font-medium">
                                 <span>{{ $post['date'] }}</span>
                                 <span>·</span>
                                 <span>{{ $post['read_time'] }}</span>
                             </div>
+                            <h4 class="font-playfair text-lg font-bold text-white mb-3 group-hover:text-brand-blue transition line-clamp-2 leading-snug">
+                                {{ $post['title'] }}
+                            </h4>
                             <p class="font-inter text-brand-muted text-sm leading-relaxed mb-6">
                                 {{ $post['summary'] }}
                             </p>

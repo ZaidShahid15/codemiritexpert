@@ -1,5 +1,6 @@
 @extends('layouts.app')
-@section('title', 'Our Work | Codemir IT Experts')
+@section('title', 'Our Work — Laravel Web App & AI Project Case Studies | Codemir IT Experts')
+@section('meta_description', 'Explore real projects built by Codemir IT Experts — law firm websites, ERP systems, AI chatbots, eCommerce stores & booking platforms. Problem → Solution → Results.')
 
 @section('content')
 @include('components.page-hero', [

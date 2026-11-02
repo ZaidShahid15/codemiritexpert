@@ -10,6 +10,58 @@
     <title>@yield('title', 'Codemir IT Experts | Custom Web Development & AI Tools')</title>
     <meta name="description" content="@yield('meta_description', 'We build custom Laravel web systems, web apps, and AI-powered tools for founders and SMBs. 20+ projects delivered.')">
 
+    <!-- Structured Data: Organization + ProfessionalService -->
+    <script type="application/ld+json">
+    {
+        "@@context": "https://schema.org",
+        "@@type": ["Organization", "ProfessionalService"],
+        "name": "Codemir IT Experts",
+        "url": "https://codemiritexpert.online",
+        "logo": "https://codemiritexpert.online/images/logo.png",
+        "description": "Custom Laravel web development agency specializing in web applications, AI-powered tools, eCommerce solutions & API integrations for founders in the US, UK & Australia.",
+        "founder": {
+            "@@type": "Person",
+            "name": "Zaid Shahid",
+            "jobTitle": "Founder & Lead Developer"
+        },
+        "address": {
+            "@@type": "PostalAddress",
+            "addressLocality": "Faisalabad",
+            "addressCountry": "PK"
+        },
+        "areaServed": [
+            {"@@type": "Country", "name": "United States"},
+            {"@@type": "Country", "name": "United Kingdom"},
+            {"@@type": "Country", "name": "Australia"},
+            {"@@type": "Country", "name": "Pakistan"}
+        ],
+        "knowsAbout": ["Laravel", "PHP", "Web Application Development", "AI Integration", "eCommerce Development", "API Development", "SaaS Development"],
+        "sameAs": [
+            "https://github.com/ZaidShahid15",
+            "https://www.linkedin.com/company/codemir-it-experts",
+            "https://www.facebook.com/profile.php?id=61564927201888",
+            "https://www.instagram.com/codemiritexpert/",
+            "https://www.google.com/search?q=Codemir+IT+Experts"
+        ],
+        "hasMap": "https://maps.google.com/?q=Codemir+IT+Experts+Faisalabad",
+        "contactPoint": {
+            "@@type": "ContactPoint",
+            "contactType": "sales",
+            "availableLanguage": ["English", "Urdu"]
+        },
+        "serviceType": [
+            "Custom Web Development",
+            "Laravel Web Application Development",
+            "AI Tool Integration",
+            "eCommerce Development",
+            "API Development & Integration",
+            "Business Management Systems"
+        ]
+    }
+    </script>
+
+    @yield('structured_data')
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
 
@@ -23,6 +75,11 @@
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:image" content="{{ asset('images/logo.png') }}">
     <meta property="og:site_name" content="Codemir IT Experts">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="@yield('title', 'Codemir IT Experts')">
+    <meta name="twitter:description" content="@yield('meta_description', 'Custom Laravel web development agency.')">
+    <meta name="twitter:image" content="{{ asset('images/logo.png') }}">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

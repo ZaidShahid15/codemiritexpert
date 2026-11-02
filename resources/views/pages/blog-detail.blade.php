@@ -2,6 +2,59 @@
 @section('title', $post['title'] . ' | Codemir IT Experts Blog')
 @section('meta_description', $post['summary'])
 
+@section('structured_data')
+<script type="application/ld+json">
+{
+    "@@context": "https://schema.org",
+    "@@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "{{ route('home') }}"
+        },
+        {
+            "@@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "{{ route('blog') }}"
+        },
+        {
+            "@@type": "ListItem",
+            "position": 3,
+            "name": "{{ $post['title'] }}",
+            "item": "{{ url()->current() }}"
+        }
+    ]
+}
+</script>
+<script type="application/ld+json">
+{
+    "@@context": "https://schema.org",
+    "@@type": "BlogPosting",
+    "headline": "{{ $post['title'] }}",
+    "description": "{{ $post['summary'] }}",
+    "author": {
+        "@@type": "Person",
+        "name": "{{ $post['author'] }}"
+    },
+    "publisher": {
+        "@@type": "Organization",
+        "name": "Codemir IT Experts",
+        "logo": {
+            "@@type": "ImageObject",
+            "url": "https://codemiritexpert.online/images/logo.png"
+        }
+    },
+    "mainEntityOfPage": {
+        "@@type": "WebPage",
+        "@id": "{{ url()->current() }}"
+    }
+}
+</script>
+@endsection
+
 @section('content')
 
 {{-- ARTICLE HEADER --}}
@@ -51,6 +104,13 @@
             
             {{-- Main Column: Content --}}
             <div class="lg:col-span-8">
+                {{-- Featured Image Banner --}}
+                <div class="mb-10 rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                    <img src="{{ asset('images/blogs/' . $post['image']) }}" 
+                         alt="{{ $post['title'] }}" 
+                         class="w-full h-auto max-h-[460px] object-cover">
+                </div>
+
                 <article class="blog-article text-brand-muted leading-relaxed font-inter text-base md:text-lg">
                     {!! $post['content'] !!}
                 </article>

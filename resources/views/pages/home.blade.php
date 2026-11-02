@@ -499,8 +499,45 @@
         }
     }">
         <div class="text-center mb-16" data-aos="fade-up">
-            <span class="font-grotesk text-brand-blue text-sm tracking-widest uppercase">Testimonials</span>
+            <span class="font-grotesk text-brand-blue text-sm tracking-widest uppercase">Client Testimonials</span>
             <h2 class="font-playfair text-4xl md:text-5xl font-bold text-white mt-3">What Our Clients Say</h2>
+            
+            {{-- Attractive Google Reviews Trust Bar --}}
+            <div class="mt-8 max-w-2xl mx-auto px-6 py-4 md:py-4.5 rounded-2xl bg-brand-card/90 border border-white/10 shadow-2xl relative overflow-hidden">
+                <div class="absolute -top-12 -right-12 w-36 h-36 bg-brand-blue/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-5 sm:gap-6 relative z-10">
+                    {{-- Left: Google Logo + Rating --}}
+                    <div class="flex items-center gap-4 text-center sm:text-left">
+                        <div class="w-11 h-11 rounded-xl bg-white flex items-center justify-center p-2 shadow-md shrink-0">
+                            <svg class="w-6 h-6" viewBox="0 0 24 24">
+                                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="flex items-center justify-center sm:justify-start gap-2.5">
+                                <span class="text-white font-grotesk font-bold text-lg leading-none">5.0</span>
+                                <div class="flex text-amber-400 text-sm tracking-tight">★★★★★</div>
+                                <span class="text-[10px] text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-full font-grotesk uppercase tracking-wider font-semibold">Verified</span>
+                            </div>
+                            <p class="text-xs text-brand-muted font-inter mt-1">Official Google Business Profile · Client Reviews</p>
+                        </div>
+                    </div>
+
+                    {{-- Right: Prominent Leave a Review Button --}}
+                    <a href="https://www.google.com/search?q=Codemir+IT+Experts&stick=H4sIAAAAAAAAAONgU1I1qDBLszRMSzZNNTOwSDJOMjS0MqhINTcyS0s1sUw0NzE3TjI3WsQq5JyfkpqbWaTgGaLgWlGQWlRSDABJ0XKcPgAAAA" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="inline-flex items-center gap-2 bg-brand-blue hover:bg-brand-blue-hover text-white text-xs font-grotesk font-semibold px-5 py-2.5 rounded-full shadow-lg shadow-brand-blue/20 hover:shadow-brand-blue/40 transition-all duration-300 shrink-0">
+                        <span class="text-amber-300">★</span>
+                        <span>Leave a Google Review</span>
+                        <span>&rarr;</span>
+                    </a>
+                </div>
+            </div>
         </div>
 
         <!-- Smooth Slide Track -->
@@ -513,35 +550,71 @@
                     [
                         'quote' => "Codemir IT Experts built our custom SaaS platform in Laravel. The speed, clean codebase, and communication were unmatched. Highly recommended!",
                         'author' => "Sarah Jenkins",
-                        'role' => "Founder, FlowState (USA)"
+                        'role' => "Founder, FlowState (USA)",
+                        'rating' => 5,
+                        'date' => "Verified Client"
                     ],
                     [
                         'quote' => "They delivered a custom eCommerce solution that doubled our site speed and increased conversion by 25%. Outstanding experience from start to finish.",
                         'author' => "Michael Chen",
-                        'role' => "CEO, Horizon Ecom (UK)"
+                        'role' => "CEO, Horizon Ecom (UK)",
+                        'rating' => 5,
+                        'date' => "Verified Client"
                     ],
                     [
                         'quote' => "Integrating GPT-4 APIs into our client workflow was a breeze with Zaid and his team. They are absolute Laravel & AI integration specialists.",
                         'author' => "David Miller",
-                        'role' => "Founder, LexiAI (Australia)"
+                        'role' => "Founder, LexiAI (Australia)",
+                        'rating' => 5,
+                        'date' => "Verified Client"
                     ]
                 ] as $idx => $review)
                 <div class="w-full flex-shrink-0 px-1">
-                    <div class="bg-brand-card border border-white/5 rounded-3xl p-8 md:p-12 relative">
-                        <!-- Quote mark -->
-                        <span class="absolute top-6 left-8 text-8xl font-serif text-brand-blue/10 pointer-events-none select-none">&ldquo;</span>
+                    <div class="bg-brand-card border border-white/5 rounded-3xl p-8 md:p-12 relative shadow-2xl">
+                        <!-- Top Google Card Banner (No border line) -->
+                        <div class="flex items-center justify-between mb-8 relative z-10">
+                            <div class="flex items-center gap-2">
+                                <div class="flex text-amber-400 text-sm">
+                                    ★★★★★
+                                </div>
+                                <span class="text-xs font-grotesk text-white font-semibold ml-1">5.0 Star Rating</span>
+                            </div>
+                            <div class="inline-flex items-center gap-1.5 text-xs font-grotesk text-brand-muted bg-white/5 border border-white/10 rounded-full px-3 py-1">
+                                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24">
+                                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                                </svg>
+                                <span>Google Review</span>
+                            </div>
+                        </div>
 
-                        <p class="font-playfair text-lg md:text-xl text-white/90 italic leading-relaxed mb-6 relative z-10">
+                        <!-- Quote mark -->
+                        <span class="absolute top-16 left-8 text-8xl font-serif text-brand-blue/10 pointer-events-none select-none">&ldquo;</span>
+
+                        <p class="font-playfair text-lg md:text-2xl text-white/95 italic leading-relaxed mb-8 relative z-10">
                             "{{ $review['quote'] }}"
                         </p>
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-brand-blue/10 border border-brand-blue/30 flex items-center justify-center font-grotesk text-brand-blue font-bold">
-                                {{ substr($review['author'], 0, 1) }}
+                        
+                        <!-- Bottom User Row (No border line, fixed avatar) -->
+                        <div class="flex items-center justify-between flex-wrap gap-4 relative z-10">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-brand-blue/20 border border-brand-blue/40 text-brand-blue flex items-center justify-center font-grotesk font-bold text-sm shrink-0">
+                                    {{ substr($review['author'], 0, 1) }}
+                                </div>
+                                <div>
+                                    <h4 class="font-grotesk text-sm font-semibold text-white leading-tight mb-0.5">{{ $review['author'] }}</h4>
+                                    <p class="font-inter text-xs text-brand-muted leading-tight">{{ $review['role'] }}</p>
+                                </div>
                             </div>
-                            <div>
-                                <h4 class="font-grotesk text-sm font-semibold text-white">{{ $review['author'] }}</h4>
-                                <p class="font-inter text-xs text-brand-muted">{{ $review['role'] }}</p>
-                            </div>
+                            <a href="https://www.google.com/search?q=Codemir+IT+Experts&stick=H4sIAAAAAAAAAONgU1I1qDBLszRMSzZNNTOwSDJOMjS0MqhINTcyS0s1sUw0NzE3TjI3WsQq5JyfkpqbWaTgGaLgWlGQWlRSDABJ0XKcPgAAAA" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="text-xs text-brand-blue hover:text-white transition font-grotesk font-semibold inline-flex items-center gap-1">
+                                <span>Verify on Google</span>
+                                <span>&rarr;</span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -728,15 +801,16 @@
             <div data-aos="fade-up" data-aos-delay="{{ $loop->index * 80 }}">
                 <div class="bg-brand-card border border-white/5 rounded-2xl overflow-hidden hover:border-brand-blue/30 transition-all duration-300 hover:-translate-y-1 group h-full flex flex-col justify-between">
                     
-                    {{-- Header Gradient --}}
-                    <div class="relative h-44 bg-gradient-to-br from-brand-blue/20 to-purple-900/40 border-b border-white/5 flex items-center justify-center p-6 text-center select-none overflow-hidden">
-                        <div class="absolute -top-12 -left-12 w-24 h-24 bg-brand-blue/20 rounded-full blur-xl pointer-events-none"></div>
-                        <div class="z-10">
-                            <span class="font-grotesk text-[10px] uppercase tracking-widest text-brand-blue/80 bg-brand-blue/10 border border-brand-blue/20 px-3 py-1 rounded-full mb-3 inline-block">
-                                {{ $post['category'] }}
-                            </span>
-                            <h4 class="font-playfair text-base font-bold text-white line-clamp-2">{{ $post['title'] }}</h4>
-                        </div>
+                    {{-- Blog Cover Image --}}
+                    <div class="relative h-48 overflow-hidden bg-brand-dark border-b border-white/5">
+                        <img src="{{ asset('images/blogs/' . $post['image']) }}" 
+                             alt="{{ $post['title'] }}" 
+                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                             loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-card via-transparent to-black/20"></div>
+                        <span class="absolute top-4 left-4 font-grotesk text-[10px] uppercase tracking-widest text-white bg-brand-blue/90 backdrop-blur-md px-3 py-1 rounded-full font-semibold shadow-md">
+                            {{ $post['category'] }}
+                        </span>
                     </div>
 
                     {{-- Body --}}
@@ -747,6 +821,9 @@
                                 <span>·</span>
                                 <span>{{ $post['read_time'] }}</span>
                             </div>
+                            <h4 class="font-playfair text-lg font-bold text-white mb-3 group-hover:text-brand-blue transition line-clamp-2 leading-snug">
+                                {{ $post['title'] }}
+                            </h4>
                             <p class="font-inter text-brand-muted text-sm leading-relaxed mb-6">
                                 {{ $post['summary'] }}
                             </p>
@@ -767,6 +844,135 @@
             <a href="{{ route('blog') }}" class="inline-flex items-center gap-2 border border-white/10 hover:border-brand-blue hover:text-white text-brand-muted font-grotesk text-sm font-semibold px-8 py-3.5 rounded-full transition duration-300">
                 View All Articles &rarr;
             </a>
+        </div>
+
+    </div>
+</section>
+
+{{-- OPEN SOURCE & GITHUB REPOSITORIES SHOWCASE --}}
+<section class="py-24 bg-brand-dark border-t border-white/5 relative overflow-hidden" aria-label="Open Source & GitHub Repositories">
+    <div class="absolute -top-24 right-10 w-96 h-96 bg-brand-blue/5 rounded-full filter blur-[120px] pointer-events-none"></div>
+
+    <div class="max-w-6xl mx-auto px-6 relative z-10">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6" data-aos="fade-up">
+            <div>
+                <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-3.5 py-1.5 mb-4">
+                    <svg class="w-4 h-4 fill-current text-white" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    <span class="font-grotesk text-xs text-white uppercase tracking-wider">GitHub Activity · @ZaidShahid15</span>
+                </div>
+                <h2 class="font-playfair text-3xl md:text-5xl font-bold text-white leading-tight">
+                    Featured Public Repositories
+                </h2>
+                <p class="font-inter text-brand-muted mt-3 max-w-xl text-sm leading-relaxed">
+                    We write clean, production-ready code. Explore our open source packages, real-time architectures, and SaaS prototypes directly on GitHub.
+                </p>
+            </div>
+            <div>
+                <a href="https://github.com/ZaidShahid15?tab=repositories" target="_blank" rel="noopener noreferrer"
+                   class="inline-flex items-center gap-2 bg-brand-blue hover:bg-brand-blue-hover text-white font-grotesk text-xs uppercase tracking-wider font-semibold px-6 py-3.5 rounded-full transition shadow-lg shadow-brand-blue/20">
+                    <span>View All 20+ Repos on GitHub</span>
+                    <span>&rarr;</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            @php
+            $featuredRepos = [
+                [
+                    'name' => 'Student_LMS_Laravel',
+                    'desc' => 'Complete Learning Management System in Laravel with granular roles and permissions using spatie/laravel-permission.',
+                    'lang' => 'PHP / Blade',
+                    'langColor' => '#4F5D95',
+                    'url' => 'https://github.com/ZaidShahid15/Student_LMS_Laravel',
+                    'tag' => 'SaaS / Education'
+                ],
+                [
+                    'name' => 'chat_with_broad_casting',
+                    'desc' => 'Real-time WebSocket chat application built using Laravel Broadcasting, events, and instant message routing.',
+                    'lang' => 'PHP / Laravel',
+                    'langColor' => '#FF2D20',
+                    'url' => 'https://github.com/ZaidShahid15/chat_with_broad_casting',
+                    'tag' => 'Real-time WebSockets'
+                ],
+                [
+                    'name' => 'Ecomerce_Store',
+                    'desc' => 'Custom feature-rich eCommerce store in Laravel with shopping cart, Stripe payment gateway, and order handling.',
+                    'lang' => 'PHP / MySQL',
+                    'langColor' => '#4F5D95',
+                    'url' => 'https://github.com/ZaidShahid15/Ecomerce_Store',
+                    'tag' => 'eCommerce Engine'
+                ],
+                [
+                    'name' => 'ai-content-creator',
+                    'desc' => 'AI-powered content generator leveraging OpenAI GPT APIs for automated marketing copy and blog outlines.',
+                    'lang' => 'TypeScript',
+                    'langColor' => '#3178C6',
+                    'url' => 'https://github.com/ZaidShahid15/ai-content-creator',
+                    'tag' => 'Generative AI'
+                ],
+                [
+                    'name' => 'scraper',
+                    'desc' => 'High-performance automated web scraping and data pipeline built for targeted lead extraction and catalog syncing.',
+                    'lang' => 'Python',
+                    'langColor' => '#3572A5',
+                    'url' => 'https://github.com/ZaidShahid15/scraper',
+                    'tag' => 'Data Automation'
+                ],
+                [
+                    'name' => 'Admin-product-code',
+                    'desc' => 'Modular admin product catalog controller system with inventory adjustments, categories, and image upload pipelines.',
+                    'lang' => 'PHP',
+                    'langColor' => '#4F5D95',
+                    'url' => 'https://github.com/ZaidShahid15/Admin-product-code',
+                    'tag' => 'Admin Portal'
+                ],
+            ];
+            @endphp
+
+            @foreach($featuredRepos as $repo)
+            <div class="bg-brand-card/80 border border-white/5 hover:border-brand-blue/40 rounded-2xl p-6 transition duration-300 hover:-translate-y-1 group flex flex-col justify-between" data-aos="fade-up" data-aos-delay="{{ $loop->index * 60 }}">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-[10px] font-grotesk uppercase tracking-wider text-brand-blue bg-brand-blue/10 border border-brand-blue/20 px-2.5 py-1 rounded-full font-semibold">
+                            {{ $repo['tag'] }}
+                        </span>
+                        <div class="flex items-center gap-2">
+                            {{-- Share Repo Button --}}
+                            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ urlencode($repo['url']) }}" 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                               title="Share on LinkedIn"
+                               class="w-7 h-7 rounded-lg bg-white/5 hover:bg-brand-blue/20 flex items-center justify-center text-brand-muted hover:text-white transition">
+                                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                            </a>
+                            <a href="{{ $repo['url'] }}" target="_blank" rel="noopener noreferrer" title="View Source on GitHub"
+                               class="text-brand-muted group-hover:text-white transition">
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <a href="{{ $repo['url'] }}" target="_blank" rel="noopener noreferrer" class="font-grotesk font-semibold text-white text-base group-hover:text-brand-blue transition block mb-2 break-all">
+                        {{ $repo['name'] }}
+                    </a>
+                    <p class="font-inter text-brand-muted text-xs leading-relaxed mb-6">
+                        {{ $repo['desc'] }}
+                    </p>
+                </div>
+
+                <div class="pt-4 border-t border-white/5 flex items-center justify-between text-xs">
+                    <div class="flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full" style="background-color: {{ $repo['langColor'] }};"></span>
+                        <span class="font-grotesk text-white font-medium text-[11px]">{{ $repo['lang'] }}</span>
+                    </div>
+                    <a href="{{ $repo['url'] }}" target="_blank" rel="noopener noreferrer" class="text-brand-blue hover:text-white transition font-grotesk font-semibold inline-flex items-center gap-1 text-[11px]">
+                        <span>Inspect Code</span>
+                        <span>&rarr;</span>
+                    </a>
+                </div>
+            </div>
+            @endforeach
         </div>
 
     </div>

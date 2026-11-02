@@ -2,6 +2,49 @@
 @section('title', $project['title'] . ' | Codemir IT Experts Case Study')
 @section('meta_description', $project['desc'])
 
+@section('structured_data')
+<script type="application/ld+json">
+{
+    "@@context": "https://schema.org",
+    "@@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "{{ route('home') }}"
+        },
+        {
+            "@@type": "ListItem",
+            "position": 2,
+            "name": "Our Work",
+            "item": "{{ route('work') }}"
+        },
+        {
+            "@@type": "ListItem",
+            "position": 3,
+            "name": "{{ $project['title'] }}",
+            "item": "{{ url()->current() }}"
+        }
+    ]
+}
+</script>
+<script type="application/ld+json">
+{
+    "@@context": "https://schema.org",
+    "@@type": "CreativeWork",
+    "name": "{{ $project['title'] }}",
+    "description": "{{ $project['desc'] }}",
+    "genre": "{{ $project['category'] }}",
+    "author": {
+        "@@type": "Organization",
+        "name": "Codemir IT Experts",
+        "url": "https://codemiritexpert.online"
+    }
+}
+</script>
+@endsection
+
 @section('content')
 
 {{-- BREADCRUMBS & HERO --}}

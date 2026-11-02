@@ -1,5 +1,6 @@
 @extends('layouts.app')
-@section('title', 'Contact Codemir IT Experts | Start Your Project')
+@section('title', 'Get a Free Quote — Hire Expert Laravel Developers | Codemir IT Experts')
+@section('meta_description', 'Ready to build your custom web app or SaaS platform? Get a free quote from Codemir IT Experts. Laravel, AI & full-stack development — response within 24 hours.')
 
 @section('content')
 @include('components.page-hero', [
@@ -13,7 +14,7 @@
     'badges'      => ['Reply Within 24 Hours', 'Free Consultation', 'No Hidden Fees', 'Trusted by 20+ Clients'],
 ])
 
-<section class="py-24 bg-brand-black min-h-screen">
+<section class="pt-14 pb-28 md:pt-20 md:pb-36 bg-brand-black">
     <div class="max-w-6xl mx-auto px-6">
         @if(session('success'))
         <div class="mb-8 bg-green-500/10 border border-green-500/30 text-green-400 rounded-xl px-6 py-4 text-center font-inter">
@@ -21,36 +22,36 @@
         </div>
         @endif
 
-        <div class="grid grid-cols-1 lg:grid-cols-5 gap-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
 
             {{-- FORM --}}
-            <div class="lg:col-span-3 bg-brand-card border border-white/5 rounded-2xl p-8" data-aos="fade-right">
-                <form action="{{ route('contact.send') }}" method="POST" class="space-y-5">
+            <div class="lg:col-span-7 bg-brand-card border border-white/5 rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl" style="padding: 2.25rem;" data-aos="fade-right">
+                <form action="{{ route('contact.send') }}" method="POST" class="space-y-6">
                     @csrf
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label class="font-grotesk text-sm text-brand-muted block mb-2">Full Name *</label>
+                            <label class="font-grotesk text-sm text-brand-muted block mb-2 font-medium">Full Name *</label>
                             <input type="text" name="name" value="{{ old('name') }}" placeholder="John Smith"
-                                   class="w-full bg-brand-black border border-white/10 focus:border-brand-blue rounded-xl px-4 py-3 text-white font-inter text-sm outline-none transition @error('name') border-red-500 @enderror">
+                                   class="w-full bg-brand-black border border-white/10 focus:border-brand-blue rounded-xl px-4 py-3.5 text-white font-inter text-sm outline-none transition @error('name') border-red-500 @enderror">
                             @error('name')<p class="text-red-400 text-xs mt-1">{{ $message }}</p>@enderror
                         </div>
                         <div>
-                            <label class="font-grotesk text-sm text-brand-muted block mb-2">Email Address *</label>
+                            <label class="font-grotesk text-sm text-brand-muted block mb-2 font-medium">Email Address *</label>
                             <input type="email" name="email" value="{{ old('email') }}" placeholder="john@company.com"
-                                   class="w-full bg-brand-black border border-white/10 focus:border-brand-blue rounded-xl px-4 py-3 text-white font-inter text-sm outline-none transition @error('email') border-red-500 @enderror">
+                                   class="w-full bg-brand-black border border-white/10 focus:border-brand-blue rounded-xl px-4 py-3.5 text-white font-inter text-sm outline-none transition @error('email') border-red-500 @enderror">
                             @error('email')<p class="text-red-400 text-xs mt-1">{{ $message }}</p>@enderror
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label class="font-grotesk text-sm text-brand-muted block mb-2">Phone (Optional)</label>
+                            <label class="font-grotesk text-sm text-brand-muted block mb-2 font-medium">Phone (Optional)</label>
                             <input type="text" name="phone" value="{{ old('phone') }}" placeholder="+1 555 000 0000"
-                                   class="w-full bg-brand-black border border-white/10 focus:border-brand-blue rounded-xl px-4 py-3 text-white font-inter text-sm outline-none transition">
+                                   class="w-full bg-brand-black border border-white/10 focus:border-brand-blue rounded-xl px-4 py-3.5 text-white font-inter text-sm outline-none transition">
                         </div>
                         <div>
-                            <label class="font-grotesk text-sm text-brand-muted block mb-2">Service Needed *</label>
-                            <select name="service" class="w-full bg-brand-black border border-white/10 focus:border-brand-blue rounded-xl px-4 py-3 text-white font-inter text-sm outline-none transition @error('service') border-red-500 @enderror">
+                            <label class="font-grotesk text-sm text-brand-muted block mb-2 font-medium">Service Needed *</label>
+                            <select name="service" class="w-full bg-brand-black border border-white/10 focus:border-brand-blue rounded-xl px-4 py-3.5 text-white font-inter text-sm outline-none transition @error('service') border-red-500 @enderror">
                                 <option value="">Select a service</option>
                                 @foreach(['Website', 'Web App', 'AI Tool', 'eCommerce', 'Other'] as $opt)
                                 <option value="{{ $opt }}" {{ old('service') == $opt ? 'selected' : '' }}>{{ $opt }}</option>
@@ -61,8 +62,8 @@
                     </div>
 
                     <div>
-                        <label class="font-grotesk text-sm text-brand-muted block mb-2">Budget Range *</label>
-                        <select name="budget" class="w-full bg-brand-black border border-white/10 focus:border-brand-blue rounded-xl px-4 py-3 text-white font-inter text-sm outline-none transition">
+                        <label class="font-grotesk text-sm text-brand-muted block mb-2 font-medium">Budget Range *</label>
+                        <select name="budget" class="w-full bg-brand-black border border-white/10 focus:border-brand-blue rounded-xl px-4 py-3.5 text-white font-inter text-sm outline-none transition">
                             <option value="">Select budget</option>
                             @foreach(['Under $500', '$500–$1000', '$1000–$3000', '$3000+'] as $b)
                             <option value="{{ $b }}" {{ old('budget') == $b ? 'selected' : '' }}>{{ $b }}</option>
@@ -72,77 +73,129 @@
                     </div>
 
                     <div>
-                        <label class="font-grotesk text-sm text-brand-muted block mb-2">Project Description *</label>
+                        <label class="font-grotesk text-sm text-brand-muted block mb-2 font-medium">Project Description *</label>
                         <textarea name="description" rows="5" placeholder="Tell us about your project, goals, and timeline..."
-                                  class="w-full bg-brand-black border border-white/10 focus:border-brand-blue rounded-xl px-4 py-3 text-white font-inter text-sm outline-none transition resize-none @error('description') border-red-500 @enderror">{{ old('description') }}</textarea>
+                                  class="w-full bg-brand-black border border-white/10 focus:border-brand-blue rounded-xl px-4 py-3.5 text-white font-inter text-sm outline-none transition resize-none @error('description') border-red-500 @enderror">{{ old('description') }}</textarea>
                         @error('description')<p class="text-red-400 text-xs mt-1">{{ $message }}</p>@enderror
                     </div>
 
-                    <button type="submit" class="w-full bg-brand-blue hover:bg-brand-blue-hover text-white font-semibold py-4 rounded-xl transition font-inter">
-                        Send Message →
-                    </button>
+                    <div class="pt-2">
+                        <button type="submit" class="w-full bg-brand-blue hover:bg-brand-blue-hover text-white font-semibold py-4 rounded-xl transition font-inter shadow-lg shadow-brand-blue/20 text-base">
+                            Send Message →
+                        </button>
+                    </div>
                 </form>
             </div>
 
-            {{-- CONTACT INFO --}}
-            <div class="lg:col-span-2 space-y-5" data-aos="fade-left">
-                <div class="bg-brand-card border border-white/5 rounded-2xl p-8 space-y-6">
+            {{-- CONTACT INFO & GOOGLE CARD --}}
+            <div class="lg:col-span-5 space-y-6" data-aos="fade-left">
+                
+                {{-- Contact Details Card --}}
+                <div class="bg-brand-card border border-white/5 rounded-3xl p-8 md:p-10 space-y-6 shadow-2xl" style="padding: 2.25rem;">
                     <h3 class="font-playfair text-xl font-semibold text-white">Contact Details</h3>
-                    <div class="space-y-4 font-inter text-sm">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 font-inter text-sm">
                         <div class="flex items-start gap-3">
-                            <span class="text-brand-blue mt-0.5">✉</span>
+                            <span class="text-brand-blue mt-0.5 text-base">✉</span>
                             <div>
-                                <p class="text-brand-muted text-xs mb-0.5">Email</p>
-                                <a href="mailto:codemiritexpert@gmail.com" class="text-white hover:text-brand-blue transition">codemiritexpert@gmail.com</a>
+                                <p class="text-brand-muted text-xs mb-0.5 font-medium">Email</p>
+                                <a href="mailto:codemiritexpert@gmail.com" class="text-white hover:text-brand-blue transition text-xs break-all">codemiritexpert@gmail.com</a>
                             </div>
                         </div>
                         <div class="flex items-start gap-3">
-                            <span class="text-brand-blue mt-0.5">📞</span>
+                            <span class="text-brand-blue mt-0.5 text-base">📞</span>
                             <div>
-                                <p class="text-brand-muted text-xs mb-0.5">Phone / WhatsApp</p>
-                                <a href="tel:+923268634963" class="text-white hover:text-brand-blue transition">+92 326 8634963</a>
+                                <p class="text-brand-muted text-xs mb-0.5 font-medium">Phone / WhatsApp</p>
+                                <a href="tel:+923268634963" class="text-white hover:text-brand-blue transition text-xs">+92 326 8634963</a>
                             </div>
                         </div>
                         <div class="flex items-start gap-3">
-                            <span class="text-brand-blue mt-0.5">📍</span>
+                            <span class="text-brand-blue mt-0.5 text-base">📍</span>
                             <div>
-                                <p class="text-brand-muted text-xs mb-0.5">Location</p>
-                                <p class="text-white">Faisalabad, Punjab, Pakistan</p>
+                                <p class="text-brand-muted text-xs mb-0.5 font-medium">Location</p>
+                                <p class="text-white text-xs">Faisalabad, Punjab, Pakistan</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-3">
-                            <span class="text-brand-blue mt-0.5">🕐</span>
+                            <span class="text-brand-blue mt-0.5 text-base">🕐</span>
                             <div>
-                                <p class="text-brand-muted text-xs mb-0.5">Working Hours</p>
-                                <p class="text-white">Mon–Sat · 9AM–10PM PKT</p>
+                                <p class="text-brand-muted text-xs mb-0.5 font-medium">Working Hours</p>
+                                <p class="text-white text-xs">Mon–Sat · 9AM–10PM PKT</p>
                             </div>
                         </div>
                     </div>
-                    <div class="pt-4 border-t border-white/5">
-                        <p class="font-grotesk text-xs text-brand-muted uppercase tracking-wider mb-3">Follow Us</p>
-                        <div class="flex gap-3 flex-wrap">
-                            <a href="https://www.linkedin.com/company/codemir-it-experts/" target="_blank" aria-label="LinkedIn" class="w-9 h-9 bg-brand-black border border-white/10 rounded-lg flex items-center justify-center text-brand-muted hover:text-brand-blue hover:border-brand-blue transition">
-                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+
+                    <div class="pt-5 border-t border-white/5 flex items-center justify-between">
+                        <p class="font-grotesk text-xs text-brand-muted uppercase tracking-wider">Follow Us</p>
+                        <div class="flex gap-2.5">
+                            <a href="https://www.linkedin.com/company/codemir-it-experts/" target="_blank" aria-label="LinkedIn" class="w-8 h-8 bg-brand-black border border-white/10 rounded-lg flex items-center justify-center text-brand-muted hover:text-brand-blue hover:border-brand-blue transition">
+                                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
                             </a>
-                            <a href="https://www.instagram.com/codemiritexpert/" target="_blank" aria-label="Instagram" class="w-9 h-9 bg-brand-black border border-white/10 rounded-lg flex items-center justify-center text-brand-muted hover:text-brand-blue hover:border-brand-blue transition">
-                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                            <a href="https://www.instagram.com/codemiritexpert/" target="_blank" aria-label="Instagram" class="w-8 h-8 bg-brand-black border border-white/10 rounded-lg flex items-center justify-center text-brand-muted hover:text-brand-blue hover:border-brand-blue transition">
+                                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                             </a>
-                            <a href="https://www.facebook.com/profile.php?id=61564927201888" target="_blank" aria-label="Facebook" class="w-9 h-9 bg-brand-black border border-white/10 rounded-lg flex items-center justify-center text-brand-muted hover:text-brand-blue hover:border-brand-blue transition">
-                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+                            <a href="https://www.facebook.com/profile.php?id=61564927201888" target="_blank" aria-label="Facebook" class="w-8 h-8 bg-brand-black border border-white/10 rounded-lg flex items-center justify-center text-brand-muted hover:text-brand-blue hover:border-brand-blue transition">
+                                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
                             </a>
-                            <a href="https://github.com/ZaidShahid15" target="_blank" aria-label="GitHub" class="w-9 h-9 bg-brand-black border border-white/10 rounded-lg flex items-center justify-center text-brand-muted hover:text-brand-blue hover:border-brand-blue transition">
-                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            <a href="https://github.com/ZaidShahid15" target="_blank" aria-label="GitHub" class="w-8 h-8 bg-brand-black border border-white/10 rounded-lg flex items-center justify-center text-brand-muted hover:text-brand-blue hover:border-brand-blue transition">
+                                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                             </a>
                         </div>
                     </div>
                 </div>
+
+                {{-- Google Business Profile Card (Without Map) --}}
+                <div class="bg-brand-card border border-white/5 rounded-3xl p-8 md:p-10 space-y-5 shadow-2xl" style="padding: 2.25rem;">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="w-11 h-11 rounded-xl bg-white flex items-center justify-center p-2 shadow shrink-0">
+                                <svg class="w-6 h-6" viewBox="0 0 24 24">
+                                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-grotesk font-semibold text-white text-base">Codemir IT Experts</h4>
+                                <div class="flex items-center gap-1.5 mt-0.5">
+                                    <div class="flex text-amber-400 text-xs">★★★★★</div>
+                                    <span class="text-xs text-brand-muted font-inter">5.0 on Google Business</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="inline-flex items-center gap-1 text-[11px] font-grotesk text-green-400 bg-green-500/10 border border-green-500/20 px-2.5 py-1 rounded-full font-medium">
+                            <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
+                            Verified
+                        </span>
+                    </div>
+
+                    <p class="text-xs text-brand-muted font-inter leading-relaxed">
+                        Top-rated custom web software, Laravel application & AI engineering agency in Faisalabad, Pakistan.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-3 pt-2">
+                        <a href="https://www.google.com/search?q=Codemir+IT+Experts&stick=H4sIAAAAAAAAAONgU1I1qDBLszRMSzZNNTOwSDJOMjS0MqhINTcyS0s1sUw0NzE3TjI3WsQq5JyfkpqbWaTgGaLgWlGQWlRSDABJ0XKcPgAAAA" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="inline-flex items-center justify-center gap-1.5 bg-brand-blue hover:bg-brand-blue-hover text-white text-xs font-semibold px-4 py-2.5 rounded-xl transition text-center shadow-md shadow-brand-blue/20">
+                            ★ Leave Review
+                        </a>
+                        <a href="https://maps.google.com/?q=Codemir+IT+Experts+Faisalabad" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="inline-flex items-center justify-center gap-1.5 bg-white/5 hover:bg-white/10 border border-white/10 text-white text-xs font-semibold px-4 py-2.5 rounded-xl transition text-center">
+                            📍 View on Maps
+                        </a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
 </section>
 
 {{-- STATS BANNER --}}
-<section class="bg-brand-dark border-y border-white/5 py-16 relative overflow-hidden">
+<section class="bg-brand-dark border-y border-white/5 py-20 md:py-28 relative overflow-hidden">
     <div class="max-w-5xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center relative z-10">
         @foreach($stats as $stat)
         <div data-aos="fade-up">

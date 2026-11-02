@@ -51,6 +51,17 @@
                         <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
                     </a>
                 </div>
+
+                <div class="mt-4">
+                    <a href="https://www.google.com/search?q=Codemir+IT+Experts&stick=H4sIAAAAAAAAAONgU1I1qDBLszRMSzZNNTOwSDJOMjS0MqhINTcyS0s1sUw0NzE3TjI3WsQq5JyfkpqbWaTgGaLgWlGQWlRSDABJ0XKcPgAAAA" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full px-3.5 py-1.5 text-xs text-brand-muted hover:text-white transition">
+                        <span class="text-amber-400">★★★★★</span>
+                        <span>5.0 on Google Business</span>
+                        <span class="text-brand-blue">· Leave Review &rarr;</span>
+                    </a>
+                </div>
             </div>
 
             <div>
@@ -85,6 +96,9 @@
                 <a href="{{ route('privacy') }}" class="hover:text-white transition">Privacy Policy</a>
                 <a href="{{ route('terms') }}" class="hover:text-white transition">Terms & Conditions</a>
                 <a href="{{ route('sitemap') }}" class="hover:text-white transition">Sitemap</a>
+                <a href="https://www.google.com/search?q=Codemir+IT+Experts&stick=H4sIAAAAAAAAAONgU1I1qDBLszRMSzZNNTOwSDJOMjS0MqhINTcyS0s1sUw0NzE3TjI3WsQq5JyfkpqbWaTgGaLgWlGQWlRSDABJ0XKcPgAAAA" target="_blank" rel="noopener noreferrer" class="hover:text-amber-400 text-amber-400/90 transition flex items-center gap-1.5">
+                    <span>★ Google Reviews</span>
+                </a>
             </div>
         </div>
     </div>

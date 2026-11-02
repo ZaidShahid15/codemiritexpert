@@ -1,5 +1,6 @@
 @extends('layouts.app')
-@section('title', 'Services | Codemir IT Experts')
+@section('title', 'Web Development Services — Laravel, AI, eCommerce & APIs | Codemir IT Experts')
+@section('meta_description', 'Custom Laravel web apps, AI-powered tools, eCommerce stores, API integrations & business management systems. Explore all development services by Codemir IT Experts.')
 
 @section('content')
 @include('components.page-hero', [
