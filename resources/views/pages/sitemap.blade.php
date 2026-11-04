@@ -75,6 +75,18 @@
                         </a>
                     </li>
                     @endforeach
+                    <li>
+                        <a href="{{ route('landing.law-firm') }}" class="hover:text-brand-blue hover:pl-1 transition-all flex items-start gap-2 font-medium text-white/90">
+                            <span class="text-brand-blue shrink-0">◈</span>
+                            <span>Law Firm Website Development</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('landing.clinic') }}" class="hover:text-brand-blue hover:pl-1 transition-all flex items-start gap-2 font-medium text-white/90">
+                            <span class="text-brand-blue shrink-0">◈</span>
+                            <span>Clinic Website Development</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
 

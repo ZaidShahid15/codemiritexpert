@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Codemir IT Experts | Custom Web Development & AI Tools')
-@section('meta_description', 'We build custom Laravel web systems, web apps, and AI-powered tools for founders and SMBs. 20+ projects delivered. Based in Pakistan, serving globally.')
+@section('title', 'Laravel Web Development Company | US, UK & Australia')
+@section('meta_description', 'Custom Laravel web apps, SaaS and AI tools for founders in the US, UK and Australia. Fast, scalable code with 24h response. Request your free quote today!')
 
 @section('content')
 
@@ -19,11 +19,11 @@
             Laravel · Web Systems · AI Tools
         </span>
         <h1 class="font-playfair text-5xl md:text-7xl font-bold leading-tight text-white mb-6" data-aos="fade-up">
-            We Build Web Systems<br>
-            <span class="text-brand-blue">&amp; AI-Powered Tools</span>
+            Custom Laravel Web Development<br>
+            <span class="text-brand-blue">&amp; AI Tools for Growing Businesses</span>
         </h1>
         <p class="font-inter text-brand-muted text-lg md:text-xl max-w-2xl mx-auto mb-10" data-aos="fade-up" data-aos-delay="100">
-            That Grow Your Business — Not Just Look Good. Codemir IT Experts delivers custom PHP Laravel web apps, AI-integrated tools, and high-converting websites for founders and SMBs worldwide.
+            Engineered for founders, startups and SMBs across the US, UK and Australia. Codemir IT Experts delivers custom Laravel web applications, AI-integrated workflows, and high-converting websites that scale.
         </p>
         <div class="flex flex-wrap gap-4 justify-center mb-14" data-aos="fade-up" data-aos-delay="200">
             <a href="{{ route('contact') }}" class="bg-brand-blue hover:bg-brand-blue-hover text-white font-semibold px-8 py-4 rounded-full transition text-base">
@@ -272,6 +272,54 @@
         <div class="text-center mt-20 md:mt-24">
             <a href="{{ route('services') }}" style="display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(30,107,255,0.4);color:#1e6bff;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;padding:14px 36px;border-radius:999px;transition:all 0.3s;" onmouseover="this.style.background='#1e6bff';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#1e6bff'">
                 View All Services →
+            </a>
+        </div>
+    </div>
+</section>
+
+{{-- INDUSTRY & CORE SOLUTIONS QUICK ACCESS --}}
+<section class="py-16 bg-brand-card/40 border-y border-white/5 relative">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-10" data-aos="fade-up">
+            <span class="font-grotesk text-brand-blue text-xs uppercase tracking-widest font-semibold">Specialized Practice Areas</span>
+            <h2 class="font-playfair text-2xl md:text-3xl font-bold text-white mt-2">Tailored Web &amp; AI Systems for High-Growth Sectors</h2>
+            <p class="font-inter text-brand-muted text-sm mt-2 max-w-xl mx-auto">Direct solutions built for professional practices, clinics, tech startups, and growing enterprises in the US, UK, and Australia.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" data-aos="fade-up">
+            <a href="{{ route('landing.law-firm') }}" class="group bg-brand-card border border-white/5 hover:border-brand-blue/50 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 block shadow-lg">
+                <div class="w-10 h-10 rounded-xl bg-brand-blue/10 text-brand-blue flex items-center justify-center mb-4 group-hover:bg-brand-blue group-hover:text-white transition">
+                    ⚖️
+                </div>
+                <h3 class="font-playfair text-lg font-bold text-white group-hover:text-brand-blue transition mb-2">Law Firm Website Development</h3>
+                <p class="font-inter text-brand-muted text-xs leading-relaxed mb-4">Fast, mobile-friendly sites for legal practices with consultation funnels and attorney directories.</p>
+                <span class="font-grotesk text-xs font-semibold text-brand-blue group-hover:underline inline-flex items-center gap-1">Explore Legal Websites &rarr;</span>
+            </a>
+
+            <a href="{{ route('landing.clinic') }}" class="group bg-brand-card border border-white/5 hover:border-emerald-500/50 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 block shadow-lg">
+                <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4 group-hover:bg-emerald-500 group-hover:text-white transition">
+                    🏥
+                </div>
+                <h3 class="font-playfair text-lg font-bold text-white group-hover:text-emerald-400 transition mb-2">Clinic &amp; Medical Websites</h3>
+                <p class="font-inter text-brand-muted text-xs leading-relaxed mb-4">Real-time patient appointment booking, HIPAA-ready architecture, and automated reminders.</p>
+                <span class="font-grotesk text-xs font-semibold text-emerald-400 group-hover:underline inline-flex items-center gap-1">Explore Clinic Websites &rarr;</span>
+            </a>
+
+            <a href="{{ route('ai-solutions') }}" class="group bg-brand-card border border-white/5 hover:border-purple-500/50 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 block shadow-lg">
+                <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-4 group-hover:bg-purple-500 group-hover:text-white transition">
+                    🤖
+                </div>
+                <h3 class="font-playfair text-lg font-bold text-white group-hover:text-purple-400 transition mb-2">AI Voice &amp; RAG Chatbots</h3>
+                <p class="font-inter text-brand-muted text-xs leading-relaxed mb-4">Automate workflows and customer service with RAG knowledge search and intelligent voice agents.</p>
+                <span class="font-grotesk text-xs font-semibold text-purple-400 group-hover:underline inline-flex items-center gap-1">Explore AI Solutions &rarr;</span>
+            </a>
+
+            <a href="{{ route('services.detail', 'web-applications') }}" class="group bg-brand-card border border-white/5 hover:border-amber-500/50 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 block shadow-lg">
+                <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center mb-4 group-hover:bg-amber-500 group-hover:text-white transition">
+                    ⚙️
+                </div>
+                <h3 class="font-playfair text-lg font-bold text-white group-hover:text-amber-400 transition mb-2">Laravel Web Applications</h3>
+                <p class="font-inter text-brand-muted text-xs leading-relaxed mb-4">Custom SaaS platforms, CRM dashboards, and operational business portals engineered for scale.</p>
+                <span class="font-grotesk text-xs font-semibold text-amber-400 group-hover:underline inline-flex items-center gap-1">Explore Web Apps &rarr;</span>
             </a>
         </div>
     </div>
@@ -649,6 +697,8 @@
         </div>
     </div>
 </section>
+
+@include('partials.related-links')
 
 {{-- CONTACT SECTION --}}
 <section class="py-24 bg-gradient-to-b from-brand-dark to-brand-black border-t border-white/5" id="contact-section">

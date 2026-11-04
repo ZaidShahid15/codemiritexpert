@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', $project['title'] . ' | Codemir IT Experts Case Study')
+@section('title', $project['meta_title'] ?? (str_contains($project['title'], 'Codemir') ? $project['title'] : $project['title'] . ' | Codemir IT Experts Case Study'))
 @section('meta_description', $project['desc'])
 
 @section('structured_data')
@@ -46,7 +46,6 @@
 @endsection
 
 @section('content')
-
 {{-- BREADCRUMBS & HERO --}}
 <section class="relative min-h-[50vh] flex items-center justify-center overflow-hidden bg-brand-black pt-16 pb-12">
     {{-- Animated grid background --}}
@@ -71,7 +70,7 @@
         </span>
 
         <h1 class="font-playfair text-4xl md:text-6xl font-bold leading-tight text-white mb-6">
-            {{ $project['title'] }}<span class="text-brand-blue">.</span>
+            {{ $project['h1'] ?? $project['title'] }}<span class="text-brand-blue">.</span>
         </h1>
 
         <p class="font-inter text-brand-muted text-lg max-w-2xl mx-auto leading-relaxed">
@@ -84,7 +83,7 @@
 <section class="py-20 bg-brand-black relative">
     <div class="max-w-6xl mx-auto px-6">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            
+
             {{-- Left Side: Case Study Details --}}
             <div class="lg:col-span-7 space-y-12">
                 {{-- CHALLENGE --}}
@@ -131,13 +130,13 @@
                 {{-- Showcase Card --}}
                 <div class="bg-brand-card border border-white/5 rounded-3xl overflow-hidden shadow-2xl relative group">
                     <div class="h-64 md:h-72 overflow-hidden relative">
-                        <img src="{{ asset('images/projects/' . $project['image']) }}" 
-                             alt="{{ $project['title'] }}" 
+                        <img src="{{ asset('images/projects/' . $project['image']) }}"
+                             alt="{{ $project['title'] }}"
                              class="w-full h-full object-cover transition duration-700 group-hover:scale-105"
                              width="500" height="300" loading="lazy">
                         <div class="absolute inset-0 bg-brand-dark/20"></div>
                     </div>
-                    
+
                     <div class="p-8 space-y-6">
                         <div>
                             <span class="font-grotesk text-xs uppercase tracking-wider text-brand-muted block mb-1">Client Category</span>
@@ -155,8 +154,18 @@
                             </div>
                         </div>
 
+                        @if(!empty($project['service_link']))
+                        <div class="pt-4 border-t border-white/5">
+                            <span class="font-grotesk text-xs uppercase tracking-wider text-brand-muted block mb-1">Related Service</span>
+                            <a href="{{ $project['service_link']['url'] }}" class="text-sm font-semibold text-brand-blue hover:text-white transition inline-flex items-center gap-1.5">
+                                <span>{{ $project['service_link']['title'] }}</span>
+                                <span>&rarr;</span>
+                            </a>
+                        </div>
+                        @endif
+
                         <div class="pt-6 border-t border-white/5">
-                            <a href="{{ route('contact', ['service' => ($project['category'] === 'Website' ? 'Website' : ($project['category'] === 'AI Tool' ? 'AI Tool' : ($project['category'] === 'eCommerce' ? 'eCommerce' : 'Web App')))]) }}" 
+                            <a href="{{ route('contact', ['service' => ($project['category'] === 'Website' ? 'Website' : ($project['category'] === 'AI Tool' ? 'AI Tool' : ($project['category'] === 'eCommerce' ? 'eCommerce' : 'Web App')))]) }}"
                                class="w-full bg-brand-blue hover:bg-brand-blue-hover text-white text-center font-semibold py-3.5 rounded-xl transition font-inter block shadow-lg shadow-brand-blue/20">
                                 Request a System Like This
                             </a>
@@ -168,7 +177,7 @@
         </div>
     </div>
 </section>
-
+@include('partials.related-links')
 {{-- CTA SECTION --}}
 <section class="py-24 bg-gradient-to-b from-brand-black to-brand-dark border-t border-white/5">
     <div class="max-w-4xl mx-auto px-6 text-center" data-aos="fade-up">

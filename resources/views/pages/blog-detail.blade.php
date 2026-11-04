@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', $post['title'] . ' | Codemir IT Experts Blog')
+@section('title', $post['meta_title'] ?? (str_contains($post['title'], 'Codemir') ? $post['title'] : $post['title'] . ' | Codemir IT Experts Blog'))
 @section('meta_description', $post['summary'])
 
 @section('structured_data')
@@ -79,7 +79,7 @@
                 {{ $post['category'] }}
             </span>
             <h1 class="font-playfair text-3xl md:text-5xl font-bold text-white leading-tight mb-6">
-                {{ $post['title'] }}
+                {{ $post['h1'] ?? $post['title'] }}
             </h1>
             <div class="flex flex-wrap items-center gap-4 text-sm text-brand-muted font-grotesk">
                 <div class="flex items-center gap-2">
@@ -167,6 +167,8 @@
         </div>
     </div>
 </section>
+
+@include('partials.related-links')
 
 {{-- Custom CSS for raw HTML rendering inside article --}}
 <style>

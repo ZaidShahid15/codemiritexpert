@@ -86,6 +86,8 @@
                     <li><a href="{{ route('services.detail', 'ecommerce') }}" class="hover:text-white transition">eCommerce Development</a></li>
                     <li><a href="{{ route('services.detail', 'api-development') }}" class="hover:text-white transition">API Development</a></li>
                     <li><a href="{{ route('services.detail', 'business-systems') }}" class="hover:text-white transition">Business Systems</a></li>
+                    <li><a href="{{ route('landing.law-firm') }}" class="hover:text-white transition text-brand-blue/90 font-medium">Law Firm Websites</a></li>
+                    <li><a href="{{ route('landing.clinic') }}" class="hover:text-white transition text-emerald-400/90 font-medium">Clinic Websites</a></li>
                 </ul>
             </div>
         </div>

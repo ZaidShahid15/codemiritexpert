@@ -1,12 +1,12 @@
 @extends('layouts.app')
-@section('title', 'Get a Free Quote — Hire Expert Laravel Developers | Codemir IT Experts')
-@section('meta_description', 'Ready to build your custom web app or SaaS platform? Get a free quote from Codemir IT Experts. Laravel, AI & full-stack development — response within 24 hours.')
+@section('title', 'Hire Laravel Developer | Free Quote | Codemir')
+@section('meta_description', 'Hire a dedicated Laravel developer for your custom web app, SaaS platform, or business system. 24-hour response time. Request a free quote.')
 
 @section('content')
 @include('components.page-hero', [
-    'eyebrow'     => 'Get In Touch',
-    'title'       => "Let's Build<br><span class=\"text-brand-blue\">Something Great</span>",
-    'description' => "Tell us about your project and we'll get back to you within 24 hours with a tailored plan — no pressure, no generic templates.",
+    'eyebrow'     => 'Hire Dedicated Talent',
+    'title'       => "Hire a Dedicated<br><span class=\"text-brand-blue\">Laravel Developer</span>",
+    'description' => "Hire a dedicated Laravel developer for your next web application, SaaS platform, or AI project. Response within 24 hours with a transparent project plan.",
     'cta1Label'   => 'Send a Message',
     'cta1Route'   => 'contact',
     'cta2Label'   => 'View Our Work',

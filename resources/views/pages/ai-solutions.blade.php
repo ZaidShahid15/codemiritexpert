@@ -1,22 +1,34 @@
 @extends('layouts.app')
-@section('title', 'AI Solutions — Custom Chatbots, Workflow Agents & Voice AI | Codemir IT Experts')
-@section('meta_description', 'Custom AI chatbots, autonomous workflow agents, voice assistants & NLP data pipelines. Integrate GPT-4, Claude & custom AI models into your business operations.')
+@section('title', 'AI Voice Assistant & RAG Chatbot Development | Codemir')
+@section('meta_description', 'AI voice assistant and RAG chatbot development. Automate workflows, voice customer service, and vector knowledge search in Laravel applications.')
 
 @section('content')
 @include('components.page-hero', [
-    'eyebrow'     => 'Artificial Intelligence',
-    'title'       => 'Futuristic AI Solutions &<br><span class="text-brand-blue">Automation</span>',
-    'description' => 'We integrate state-of-the-art LLMs, automated agents, and intelligent voice assistants to optimize your business operations and accelerate growth.',
+    'eyebrow'     => 'Voice AI & Advanced RAG',
+    'title'       => 'AI Voice Assistant &<br><span class="text-brand-blue">RAG Chatbot Development</span>',
+    'description' => 'We engineer custom AI voice assistants and RAG chatbot development systems to automate workflows, voice customer interactions, and vector knowledge search for businesses in the US, UK and Australia.',
     'cta1Label'   => 'Get Started',
     'cta1Route'   => 'contact',
     'cta2Label'   => 'See Our Work',
     'cta2Route'   => 'work',
-    'badges'      => ['AI Chatbots', 'Autonomous Agents', 'Voice Assistants', 'Workflow Automation', 'Custom RAG Integrations'],
+    'badges'      => ['AI Voice Assistants', 'Autonomous Workflow Agents', 'Custom RAG Pipelines', 'Vector Search', 'Enterprise Automations'],
 ])
 
 {{-- SOLUTIONS GRID --}}
 <section class="py-24 bg-brand-black min-h-screen">
     <div class="max-w-7xl mx-auto px-6">
+        {{-- Cross Link to standard website chatbot service --}}
+        <div class="mb-14 bg-gradient-to-r from-brand-blue/10 to-brand-card border border-brand-blue/30 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6" data-aos="fade-up">
+            <div>
+                <span class="font-grotesk text-xs uppercase tracking-wider text-brand-blue font-semibold block mb-1">Standard Support Widgets</span>
+                <h3 class="font-playfair text-xl md:text-2xl font-bold text-white mb-1">Need On-Site AI Chatbots for Customer Support?</h3>
+                <p class="font-inter text-brand-muted text-sm max-w-xl">If you are looking for embeddable customer service chat widgets and automated ticketing, check out our specialized <a href="{{ route('services.detail', 'ai-tools') }}" class="text-brand-blue underline hover:text-white">AI chatbot development for business</a> services.</p>
+            </div>
+            <a href="{{ route('services.detail', 'ai-tools') }}" class="bg-brand-blue hover:bg-brand-blue-hover text-white text-sm font-semibold px-6 py-3 rounded-full transition shrink-0 inline-flex items-center gap-2">
+                <span>View Support Chatbots</span>
+                <span>&rarr;</span>
+            </a>
+        </div>
         <div class="text-center mb-16" data-aos="fade-up">
             <span class="font-grotesk text-brand-blue text-sm tracking-widest uppercase">Ecosystem Capabilities</span>
             <h2 class="font-playfair text-4xl md:text-5xl font-bold text-white mt-3">Futuristic AI Integrations</h2>
@@ -287,4 +299,5 @@
 </section>
 
 @include('components.faq')
+@include('partials.related-links')
 @endsection

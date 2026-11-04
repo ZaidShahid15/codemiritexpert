@@ -1,19 +1,18 @@
 @extends('layouts.app')
-@section('title', 'Web Development Services — Laravel, AI, eCommerce & APIs | Codemir IT Experts')
-@section('meta_description', 'Custom Laravel web apps, AI-powered tools, eCommerce stores, API integrations & business management systems. Explore all development services by Codemir IT Experts.')
+@section('title', 'Web Development Services Laravel | Codemir IT Experts')
+@section('meta_description', 'Custom web development services in Laravel for US, UK and Australian startups. Fast, hand-coded web apps and APIs. Request your free quote today!')
 
 @section('content')
 @include('components.page-hero', [
-    'eyebrow'     => 'What We Build',
-    'title'       => 'Our Services &<br><span class="text-brand-blue">Solutions</span>',
-    'description' => 'From custom Laravel web systems to AI-powered automations — we deliver end-to-end digital solutions that grow your business.',
+    'eyebrow'     => 'Laravel Engineering',
+    'title'       => 'Web Development Services<br><span class="text-brand-blue">in Laravel</span>',
+    'description' => 'From custom Laravel web applications to AI-powered automations — we provide high-performance web development services in Laravel for US, UK and Australian businesses.',
     'cta1Label'   => 'Start Your Project',
     'cta1Route'   => 'contact',
     'cta2Label'   => 'See Our Work',
     'cta2Route'   => 'work',
     'badges'      => ['Laravel Development', 'AI Integration', 'API & SaaS', 'E-Commerce', 'Mobile Apps'],
 ])
-
 {{-- SERVICES SECTION WITH TABS --}}
 <section class="py-24 bg-brand-black min-h-screen" x-data="{ activeTab: 'All' }">
     <div class="max-w-7xl mx-auto px-6">
@@ -254,31 +253,31 @@
 
             @foreach([
                 [
-                    'step' => '01', 
-                    'title' => 'Discovery',    
+                    'step' => '01',
+                    'title' => 'Discovery',
                     'desc' => 'We learn your business, goals, and current pain points to scope out the perfect technical solution.',
                     'icon' => '<svg class="w-6 h-6 text-brand-blue" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>'
                 ],
                 [
-                    'step' => '02', 
-                    'title' => 'Design',       
+                    'step' => '02',
+                    'title' => 'Design',
                     'desc' => 'We wireframe, map user journeys, and design high-fidelity UI/UX layouts tailored to your brand identity.',
                     'icon' => '<svg class="w-6 h-6 text-brand-blue" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>'
                 ],
                 [
-                    'step' => '03', 
-                    'title' => 'Development',  
+                    'step' => '03',
+                    'title' => 'Development',
                     'desc' => 'Our experts code your product using clean Laravel / Vue architecture, prioritizing speed, security, and scalability.',
                     'icon' => '<svg class="w-6 h-6 text-brand-blue" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>'
                 ],
                 [
-                    'step' => '04', 
-                    'title' => 'Launch',       
+                    'step' => '04',
+                    'title' => 'Launch',
                     'desc' => 'We rigorously test, deploy, monitor performance, and provide post-launch optimization support.',
                     'icon' => '<svg class="w-6 h-6 text-brand-blue" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.63 8.41a14.98 14.98 0 00-6.16 12.12A14.98 14.98 0 0015.59 14.37z"/></svg>'
                 ],
             ] as $index => $step)
-            <div class="relative bg-brand-card/50 backdrop-blur-sm border border-white/5 rounded-3xl p-8 hover:border-brand-blue/30 hover:-translate-y-2 transition-all duration-300 z-10 group" 
+            <div class="relative bg-brand-card/50 backdrop-blur-sm border border-white/5 rounded-3xl p-8 hover:border-brand-blue/30 hover:-translate-y-2 transition-all duration-300 z-10 group"
                  data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
                 <div class="absolute top-6 right-8 font-grotesk text-4xl font-extrabold text-white/5 group-hover:text-brand-blue/10 transition-colors duration-300">
                     {{ $step['step'] }}
@@ -302,7 +301,7 @@
 <section class="py-16 bg-brand-black border-b border-white/5 relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-6">
         <div class="flex flex-col lg:flex-row items-center justify-between gap-10">
-            
+
             <div class="max-w-md text-center lg:text-left shrink-0" data-aos="fade-right">
                 <span class="font-grotesk text-brand-blue text-xs uppercase tracking-widest block mb-2 font-semibold">Integrations</span>
                 <h2 class="font-playfair text-2xl md:text-3xl font-bold text-white leading-tight">
@@ -337,6 +336,7 @@
         </div>
     </div>
 </section>
+@include('partials.related-links')
 
 {{-- BOTTOM CTA BANNER --}}
 <section class="py-24 bg-gradient-to-b from-brand-black to-brand-dark relative overflow-hidden">

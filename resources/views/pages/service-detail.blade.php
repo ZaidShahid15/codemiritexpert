@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', $service['title'] . ' | Codemir IT Experts')
+@section('title', $service['meta_title'] ?? (str_contains($service['title'], 'Codemir') ? $service['title'] : $service['title'] . ' | Codemir IT Experts'))
 @section('meta_description', $service['description'])
 
 @section('structured_data')
@@ -66,7 +66,7 @@
 
     <div class="relative z-10 max-w-7xl mx-auto px-6 w-full">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            
+
             {{-- Left Side: Info --}}
             <div class="lg:col-span-7" data-aos="fade-right">
                 {{-- Breadcrumbs --}}
@@ -113,9 +113,9 @@
                 </div>
 
                 <h1 class="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white mb-6">
-                    {{ $service['title'] }}<span class="text-brand-blue">.</span>
+                    {{ $service['h1'] ?? $service['title'] }}<span class="text-brand-blue">.</span>
                 </h1>
-                
+
                 <p class="font-inter text-brand-muted text-base md:text-lg leading-relaxed mb-8 max-w-xl">
                     {{ $service['long_description'] }}
                 </p>
@@ -222,6 +222,33 @@
             </div>
             @endforeach
         </div>
+
+        @if(!empty($service['case_study']))
+        <div class="mt-12 bg-gradient-to-r from-brand-blue/10 via-brand-card to-brand-card border border-brand-blue/30 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6" data-aos="fade-up">
+            <div>
+                <span class="font-grotesk text-xs uppercase tracking-wider text-brand-blue font-semibold block mb-1">Delivered Case Study</span>
+                <h3 class="font-playfair text-xl md:text-2xl font-bold text-white mb-2">{{ $service['case_study']['title'] }}</h3>
+                <p class="font-inter text-brand-muted text-sm max-w-xl">{{ $service['case_study']['desc'] }}</p>
+            </div>
+            <a href="{{ route('work.detail', $service['case_study']['slug']) }}" class="bg-brand-blue hover:bg-brand-blue-hover text-white text-sm font-semibold px-6 py-3 rounded-full transition shrink-0 inline-flex items-center gap-2 shadow-lg shadow-brand-blue/20">
+                <span>View Case Study</span>
+                <span>&rarr;</span>
+            </a>
+        </div>
+        @endif
+
+        @if($service['slug'] === 'ai-tools')
+        <div class="mt-6 bg-brand-card border border-purple-500/30 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-6" data-aos="fade-up">
+            <div>
+                <span class="font-grotesk text-xs uppercase tracking-wider text-purple-400 font-semibold block mb-1">Advanced AI Engineering</span>
+                <h3 class="font-playfair text-xl font-bold text-white mb-1">Need Voice Assistants or Custom RAG Workflows?</h3>
+                <p class="font-inter text-brand-muted text-sm max-w-xl">Explore our specialized AI voice assistant and RAG chatbot development solutions for multi-agent business automations.</p>
+            </div>
+            <a href="{{ route('ai-solutions') }}" class="border border-purple-500/50 hover:bg-purple-500/10 text-white text-sm font-semibold px-6 py-3 rounded-full transition shrink-0">
+                Explore AI Solutions &rarr;
+            </a>
+        </div>
+        @endif
     </div>
 </section>
 
@@ -248,6 +275,7 @@
         </div>
     </div>
 </section>
+@include('partials.related-links')
 
 {{-- CTA BANNER --}}
 <section class="py-20 bg-brand-dark border-t border-white/5">
