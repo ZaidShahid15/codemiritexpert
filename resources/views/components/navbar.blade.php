@@ -68,7 +68,7 @@
 
             {{-- CTA Button --}}
             <a href="{{ route('contact') }}"
-               class="hidden md:inline-flex items-center gap-2 bg-brand-blue hover:bg-brand-blue-hover text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 flex-shrink-0 shadow-lg shadow-brand-blue/20">
+               class="hidden md:inline-flex items-center gap-2 bg-brand-blue hover:bg-brand-blue-hover text-white text-sm font-semibold px-6 py-2.5 rounded-full transition-all duration-200 flex-shrink-0 shadow-lg shadow-brand-blue/25 hover:shadow-brand-blue/40 hover:-translate-y-0.5">
                 Get a Quote →
             </a>
 

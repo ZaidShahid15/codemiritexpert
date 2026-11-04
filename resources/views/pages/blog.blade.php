@@ -1,11 +1,11 @@
 @extends('layouts.app')
-@section('title', 'Blog — Laravel Development, AI Integration & Web Architecture Insights | Codemir IT Experts')
-@section('meta_description', 'Technical deep dives into Laravel architecture, GPT-4 API integration, custom CRM development & why hand-coded PHP beats WordPress. Written by Codemir IT Experts.')
+@section('title', 'Laravel Web Development & AI Blog | Codemir IT Experts')
+@section('meta_description', 'Technical guides on Laravel development, OpenAI integration, custom CRM architecture, and SaaS performance. Written by senior Laravel engineer Zaid Shahid.')
 
 @section('content')
 @include('components.page-hero', [
     'eyebrow'     => 'Our Blog',
-    'title'       => 'Developer Insights &<br><span class="text-brand-blue">Tech Articles</span>',
+    'title'       => 'Laravel Engineering &<br><span class="text-brand-blue">AI Insights</span>',
     'description' => 'Read our latest insights on PHP Laravel engineering, generative AI integrations, and custom business workflow automations.',
     'cta1Label'   => 'Contact Us',
     'cta1Route'   => 'contact',
@@ -13,20 +13,19 @@
     'cta2Route'   => 'blog',
     'badges'      => ['Laravel Best Practices', 'OpenAI APIs', 'Custom CRM/ERP', 'API Design', 'Software Performance'],
 ])
-
 {{-- BLOG POSTS LIST --}}
 <section class="py-24 bg-brand-black min-h-screen">
     <div class="max-w-6xl mx-auto px-6">
-        
+
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             @foreach($posts as $slug => $post)
             <div data-aos="fade-up" data-aos-delay="{{ $loop->index * 80 }}">
                 <div class="bg-brand-card border border-white/5 rounded-2xl overflow-hidden hover:border-brand-blue/30 transition-all duration-300 hover:-translate-y-1 group h-full flex flex-col justify-between">
-                    
+
                     {{-- Blog Card Cover Image --}}
                     <div class="relative h-52 overflow-hidden bg-brand-dark border-b border-white/5">
-                        <img src="{{ asset('images/blogs/' . $post['image']) }}" 
-                             alt="{{ $post['title'] }}" 
+                        <img src="{{ asset('images/blogs/' . $post['image']) }}"
+                             alt="{{ $post['title'] }}"
                              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                              loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-card via-transparent to-black/20"></div>
@@ -122,7 +121,7 @@
 <section class="py-16 bg-brand-black border-b border-white/5 relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-6">
         <div class="flex flex-col lg:flex-row items-center justify-between gap-10">
-            
+
             <div class="max-w-md text-center lg:text-left shrink-0" data-aos="fade-right">
                 <span class="font-grotesk text-brand-blue text-xs uppercase tracking-widest block mb-2 font-semibold">Integrations</span>
                 <h2 class="font-playfair text-2xl md:text-3xl font-bold text-white leading-tight">
@@ -157,6 +156,7 @@
         </div>
     </div>
 </section>
+@include('partials.related-links')
 
 {{-- BOTTOM CTA BANNER --}}
 <section class="py-24 bg-gradient-to-b from-brand-black to-brand-dark relative overflow-hidden">

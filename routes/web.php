@@ -18,6 +18,9 @@ Route::get('/contact',   [PageController::class, 'contact'])->name('contact');
 Route::post('/contact',  [ContactController::class, 'send'])->name('contact.send');
 Route::post('/audit-request', [ContactController::class, 'audit'])->name('contact.audit');
 
+Route::get('/law-firm-website-development', [PageController::class, 'lawFirmLanding'])->name('landing.law-firm');
+Route::get('/clinic-website-development', [PageController::class, 'clinicLanding'])->name('landing.clinic');
+
 Route::get('/privacy-policy', [PageController::class, 'privacy'])->name('privacy');
 Route::get('/terms-and-conditions', [PageController::class, 'terms'])->name('terms');
 Route::get('/sitemap', [PageController::class, 'sitemap'])->name('sitemap');

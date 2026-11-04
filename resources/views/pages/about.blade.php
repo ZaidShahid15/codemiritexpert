@@ -1,17 +1,17 @@
 @extends('layouts.app')
-@section('title', 'About Us — Laravel Development Agency Serving US, UK & Australia | Codemir IT Experts')
-@section('meta_description', 'Meet Zaid Shahid, founder of Codemir IT Experts — a Laravel & AI development agency in Pakistan building custom web apps for founders in the US, UK & Australia.')
+@section('title', 'Zaid Shahid | Codemir IT Experts Web Development')
+@section('meta_description', 'Meet Zaid Shahid, founder of Codemir IT Experts. Custom Laravel web applications, AI integrations, and dedicated software engineering for US, UK & AU.')
 
 @section('content')
 @include('components.page-hero', [
-    'eyebrow'     => 'Who We Are',
-    'title'       => 'Building Systems<br><span class="text-brand-blue">That Scale</span>',
-    'description' => 'A passionate team of developers from Faisalabad, Pakistan, delivering top-tier web systems and AI tools to founders and SMBs across the globe.',
+    'eyebrow'     => 'Founder & Engineering',
+    'title'       => 'Zaid Shahid &<br><span class="text-brand-blue">Codemir IT Experts</span>',
+    'description' => 'Led by founder Zaid Shahid, Codemir IT Experts builds custom Laravel web systems and AI tools for founders, startups, and SMBs across the US, UK, and Australia.',
     'cta1Label'   => 'Work With Us',
     'cta1Route'   => 'contact',
     'cta2Label'   => 'See Our Work',
     'cta2Route'   => 'work',
-    'badges'      => ['Founded in Faisalabad', 'Pakistan-Based & Global', '5+ Years Experience', 'Trusted by 20+ Clients'],
+    'badges'      => ['Laravel Engineering', 'Global Delivery', '3+ Years Experience', 'Trusted by 20+ Clients'],
 ])
 
 <section class="py-24 bg-brand-black min-h-screen">
@@ -98,6 +98,7 @@
         </div>
     </div>
 </section>
+@include('partials.related-links')
 
 {{-- BOTTOM CTA BANNER --}}
 <section class="py-24 bg-gradient-to-b from-brand-black to-brand-dark relative overflow-hidden">

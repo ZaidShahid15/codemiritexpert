@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth" style="overflow-x: hidden;">
+<html lang="en" class="scroll-smooth scroll-pt-28" style="overflow-x: hidden;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -66,13 +66,13 @@
     <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="{{ url()->current() }}">
+    <link rel="canonical" href="{{ rtrim(config('app.url'), '/') . request()->getPathInfo() }}">
 
     <!-- Open Graph -->
     <meta property="og:title" content="@yield('title', 'Codemir IT Experts')">
     <meta property="og:description" content="@yield('meta_description', 'Custom Laravel web development agency.')">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:url" content="{{ rtrim(config('app.url'), '/') . request()->getPathInfo() }}">
     <meta property="og:image" content="{{ asset('images/logo.png') }}">
     <meta property="og:site_name" content="Codemir IT Experts">
     <meta property="og:locale" content="en_US">
