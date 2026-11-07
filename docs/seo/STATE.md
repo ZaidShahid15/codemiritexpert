@@ -3,7 +3,7 @@
 - **Current Branch:** `seo-keywords`
 - **PHP Version:** 8.3.36
 - **Laravel Version:** 12.62.0
-- **Status:** Phase 0 Completed & Verified. Standing by for Phase 1.
+- **Status:** Phase 1 (Keyword Research) Completed. Standing by for user review before Phase 2.
 
 ---
 
@@ -24,7 +24,7 @@
 
 ---
 
-## 2. Confirmed Project Decisions
+## 2. Confirmed Project Decisions & Inputs
 
 1. **Global `ProfessionalService` JSON-LD:**
    - `areaServed` includes "Pakistan" alongside US, UK, Australia. **Decision: KEEP as-is in code**. No modifications made to global layout or JSON-LD.
@@ -35,19 +35,17 @@
    - Permitted: updating values of `meta_title`, `title`, `description`, and `summary` within `PageController.php` arrays (`$allServices`, `$allProjects`, `$posts`).
    - Forbidden: modifying array keys, slugs, routes, method names, or controller execution logic.
 
-3. **Keyword Data Source:**
-   - Search Console and Google Keyword Planner exports will be placed in `docs/seo/data/`.
-   - Phase 1 research will not begin until files are provided and the explicit "go" command is given.
+3. **Keyword Data Source (Phase 1):**
+   - Pre-check verified `docs/seo/data/` is currently empty.
+   - Decision Applied: "No exports are available. Label every volume UNKNOWN."
+   - Data gathered via live SERP observation, analyzing actual ranking domains, query intent, and organic competitive patterns.
 
-4. **Phase 5 Additional Scope:**
-   - Dedicated landing page idea for **Nonprofit Website Development** (online donations, donor UX, recurring giving workflows) to be researched with low-competition keyword evidence.
-
----
-
-## 3. Data Directory
-- `docs/seo/data/`: Created. Currently empty, awaiting Search Console & Keyword Planner exports.
+4. **Phase 1 Output:**
+   - Generated `docs/seo/keyword-research.csv` with 63 researched keywords across all 24 site pages + Phase 5 nonprofit landing page idea.
+   - All search volumes labeled `UNKNOWN` per non-negotiable Rule 2.
+   - Competition strictly rated from live SERP domains (LOW, MEDIUM, HIGH).
 
 ---
 
-## 4. Next Step
-- **STOPPED:** Awaiting user "go" and export files before starting Phase 1 (Keyword Research).
+## 3. Next Step
+- **STOPPED:** Awaiting user's review and approval ("go") to proceed to **Phase 2: Keyword Map** (`docs/seo/keyword-map.md`).
