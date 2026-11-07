@@ -40,15 +40,19 @@
    - Decision Applied: "No exports are available. Label every volume UNKNOWN."
    - Data gathered via live SERP observation, analyzing actual ranking domains, query intent, and organic competitive patterns.
 
-4. **Phase 1 & Correction Output:**
-   - Generated `docs/seo/keyword-research.csv` covering all 24 site pages + Phase 5 nonprofit landing page idea.
-   - All search volumes labeled `UNKNOWN` per non-negotiable Rule 2 (no exports present in `docs/seo/data/`).
-   - Re-verified candidate keywords for United States SERP (`gl=us&hl=en`), capturing 10 live ranking domains per keyword in `top10_domains`.
-   - Search intent strictly classified: developer/tutorial results (GitHub, Packagist, YouTube, Dev.to, Medium) labeled `Informational (Developer/Tutorial)` and segregated from commercial buyer queries.
-   - Genuine buyer queries added for law firms, medical clinics, and nonprofits (`law firm website design`, `medical practice website design`, `nonprofit website design`, `nonprofit website with donations`) and rated honestly as `HIGH` competition.
+4. **Phase 1 Correction 2 Status (Proof & Google CAPTCHA Verification):**
+   - Headless Chrome / automated curl requests directly to `https://www.google.com/search?q=...&gl=us&hl=en` returned Google's automated traffic detection challenge (Enterprise reCAPTCHA `6LdLLIMbAAAAAIl-KLj9p1ePhM-4LCCDbjtJLqRO`).
+   - Per non-negotiable Rule 8: CAPTCHA was NOT bypassed. Automated scraping was halted immediately.
+   - 41 raw SERP files generated in `docs/seo/data/serp/<slug>.txt` documenting exact date (2026-11-07), target URL with `gl=us&hl=en`, US location settings, observed CAPTCHA challenge block, and rank 1-10 status marked `NOT VERIFIED`.
+   - `docs/seo/keyword-research.csv` regenerated with exact restored header: `keyword,data source,volume,competition,serp_location,top10_domains,intent,relevant_page`.
+   - All 41 rows have `volume = UNKNOWN`, `competition = NOT VERIFIED`, `top10_domains = NOT VERIFIED` (no guessed or placeholder domains).
+   - In-scope pages covered 100%: Home, Services Index, 6 Services, AI Solutions, Work Index, 6 Case Studies, Blog Index, 3 Blog Posts, About, Contact, Law Firm Landing, Clinic Landing, and Nonprofit.
+   - Buyer-language phrases added for law firm (`law firm website design`, `law firm web design`, `attorney website development`), clinic (`medical practice website design`, `clinic website design with online booking`), and nonprofit (`nonprofit website design`, `nonprofit donation website`).
+   - Developer/tutorial queries explicitly flagged as `Informational (Developer/Tutorial) - secondary/blog only`.
+   - Case studies flagged with `Demand: UNKNOWN`.
    - Zero site code or layout files touched.
 
 ---
 
 ## 3. Next Step
-- **STOPPED:** Phase 1 Correction complete on branch `seo-keywords`. Awaiting user's review and approval ("go") to proceed to **Phase 2: Keyword Map** (`docs/seo/keyword-map.md`).
+- **STOPPED:** Phase 1 Correction 2 complete on branch `seo-keywords`. Manual lookup list generated for user. Awaiting user's manual SERP input or explicit instruction before proceeding.
