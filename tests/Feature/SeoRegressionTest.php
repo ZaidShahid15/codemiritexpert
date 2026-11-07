@@ -9,6 +9,28 @@ use Tests\TestCase;
 class SeoRegressionTest extends TestCase
 {
     /**
+     * Expected SHA256 checksums from baseline.
+     */
+    private const ROBOTS_SHA256 = '71dfa504b648eb2e9d246ef878f8969ea2fa1bfa73ee799febe4c113292c09df';
+    private const SITEMAP_SHA256 = 'a7fe211ee2218aa6fbc65c07d1e2d65977a1dc7b9b581d8a23696aefc79bfe86';
+
+    /**
+     * Assert the SHA256 checksum of public/robots.txt against the baseline.
+     */
+    public function test_robots_txt_matches_baseline_sha256(): void
+    {
+        $robotsPath = public_path('robots.txt');
+        $this->assertFileExists($robotsPath, 'public/robots.txt must exist.');
+
+        $actualSha256 = hash_file('sha256', $robotsPath);
+        $this->assertSame(
+            self::ROBOTS_SHA256,
+            $actualSha256,
+            'public/robots.txt SHA256 hash does not match the baseline value.'
+        );
+    }
+
+    /**
      * Test every page against the baseline snapshot.
      */
     public function test_pages_match_seo_baseline(): void
@@ -20,6 +42,18 @@ class SeoRegressionTest extends TestCase
         $this->assertIsArray($baseline);
         $this->assertArrayHasKey('pages', $baseline);
 
+        // Verify baseline file contains recorded hashes
+        $this->assertSame(
+            self::ROBOTS_SHA256,
+            $baseline['robots_txt_sha256'] ?? null,
+            'Baseline file robots_txt_sha256 mismatch.'
+        );
+        $this->assertSame(
+            self::SITEMAP_SHA256,
+            $baseline['sitemap_xml_sha256'] ?? null,
+            'Baseline file sitemap_xml_sha256 mismatch.'
+        );
+
         foreach ($baseline['pages'] as $pageData) {
             $url = $pageData['url'];
             $response = $this->get($url);
@@ -27,8 +61,14 @@ class SeoRegressionTest extends TestCase
             // Assert HTTP 200
             $response->assertStatus(200, "URL {$url} failed to return HTTP 200.");
 
-            // Sitemap.xml check
+            // XML Sitemap verification
             if (!empty($pageData['is_xml'])) {
+                $actualSitemapSha256 = hash('sha256', $response->getContent());
+                $this->assertSame(
+                    self::SITEMAP_SHA256,
+                    $actualSitemapSha256,
+                    "/sitemap.xml response body SHA256 does not match baseline."
+                );
                 continue;
             }
 
@@ -57,8 +97,8 @@ class SeoRegressionTest extends TestCase
                 "Canonical URL changed for {$url}. Expected {$pageData['canonical']}, got {$canonical}."
             );
 
-            // Internal links identical
-            $links = [];
+            // Extract internal links
+            $actualLinks = [];
             foreach ($xpath->query('//a[@href]') as $a) {
                 $href = trim($a->getAttribute('href'));
                 $anchor = trim(preg_replace('/\s+/', ' ', $a->textContent));
@@ -73,17 +113,32 @@ class SeoRegressionTest extends TestCase
                 }
 
                 if ($isInternal) {
-                    $links[] = [
+                    $actualLinks[] = [
                         'href' => $href,
                         'anchor' => $anchor,
                     ];
                 }
             }
 
-            $this->assertEquals(
-                $pageData['internal_links'],
-                $links,
-                "Internal links set (href, anchor) modified on {$url}."
+            // Compare internal links per page as a SORTED LIST of (href, anchor) pairs
+            // including duplicates and counts
+            $expectedLinks = $pageData['internal_links'];
+
+            $sortCallback = function (array $a, array $b): int {
+                $cmp = strcmp($a['href'], $b['href']);
+                if ($cmp !== 0) {
+                    return $cmp;
+                }
+                return strcmp($a['anchor'], $b['anchor']);
+            };
+
+            usort($expectedLinks, $sortCallback);
+            usort($actualLinks, $sortCallback);
+
+            $this->assertSame(
+                $expectedLinks,
+                $actualLinks,
+                "Internal links sorted list mismatch on {$url}."
             );
         }
     }
