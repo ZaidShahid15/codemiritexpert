@@ -3,7 +3,7 @@
 - **Current Branch:** `seo-keywords`
 - **PHP Version:** 8.3.36
 - **Laravel Version:** 12.62.0
-- **Status:** Phase 1 (Keyword Research) Completed. Standing by for user review before Phase 2.
+- **Status:** Phase 1 (Keyword Research) PARTLY COMPLETE. 17 keywords have real top-10 evidence from a non-Google US search tool (approximate). The rest are NOT COLLECTED (Google CAPTCHA). Standing by for user to verify 5 keywords by hand and then say "go" for Phase 2.
 
 ---
 
@@ -38,19 +38,33 @@
 3. **Keyword Data Source (Phase 1):**
    - Pre-check verified `docs/seo/data/` had no exports.
    - Decision Applied: "No exports are available. Label every volume UNKNOWN."
-   - Automated Google lookups were blocked by Google's anti-bot CAPTCHA. Data source is explicitly labeled `NOT COLLECTED (Google CAPTCHA, no results seen)` across all rows.
+   - Automated Google lookups were blocked by Google's anti-bot CAPTCHA. Data source is explicitly labeled `NOT COLLECTED (Google CAPTCHA, no results seen)` for 27 rows.
+   - 17 keywords now have real top-10 results from a non-Google US search tool (`docs/seo/data/keyword-research-websearch.csv` and `docs/seo/data/serp-websearch-us.md`, both approximate; Google NOT checked).
+   - **All volumes are UNKNOWN** until Keyword Planner / Search Console exports are added to `docs/seo/data/`.
+   - **Note:** `custom api development services` returned only 7 results; its top 10 is NOT fully verified.
 
-4. **Phase 1 Correction 2 Status (Proof & Google CAPTCHA Verification):**
-   - Headless Chrome / automated curl requests directly to `https://www.google.com/search?q=...&gl=us&hl=en` returned Google's automated traffic detection challenge (Enterprise reCAPTCHA `6LdLLIMbAAAAAIl-KLj9p1ePhM-4LCCDbjtJLqRO`).
-   - Per non-negotiable Rule 8: CAPTCHA was NOT bypassed. Automated scraping was halted immediately.
-   - 41 raw SERP files generated in `docs/seo/data/serp/<slug>.txt` documenting exact date (2026-11-07), target URL with `gl=us&hl=en`, US location settings, observed CAPTCHA challenge block, and rank 1-10 status marked `NOT VERIFIED`.
-   - `docs/seo/keyword-research.csv` header: `keyword,data source,volume,competition,serp_location,top10_domains,intent,relevant_page`.
-   - All 41 rows have `data source = NOT COLLECTED (Google CAPTCHA, no results seen)`, `volume = UNKNOWN`, `competition = NOT VERIFIED`, `top10_domains = NOT VERIFIED`, and `intent = UNVERIFIED (hypothesis: <intent>)` (no guessed or placeholder domains).
-   - In-scope pages covered 100%: Home, Services Index, 6 Services, AI Solutions, Work Index, 6 Case Studies, Blog Index, 3 Blog Posts, About, Contact, Law Firm Landing, Clinic Landing, and Nonprofit.
-   - Buyer-language phrases added for law firm (`law firm website design`, `law firm web design`, `attorney website development`), clinic (`medical practice website design`, `clinic website design with online booking`), and nonprofit (`nonprofit website design`, `nonprofit donation website`).
+4. **Phase 1 Correction 2 & Import Status:**
+   - Headless Chrome / automated curl requests to Google triggered Enterprise reCAPTCHA block (Rule 8 — NOT bypassed).
+   - 41 raw SERP files in `docs/seo/data/serp/<slug>.txt` document the CAPTCHA block; rank 1–10 remain `NOT VERIFIED` for the 27 non-imported rows.
+   - `docs/seo/keyword-research.csv` header: `keyword,data source,volume,competition,serp_location,top10_domains,intent,relevant_page,competition_reasoning`.
+   - Total rows: 44 (41 original + 3 new: `law firm website development`, `clinic website development`, `nonprofit website development`).
+   - 17 rows now have real `top10_domains`, real `competition` rating, and `competition_reasoning` from the WebSearch import.
+   - 27 rows remain `NOT COLLECTED / NOT VERIFIED / UNVERIFIED (hypothesis: …)`.
    - Zero site code or layout files touched.
 
 ---
 
-## 3. Next Step
-- **STOPPED:** Phase 1 Correction 2 complete on branch `seo-keywords`. Manual lookup list generated for user. Awaiting user's manual SERP input or explicit instruction before proceeding.
+## 3. Open Items & Next Step
+
+### Open Items
+- **Verify these 5 keywords on Google by hand** and paste rank, title, and full URL for positions 1–10 into `docs/seo/data/serp/<slug>.txt`:
+  1. `law firm website development` → `law-firm-website-development.txt`
+  2. `attorney website development` → `attorney-website-development.txt`
+  3. `clinic website development` → `clinic-website-development.txt`
+  4. `clinic website design with online booking` → `clinic-website-design-with-online-booking.txt`
+  5. `nonprofit website development` → `nonprofit-website-development.txt` *(create this file)*
+
+- **All volumes are UNKNOWN** until Keyword Planner / Search Console exports are added to `docs/seo/data/`.
+
+### Next Step
+- **STOPPED:** Awaiting user's Google hand-verification of the 5 above keywords and/or explicit "go" to proceed to **Phase 2: Keyword Map** (`docs/seo/keyword-map.md`).
