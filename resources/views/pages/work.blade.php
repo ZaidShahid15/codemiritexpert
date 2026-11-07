@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Laravel Web App & AI Project Case Studies | Codemir')
+@section('title', 'Web Development Portfolio & Case Studies | Codemir')
 @section('meta_description', 'Explore real Laravel web application case studies by Codemir IT Experts. Custom SaaS platforms, ERP systems, AI chatbots, and eCommerce stores.')
 
 @section('content')

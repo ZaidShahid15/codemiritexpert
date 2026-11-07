@@ -3,13 +3,13 @@
 - **Current Branch:** `seo-keywords`
 - **PHP Version:** 8.3.36
 - **Laravel Version:** 12.62.0
-- **Status:** Phase 2 (Keyword Mapping) DRAFTED (`docs/seo/keyword-map.md`). Standing by for user review and approval before Phase 3. Zero site files touched.
+- **Status:** Phase 3 (Controller & Meta Execution) COMPLETE. All 11 meta title/description changes applied across 5 blade views and PageController.php. Baseline regenerated. 4/4 tests passing (119 assertions). Phase 4 is LOCKED awaiting "go phase 4".
 
 ---
 
 ## 1. Baseline & Regression Suite Status
 
-- **Baseline Snapshot:** `docs/seo/baseline.json` (28 routes total: 27 HTML pages, 1 XML sitemap).
+- **Baseline Snapshot:** `docs/seo/baseline.json` (28 routes total: 27 HTML pages, 1 XML sitemap). **Regenerated after Phase 3 edits (2026-11-07).**
 - **Public Routes Status:** All return HTTP 200.
 - **H1 Verification:** Exactly one `<h1>` element per HTML page.
 - **Canonical URLs:** 100% matched to defined domain URLs.
@@ -18,53 +18,59 @@
   - `public/robots.txt` SHA256: `71dfa504b648eb2e9d246ef878f8969ea2fa1bfa73ee799febe4c113292c09df`
   - `/sitemap.xml` SHA256: `a7fe211ee2218aa6fbc65c07d1e2d65977a1dc7b9b581d8a23696aefc79bfe86`
 - **Regression Test:** `tests/Feature/SeoRegressionTest.php`
-  - Asserts HTTP 200, single H1, unchanged canonicals, `public/robots.txt` SHA256, `/sitemap.xml` SHA256, and sorted internal links `(href, anchor)` with duplicate count verification.
-  - Test suite status: `PASS` (4 tests, 119 assertions).
-  - Proven failure mode verified: intentional anchor text alteration fails regression test immediately.
+  - Asserts HTTP 200, single H1, unchanged canonicals, `public/robots.txt` SHA256, `/sitemap.xml` SHA256, and sorted internal links `(href, anchor)`.
+  - Test suite status: `PASS` (4 tests, 119 assertions — 2026-11-07).
 
 ---
 
-## 2. Confirmed Project Decisions & Inputs
+## 2. Phase 3 Changes Applied (2026-11-07)
 
-1. **Global `ProfessionalService` JSON-LD:**
-   - `areaServed` includes "Pakistan" alongside US, UK, Australia. **Decision: KEEP as-is in code**. No modifications made to global layout or JSON-LD.
-   - Factual accuracy confirmed: Brand (Codemir IT Experts), founder (Zaid Shahid, Lead Developer), locality (Faisalabad, PK), languages (English, Urdu), social entities (GitHub, LinkedIn, Facebook, Instagram).
-   - Google Knowledge Graph / Maps search URLs in `sameAs` noted for Phase 5 cleanup suggestion only; code remains untouched.
+### Blade View Changes
+| File | New Title (chars) | Desc (chars) |
+|---|---|---|
+| `home.blade.php` | Custom Web Development Agency \| Codemir IT Experts (50) | 143 |
+| `services.blade.php` | Laravel Web Development Services \| Codemir IT Experts (53) | 135 |
+| `ai-solutions.blade.php` | AI Workflow & RAG Automation \| Codemir IT Experts (53) | 149 |
+| `work.blade.php` | Web Development Portfolio & Case Studies \| Codemir (54) | NO CHANGE |
+| `landing-clinic.blade.php` | Clinic Website Development \| Codemir IT Experts (47) | 143 |
 
-2. **Phase 3 Controller Edit Scope:**
-   - Permitted: updating values of `meta_title`, `title`, `description`, and `summary` within `PageController.php` arrays (`$allServices`, `$allProjects`, `$posts`).
-   - Forbidden: modifying array keys, slugs, routes, method names, or controller execution logic.
+### PageController.php Service meta_title Changes
+| Slug | New meta_title |
+|---|---|
+| `custom-websites` | Hand-Coded Website Development \| Codemir IT Experts |
+| `web-applications` | Custom Web Application Development \| Codemir IT Experts |
+| `ai-tools` | Custom AI Chatbot Integration \| Codemir IT Experts |
+| `ecommerce` | Custom eCommerce Web Development \| Codemir IT Experts |
+| `api-development` | Custom API Development Services \| Codemir IT Experts |
+| `business-systems` | Custom Business Management Software \| Codemir IT Experts |
 
-3. **Keyword Data Source (Phase 1):**
-   - Pre-check verified `docs/seo/data/` had no exports.
-   - Decision Applied: "No exports are available. Label every volume UNKNOWN."
-   - Automated Google lookups were blocked by Google's anti-bot CAPTCHA. Data source is explicitly labeled `NOT COLLECTED (Google CAPTCHA, no results seen)` for 27 rows.
-   - 17 keywords now have real top-10 results from a non-Google US search tool (`docs/seo/data/keyword-research-websearch.csv` and `docs/seo/data/serp-websearch-us.md`, both approximate; Google NOT checked).
+Also: replaced "GPT-4" with "OpenAI" in `ai-tools` description and long_description.
+
+---
+
+## 3. Confirmed Project Decisions & Inputs
+
+1. **Global `ProfessionalService` JSON-LD:** `areaServed` includes "Pakistan" alongside US, UK, Australia. **Decision: KEEP as-is in code**. No modifications made to global layout or JSON-LD.
+
+2. **Keyword Data Source (Phase 1):**
+   - 17 keywords have real top-10 results from a non-Google US search tool.
+   - 27 rows remain `NOT COLLECTED / NOT VERIFIED / UNVERIFIED (hypothesis: ...)`.
    - **All volumes are UNKNOWN** until Keyword Planner / Search Console exports are added to `docs/seo/data/`.
-   - **Note:** `custom api development services` returned only 7 results; its top 10 is NOT fully verified.
-
-4. **Phase 1 Correction 2 & Import Status:**
-   - Headless Chrome / automated curl requests to Google triggered Enterprise reCAPTCHA block (Rule 8 — NOT bypassed).
-   - 41 raw SERP files in `docs/seo/data/serp/<slug>.txt` document the CAPTCHA block; rank 1–10 remain `NOT VERIFIED` for the 27 non-imported rows.
-   - `docs/seo/keyword-research.csv` header: `keyword,data source,volume,competition,serp_location,top10_domains,intent,relevant_page,competition_reasoning`.
-   - Total rows: 44 (41 original + 3 new: `law firm website development`, `clinic website development`, `nonprofit website development`).
-   - 17 rows now have real `top10_domains`, real `competition` rating, and `competition_reasoning` from the WebSearch import.
-   - 27 rows remain `NOT COLLECTED / NOT VERIFIED / UNVERIFIED (hypothesis: …)`.
-   - Zero site code or layout files touched.
 
 ---
 
-## 3. Open Items & Next Step
+## 4. Open Items & Next Steps
+
+### Next Step: Phase 4 (Schema + Sitemap)
+- **Phase 4 is LOCKED** until user says "go phase 4".
+- Planned work:
+  - Add page-level `Service` / `FAQPage` / `BreadcrumbList` JSON-LD blocks (service pages, landings, case studies).
+  - Verify XML sitemap is comprehensive and priorities correct.
 
 ### Open Items
-- **Verify these 5 keywords on Google by hand** and paste rank, title, and full URL for positions 1–10 into `docs/seo/data/serp/<slug>.txt`:
-  1. `law firm website development` → `law-firm-website-development.txt`
-  2. `attorney website development` → `attorney-website-development.txt`
-  3. `clinic website development` → `clinic-website-development.txt`
-  4. `clinic website design with online booking` → `clinic-website-design-with-online-booking.txt`
-  5. `nonprofit website development` → `nonprofit-website-development.txt` *(create this file)*
-
-- **All volumes are UNKNOWN** until Keyword Planner / Search Console exports are added to `docs/seo/data/`.
-
-### Next Step
-- **STOPPED:** Phase 2 (Keyword Mapping) drafted in `docs/seo/keyword-map.md`. Awaiting user's explicit review and approval ("go") to proceed to **Phase 3: Controller & Meta Execution**. Phase 3 remains strictly locked.
+- **Verify 5 keywords on Google by hand** (optional, for future keyword research):
+  1. `law firm website development`
+  2. `attorney website development`
+  3. `clinic website development`
+  4. `clinic website design with online booking`
+  5. `nonprofit website development`

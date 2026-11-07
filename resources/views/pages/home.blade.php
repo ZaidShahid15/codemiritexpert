@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Laravel Web Development Company | US, UK & Australia')
-@section('meta_description', 'Custom Laravel web apps, SaaS and AI tools for founders in the US, UK and Australia. Fast, scalable code with 24h response. Request your free quote today!')
+@section('title', 'Custom Web Development Agency | Codemir IT Experts')
+@section('meta_description', 'Custom web development agency for founders in the US, UK and Australia. High-performance Laravel web apps, SaaS platforms, and AI integrations.')
 
 @section('content')
 

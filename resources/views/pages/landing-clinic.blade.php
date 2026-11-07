@@ -1,6 +1,6 @@
 @extends('layouts.app')
-@section('title', 'Clinic & Medical Practice Website Development | Codemir')
-@section('meta_description', 'Clinic and medical practice website development. Real-time patient booking, mobile-first design, automated reminders, and fast load times.')
+@section('title', 'Clinic Website Development | Codemir IT Experts')
+@section('meta_description', 'Clinic website development with online booking. Fast, mobile-first websites with doctor profiles, calendar scheduling, and automated reminders.')
 
 @section('structured_data')
 <script type="application/ld+json">

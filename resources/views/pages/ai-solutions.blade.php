@@ -1,6 +1,6 @@
 @extends('layouts.app')
-@section('title', 'AI Voice Assistant & RAG Chatbot Development | Codemir')
-@section('meta_description', 'AI voice assistant and RAG chatbot development. Automate workflows, voice customer service, and vector knowledge search in Laravel applications.')
+@section('title', 'AI Workflow & RAG Automation | Codemir IT Experts')
+@section('meta_description', 'Custom AI workflow automation, autonomous workflow agents, and RAG knowledge bases in Laravel to streamline operations for US, UK & AU companies.')
 
 @section('content')
 @include('components.page-hero', [

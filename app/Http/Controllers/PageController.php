@@ -121,11 +121,11 @@ class PageController extends Controller
             'custom-websites' => [
                 'slug' => 'custom-websites',
                 'icon' => 'globe',
-                'meta_title' => 'Custom Website Development | Codemir IT Experts',
+                'meta_title' => 'Hand-Coded Website Development | Codemir IT Experts',
                 'title' => 'Custom Website Development',
                 'h1' => 'Custom Website Development',
                 'hero_title' => 'Custom Website Development Built for <span class="text-brand-blue">Performance & Conversion</span>',
-                'description' => 'Custom website development hand-coded in Laravel and Tailwind CSS. Fast, responsive, zero bloated templates. For businesses in US, UK & Australia.',
+                'description' => 'Hand-coded custom website development in Laravel and Tailwind CSS. Fast, responsive layouts with zero bloated templates for US, UK & AU businesses.',
                 'long_description' => 'Bespoke custom website development hand-coded from scratch. No bloated page builders, no generic WordPress templates. Every line of code is written in PHP Laravel for sub-second page speed, structured search engine visibility, and maximum conversion rates.',
                 'technologies' => ['PHP', 'Laravel', 'Blade', 'Tailwind CSS', 'Alpine.js', 'MySQL', 'SEO Best Practices'],
                 'case_study' => [
@@ -150,11 +150,11 @@ class PageController extends Controller
             'web-applications' => [
                 'slug' => 'web-applications',
                 'icon' => 'cog',
-                'meta_title' => 'Custom Web Application Development Laravel | Codemir',
+                'meta_title' => 'Custom Web Application Development | Codemir IT Experts',
                 'title' => 'Custom Web Application Development Laravel',
                 'h1' => 'Custom Web Application Development Laravel',
                 'hero_title' => 'Custom Web Application Development with <span class="text-brand-blue">Laravel</span>',
-                'description' => 'Custom web application development in Laravel. Scalable CRMs, client portals, and cloud platforms engineered for businesses in the US, UK, and Australia.',
+                'description' => 'Custom web application development in Laravel. Scalable CRMs, client portals, and cloud platforms for businesses in the US, UK, and Australia.',
                 'long_description' => 'Scalable custom web application development in Laravel tailored to your exact business workflow. We engineer secure client portals, automated scheduling engines, and cloud platforms that eliminate repetitive administrative overhead.',
                 'technologies' => ['Laravel', 'Livewire', 'Alpine.js', 'MySQL', 'React / Vue', 'Tailwind CSS'],
                 'case_study' => [
@@ -179,12 +179,12 @@ class PageController extends Controller
             'ai-tools' => [
                 'slug' => 'ai-tools',
                 'icon' => 'cpu',
-                'meta_title' => 'AI Chatbot Development for Business | Codemir',
+                'meta_title' => 'Custom AI Chatbot Integration | Codemir IT Experts',
                 'title' => 'AI Chatbot Development for Business',
                 'h1' => 'AI Chatbot Development for Business',
                 'hero_title' => 'AI Chatbot Development for <span class="text-brand-blue">Business & Support</span>',
-                'description' => 'AI chatbot development for business customer support. Custom GPT-4 website chatbots, RAG knowledge bases, and 24/7 lead capture for companies worldwide.',
-                'long_description' => 'End-to-end AI chatbot development for business customer support. We embed intelligent GPT-4 chatbots trained securely on your company knowledge base via Retrieval-Augmented Generation (RAG) to resolve queries and capture qualified leads 24/7.',
+                'description' => 'AI chatbot development for business customer support. Custom OpenAI website chatbots, RAG knowledge bases, and 24/7 automated lead capture.',
+                'long_description' => 'End-to-end AI chatbot development for business customer support. We embed intelligent OpenAI chatbots trained securely on your company knowledge base via Retrieval-Augmented Generation (RAG) to resolve queries and capture qualified leads 24/7.',
                 'technologies' => ['OpenAI API', 'Anthropic Claude', 'Laravel', 'LangChain', 'Python', 'Vector DBs'],
                 'case_study' => [
                     'slug' => 'ai-chatbot-integration',
@@ -208,11 +208,11 @@ class PageController extends Controller
             'ecommerce' => [
                 'slug' => 'ecommerce',
                 'icon' => 'shopping-cart',
-                'meta_title' => 'Custom Ecommerce Development Laravel | Codemir',
+                'meta_title' => 'Custom eCommerce Web Development | Codemir IT Experts',
                 'title' => 'Custom Ecommerce Development Laravel',
                 'h1' => 'Custom Ecommerce Development Laravel',
                 'hero_title' => 'Custom Ecommerce Development with <span class="text-brand-blue">Laravel</span>',
-                'description' => 'Custom ecommerce development in Laravel with Stripe, fast checkouts & zero Shopify fees. Scalable online stores for US, UK, and Australian businesses.',
+                'description' => 'Custom ecommerce development in Laravel with Stripe. Fast checkouts and zero Shopify fees for online stores in the US, UK, and Australia.',
                 'long_description' => 'High-converting custom ecommerce development in Laravel. Escape high Shopify app fees and layout constraints with a bespoke storefront featuring single-page checkouts, Stripe integration, and real-time inventory management.',
                 'technologies' => ['Laravel', 'Stripe API', 'PayPal API', 'MySQL', 'Livewire', 'Tailwind CSS'],
                 'case_study' => [
@@ -237,11 +237,11 @@ class PageController extends Controller
             'api-development' => [
                 'slug' => 'api-development',
                 'icon' => 'link',
-                'meta_title' => 'REST API Development Laravel | Codemir IT Experts',
+                'meta_title' => 'Custom API Development Services | Codemir IT Experts',
                 'title' => 'REST API Development Laravel',
                 'h1' => 'REST API Development Laravel',
                 'hero_title' => 'REST API Development with <span class="text-brand-blue">Laravel</span>',
-                'description' => 'Secure REST API development in Laravel. Mobile backends, third-party integrations, OAuth & webhooks for growing businesses in US, UK and Australia.',
+                'description' => 'Custom API development services in Laravel. Mobile backends, third-party integrations, OAuth, and webhooks for growing businesses in US, UK and AU.',
                 'long_description' => 'Robust REST API development in Laravel engineered for speed, security, and scalability. We build high-throughput backends for mobile applications, external partner integrations, webhooks, and secure payment systems.',
                 'technologies' => ['Laravel Sanctum', 'RESTful API', 'JSON', 'OAuth 2.0', 'Postman', 'Webhooks'],
                 'case_study' => [
@@ -266,11 +266,11 @@ class PageController extends Controller
             'business-systems' => [
                 'slug' => 'business-systems',
                 'icon' => 'chart-bar',
-                'meta_title' => 'Custom ERP & Inventory Software Development | Codemir',
+                'meta_title' => 'Custom Business Management Software | Codemir IT Experts',
                 'title' => 'Custom ERP and Inventory Management Software Development',
                 'h1' => 'Custom ERP and Inventory Management Software Development',
                 'hero_title' => 'Custom ERP & Inventory Management <span class="text-brand-blue">Software</span>',
-                'description' => 'Custom ERP and inventory management software development in Laravel. Tailored portals, dashboards, and automated workflows without costly seat licenses.',
+                'description' => 'Custom business management software in Laravel. Tailored operations dashboards, employee portals, and automated workflows without seat licenses.',
                 'long_description' => 'Lightweight, bespoke custom ERP and inventory management software development in Laravel. Consolidate inventory, payroll, employee shifts, and customer billing into one unified platform built specifically for your team\'s workflow.',
                 'technologies' => ['Laravel', 'MySQL', 'Livewire', 'Charts.js', 'PDF Generation', 'Tailwind CSS'],
                 'case_study' => [

@@ -1,5 +1,5 @@
 {
-    "generated_at": "2026-11-06 23:48:38",
+    "generated_at": "2026-11-07 23:29:42",
     "robots_txt_sha256": "71dfa504b648eb2e9d246ef878f8969ea2fa1bfa73ee799febe4c113292c09df",
     "sitemap_xml_sha256": "a7fe211ee2218aa6fbc65c07d1e2d65977a1dc7b9b581d8a23696aefc79bfe86",
     "summary": {
@@ -16,8 +16,8 @@
         {
             "url": "/",
             "http_status": 200,
-            "title": "Laravel Web Development Company | US, UK & Australia",
-            "meta_description": "Custom Laravel web apps, SaaS and AI tools for founders in the US, UK and Australia. Fast, scalable code with 24h response. Request your free quote today!",
+            "title": "Custom Web Development Agency | Codemir IT Experts",
+            "meta_description": "Custom web development agency for founders in the US, UK and Australia. High-performance Laravel web apps, SaaS platforms, and AI integrations.",
             "h1_text": "Custom Laravel Web Development & AI Tools for Growing Businesses",
             "h1_count": 1,
             "canonical": "https://codemiritexpert.online/",
@@ -361,8 +361,8 @@
         {
             "url": "/services",
             "http_status": 200,
-            "title": "Web Development Services Laravel | Codemir IT Experts",
-            "meta_description": "Custom web development services in Laravel for US, UK and Australian startups. Fast, hand-coded web apps and APIs. Request your free quote today!",
+            "title": "Laravel Web Development Services | Codemir IT Experts",
+            "meta_description": "Custom web development services in Laravel for US, UK, and Australian businesses. High-performance web apps, APIs, and AI integrations.",
             "h1_text": "Web Development Servicesin Laravel",
             "h1_count": 1,
             "canonical": "https://codemiritexpert.online/services",
@@ -618,8 +618,8 @@
         {
             "url": "/services/custom-websites",
             "http_status": 200,
-            "title": "Custom Website Development | Codemir IT Experts",
-            "meta_description": "Custom website development hand-coded in Laravel and Tailwind CSS. Fast, responsive, zero bloated templates. For businesses in US, UK & Australia.",
+            "title": "Hand-Coded Website Development | Codemir IT Experts",
+            "meta_description": "Hand-coded custom website development in Laravel and Tailwind CSS. Fast, responsive layouts with zero bloated templates for US, UK & AU businesses.",
             "h1_text": "Custom Website Development.",
             "h1_count": 1,
             "canonical": "https://codemiritexpert.online/services/custom-websites",
@@ -847,8 +847,8 @@
         {
             "url": "/services/web-applications",
             "http_status": 200,
-            "title": "Custom Web Application Development Laravel | Codemir",
-            "meta_description": "Custom web application development in Laravel. Scalable CRMs, client portals, and cloud platforms engineered for businesses in the US, UK, and Australia.",
+            "title": "Custom Web Application Development | Codemir IT Experts",
+            "meta_description": "Custom web application development in Laravel. Scalable CRMs, client portals, and cloud platforms for businesses in the US, UK, and Australia.",
             "h1_text": "Custom Web Application Development Laravel.",
             "h1_count": 1,
             "canonical": "https://codemiritexpert.online/services/web-applications",
@@ -1076,8 +1076,8 @@
         {
             "url": "/services/ai-tools",
             "http_status": 200,
-            "title": "AI Chatbot Development for Business | Codemir",
-            "meta_description": "AI chatbot development for business customer support. Custom GPT-4 website chatbots, RAG knowledge bases, and 24/7 lead capture for companies worldwide.",
+            "title": "Custom AI Chatbot Integration | Codemir IT Experts",
+            "meta_description": "AI chatbot development for business customer support. Custom OpenAI website chatbots, RAG knowledge bases, and 24/7 automated lead capture.",
             "h1_text": "AI Chatbot Development for Business.",
             "h1_count": 1,
             "canonical": "https://codemiritexpert.online/services/ai-tools",
@@ -1305,8 +1305,8 @@
         {
             "url": "/services/ecommerce",
             "http_status": 200,
-            "title": "Custom Ecommerce Development Laravel | Codemir",
-            "meta_description": "Custom ecommerce development in Laravel with Stripe, fast checkouts & zero Shopify fees. Scalable online stores for US, UK, and Australian businesses.",
+            "title": "Custom eCommerce Web Development | Codemir IT Experts",
+            "meta_description": "Custom ecommerce development in Laravel with Stripe. Fast checkouts and zero Shopify fees for online stores in the US, UK, and Australia.",
             "h1_text": "Custom Ecommerce Development Laravel.",
             "h1_count": 1,
             "canonical": "https://codemiritexpert.online/services/ecommerce",
@@ -1530,8 +1530,8 @@
         {
             "url": "/services/api-development",
             "http_status": 200,
-            "title": "REST API Development Laravel | Codemir IT Experts",
-            "meta_description": "Secure REST API development in Laravel. Mobile backends, third-party integrations, OAuth & webhooks for growing businesses in US, UK and Australia.",
+            "title": "Custom API Development Services | Codemir IT Experts",
+            "meta_description": "Custom API development services in Laravel. Mobile backends, third-party integrations, OAuth, and webhooks for growing businesses in US, UK and AU.",
             "h1_text": "REST API Development Laravel.",
             "h1_count": 1,
             "canonical": "https://codemiritexpert.online/services/api-development",
@@ -1755,8 +1755,8 @@
         {
             "url": "/services/business-systems",
             "http_status": 200,
-            "title": "Custom ERP & Inventory Software Development | Codemir",
-            "meta_description": "Custom ERP and inventory management software development in Laravel. Tailored portals, dashboards, and automated workflows without costly seat licenses.",
+            "title": "Custom Business Management Software | Codemir IT Experts",
+            "meta_description": "Custom business management software in Laravel. Tailored operations dashboards, employee portals, and automated workflows without seat licenses.",
             "h1_text": "Custom ERP and Inventory Management Software Development.",
             "h1_count": 1,
             "canonical": "https://codemiritexpert.online/services/business-systems",
@@ -1980,7 +1980,7 @@
         {
             "url": "/work",
             "http_status": 200,
-            "title": "Laravel Web App & AI Project Case Studies | Codemir",
+            "title": "Web Development Portfolio & Case Studies | Codemir",
             "meta_description": "Explore real Laravel web application case studies by Codemir IT Experts. Custom SaaS platforms, ERP systems, AI chatbots, and eCommerce stores.",
             "h1_text": "Laravel Web App &AI Project Case Studies",
             "h1_count": 1,
@@ -3643,8 +3643,8 @@
         {
             "url": "/ai-solutions",
             "http_status": 200,
-            "title": "AI Voice Assistant & RAG Chatbot Development | Codemir",
-            "meta_description": "AI voice assistant and RAG chatbot development. Automate workflows, voice customer service, and vector knowledge search in Laravel applications.",
+            "title": "AI Workflow & RAG Automation | Codemir IT Experts",
+            "meta_description": "Custom AI workflow automation, autonomous workflow agents, and RAG knowledge bases in Laravel to streamline operations for US, UK & AU companies.",
             "h1_text": "AI Voice Assistant &RAG Chatbot Development",
             "h1_count": 1,
             "canonical": "https://codemiritexpert.online/ai-solutions",
@@ -5467,8 +5467,8 @@
         {
             "url": "/clinic-website-development",
             "http_status": 200,
-            "title": "Clinic & Medical Practice Website Development | Codemir",
-            "meta_description": "Clinic and medical practice website development. Real-time patient booking, mobile-first design, automated reminders, and fast load times.",
+            "title": "Clinic Website Development | Codemir IT Experts",
+            "meta_description": "Clinic website development with online booking. Fast, mobile-first websites with doctor profiles, calendar scheduling, and automated reminders.",
             "h1_text": "Clinic and Medical Practice Website Development.",
             "h1_count": 1,
             "canonical": "https://codemiritexpert.online/clinic-website-development",
