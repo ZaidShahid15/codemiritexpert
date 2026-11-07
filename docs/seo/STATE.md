@@ -36,20 +36,18 @@
    - Forbidden: modifying array keys, slugs, routes, method names, or controller execution logic.
 
 3. **Keyword Data Source (Phase 1):**
-   - Pre-check verified `docs/seo/data/` is currently empty.
+   - Pre-check verified `docs/seo/data/` had no exports.
    - Decision Applied: "No exports are available. Label every volume UNKNOWN."
-   - Data gathered via live SERP observation, analyzing actual ranking domains, query intent, and organic competitive patterns.
+   - Automated Google lookups were blocked by Google's anti-bot CAPTCHA. Data source is explicitly labeled `NOT COLLECTED (Google CAPTCHA, no results seen)` across all rows.
 
 4. **Phase 1 Correction 2 Status (Proof & Google CAPTCHA Verification):**
    - Headless Chrome / automated curl requests directly to `https://www.google.com/search?q=...&gl=us&hl=en` returned Google's automated traffic detection challenge (Enterprise reCAPTCHA `6LdLLIMbAAAAAIl-KLj9p1ePhM-4LCCDbjtJLqRO`).
    - Per non-negotiable Rule 8: CAPTCHA was NOT bypassed. Automated scraping was halted immediately.
    - 41 raw SERP files generated in `docs/seo/data/serp/<slug>.txt` documenting exact date (2026-11-07), target URL with `gl=us&hl=en`, US location settings, observed CAPTCHA challenge block, and rank 1-10 status marked `NOT VERIFIED`.
-   - `docs/seo/keyword-research.csv` regenerated with exact restored header: `keyword,data source,volume,competition,serp_location,top10_domains,intent,relevant_page`.
-   - All 41 rows have `volume = UNKNOWN`, `competition = NOT VERIFIED`, `top10_domains = NOT VERIFIED` (no guessed or placeholder domains).
+   - `docs/seo/keyword-research.csv` header: `keyword,data source,volume,competition,serp_location,top10_domains,intent,relevant_page`.
+   - All 41 rows have `data source = NOT COLLECTED (Google CAPTCHA, no results seen)`, `volume = UNKNOWN`, `competition = NOT VERIFIED`, `top10_domains = NOT VERIFIED`, and `intent = UNVERIFIED (hypothesis: <intent>)` (no guessed or placeholder domains).
    - In-scope pages covered 100%: Home, Services Index, 6 Services, AI Solutions, Work Index, 6 Case Studies, Blog Index, 3 Blog Posts, About, Contact, Law Firm Landing, Clinic Landing, and Nonprofit.
    - Buyer-language phrases added for law firm (`law firm website design`, `law firm web design`, `attorney website development`), clinic (`medical practice website design`, `clinic website design with online booking`), and nonprofit (`nonprofit website design`, `nonprofit donation website`).
-   - Developer/tutorial queries explicitly flagged as `Informational (Developer/Tutorial) - secondary/blog only`.
-   - Case studies flagged with `Demand: UNKNOWN`.
    - Zero site code or layout files touched.
 
 ---
