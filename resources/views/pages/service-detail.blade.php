@@ -43,7 +43,26 @@
     "areaServed": ["United States", "United Kingdom", "Australia", "Pakistan"]
 }
 </script>
+<script type="application/ld+json">
+{
+    "@@context": "https://schema.org",
+    "@@type": "FAQPage",
+    "mainEntity": [
+        @foreach($faqs as $index => $faq)
+        {
+            "@@type": "Question",
+            "name": {!! json_encode($faq['question']) !!},
+            "acceptedAnswer": {
+                "@@type": "Answer",
+                "text": {!! json_encode($faq['answer']) !!}
+            }
+        }{{ !$loop->last ? ',' : '' }}
+        @endforeach
+    ]
+}
+</script>
 @endsection
+
 
 @section('content')
 

@@ -1,6 +1,43 @@
 @extends('layouts.app')
-@section('title', 'AI Voice Assistant & RAG Chatbot Development | Codemir')
-@section('meta_description', 'AI voice assistant and RAG chatbot development. Automate workflows, voice customer service, and vector knowledge search in Laravel applications.')
+@section('title', 'AI Workflow & RAG Automation | Codemir IT Experts')
+@section('meta_description', 'Custom AI workflow automation, autonomous workflow agents, and RAG knowledge bases in Laravel to streamline operations for US, UK & AU companies.')
+
+@section('structured_data')
+<script type="application/ld+json">
+{
+    "@@context": "https://schema.org",
+    "@@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "{{ route('home') }}"
+        },
+        {
+            "@@type": "ListItem",
+            "position": 2,
+            "name": "AI Solutions",
+            "item": "{{ route('ai-solutions') }}"
+        }
+    ]
+}
+</script>
+<script type="application/ld+json">
+{
+    "@@context": "https://schema.org",
+    "@@type": "Service",
+    "name": "AI Workflow Automation & RAG Solutions",
+    "description": "Custom AI workflow automation, autonomous workflow agents, and RAG knowledge bases in Laravel to streamline operations for US, UK & Australian companies.",
+    "provider": {
+        "@@type": "Organization",
+        "name": "Codemir IT Experts",
+        "url": "https://codemiritexpert.online"
+    },
+    "areaServed": ["United States", "United Kingdom", "Australia"]
+}
+</script>
+@endsection
 
 @section('content')
 @include('components.page-hero', [
