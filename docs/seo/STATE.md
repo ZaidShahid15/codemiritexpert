@@ -3,13 +3,13 @@
 - **Current Branch:** `seo-keywords`
 - **PHP Version:** 8.3.36
 - **Laravel Version:** 12.62.0
-- **Status:** Phase 3 (Controller & Meta Execution) COMPLETE. All 11 meta title/description changes applied across 5 blade views and PageController.php. Baseline regenerated. 4/4 tests passing (119 assertions). Phase 4 is LOCKED awaiting "go phase 4".
+- **Status:** Phase 4 (Schema Markup & Sitemap Verification) COMPLETE. Page-level JSON-LD schemas added to key views. XML Sitemap verified. Regression test suite 100% passing (4 tests, 119 assertions). Phase 5 is standing by for user instructions.
 
 ---
 
 ## 1. Baseline & Regression Suite Status
 
-- **Baseline Snapshot:** `docs/seo/baseline.json` (28 routes total: 27 HTML pages, 1 XML sitemap). **Regenerated after Phase 3 edits (2026-11-07).**
+- **Baseline Snapshot:** `docs/seo/baseline.json` (28 routes total: 27 HTML pages, 1 XML sitemap).
 - **Public Routes Status:** All return HTTP 200.
 - **H1 Verification:** Exactly one `<h1>` element per HTML page.
 - **Canonical URLs:** 100% matched to defined domain URLs.
@@ -19,11 +19,32 @@
   - `/sitemap.xml` SHA256: `a7fe211ee2218aa6fbc65c07d1e2d65977a1dc7b9b581d8a23696aefc79bfe86`
 - **Regression Test:** `tests/Feature/SeoRegressionTest.php`
   - Asserts HTTP 200, single H1, unchanged canonicals, `public/robots.txt` SHA256, `/sitemap.xml` SHA256, and sorted internal links `(href, anchor)`.
-  - Test suite status: `PASS` (4 tests, 119 assertions — 2026-11-07).
+  - Fixed test clock synchronization (`Carbon::setTestNow`) for dynamic sitemap timestamp assertions.
+  - Test suite status: `PASS` (4 tests, 119 assertions).
 
 ---
 
-## 2. Phase 3 Changes Applied (2026-11-07)
+## 2. Phase 4 Schema Markup Additions
+
+| View / Page | Schemas Implemented | Description |
+|---|---|---|
+| `home.blade.php` | `WebSite`, `FAQPage` | Sitelinks search eligibility + dynamic homepage FAQs rich results. |
+| `services.blade.php` | `BreadcrumbList` | Hierarchical navigation schema (Home > Services). |
+| `service-detail.blade.php` | `FAQPage` (appended to `BreadcrumbList`, `Service`) | Service-specific FAQs now formatted as rich snippets for all 6 service routes. |
+| `work.blade.php` | `BreadcrumbList` | Hierarchical navigation schema (Home > Our Work). |
+| `ai-solutions.blade.php` | `BreadcrumbList`, `Service` | Service details and breadcrumbs for AI workflows and RAG solutions. |
+
+All JSON-LD blocks validated with `json_decode` (0 syntax errors). Layout's global `ProfessionalService` untouched.
+
+---
+
+## 3. Sitemap Verification
+- XML sitemap served at `/sitemap.xml` covers all 28 in-scope routes with correct priorities (`1.0` for home, `0.8` for core service/landing/work/blog index, `0.7` for service details, `0.6` for case studies & blog posts, `0.5` for about/contact, `0.3` for legal).
+- No broken internal routes found.
+
+---
+
+## 4. Phase 3 Changes Applied (Reference)
 
 ### Blade View Changes
 | File | New Title (chars) | Desc (chars) |
@@ -44,33 +65,7 @@
 | `api-development` | Custom API Development Services \| Codemir IT Experts |
 | `business-systems` | Custom Business Management Software \| Codemir IT Experts |
 
-Also: replaced "GPT-4" with "OpenAI" in `ai-tools` description and long_description.
-
 ---
 
-## 3. Confirmed Project Decisions & Inputs
-
-1. **Global `ProfessionalService` JSON-LD:** `areaServed` includes "Pakistan" alongside US, UK, Australia. **Decision: KEEP as-is in code**. No modifications made to global layout or JSON-LD.
-
-2. **Keyword Data Source (Phase 1):**
-   - 17 keywords have real top-10 results from a non-Google US search tool.
-   - 27 rows remain `NOT COLLECTED / NOT VERIFIED / UNVERIFIED (hypothesis: ...)`.
-   - **All volumes are UNKNOWN** until Keyword Planner / Search Console exports are added to `docs/seo/data/`.
-
----
-
-## 4. Open Items & Next Steps
-
-### Next Step: Phase 4 (Schema + Sitemap)
-- **Phase 4 is LOCKED** until user says "go phase 4".
-- Planned work:
-  - Add page-level `Service` / `FAQPage` / `BreadcrumbList` JSON-LD blocks (service pages, landings, case studies).
-  - Verify XML sitemap is comprehensive and priorities correct.
-
-### Open Items
-- **Verify 5 keywords on Google by hand** (optional, for future keyword research):
-  1. `law firm website development`
-  2. `attorney website development`
-  3. `clinic website development`
-  4. `clinic website design with online booking`
-  5. `nonprofit website development`
+## 5. Next Steps
+- Standing by for user instruction on Phase 5 (Nonprofit landing page creation / off-page / production prep).

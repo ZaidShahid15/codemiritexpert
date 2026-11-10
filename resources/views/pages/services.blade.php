@@ -2,6 +2,29 @@
 @section('title', 'Laravel Web Development Services | Codemir IT Experts')
 @section('meta_description', 'Custom web development services in Laravel for US, UK, and Australian businesses. High-performance web apps, APIs, and AI integrations.')
 
+@section('structured_data')
+<script type="application/ld+json">
+{
+    "@@context": "https://schema.org",
+    "@@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "{{ route('home') }}"
+        },
+        {
+            "@@type": "ListItem",
+            "position": 2,
+            "name": "Services",
+            "item": "{{ route('services') }}"
+        }
+    ]
+}
+</script>
+@endsection
+
 @section('content')
 @include('components.page-hero', [
     'eyebrow'     => 'Laravel Engineering',

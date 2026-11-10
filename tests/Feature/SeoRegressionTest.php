@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use Carbon\Carbon;
 use DOMDocument;
 use DOMXPath;
 use Tests\TestCase;
@@ -35,6 +36,8 @@ class SeoRegressionTest extends TestCase
      */
     public function test_pages_match_seo_baseline(): void
     {
+        Carbon::setTestNow('2026-11-07 12:00:00');
+
         $baselinePath = base_path('docs/seo/baseline.json');
         $this->assertFileExists($baselinePath, 'Baseline snapshot docs/seo/baseline.json must exist.');
 

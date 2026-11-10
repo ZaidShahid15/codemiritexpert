@@ -3,7 +3,38 @@
 @section('title', 'Custom Web Development Agency | Codemir IT Experts')
 @section('meta_description', 'Custom web development agency for founders in the US, UK and Australia. High-performance Laravel web apps, SaaS platforms, and AI integrations.')
 
+@section('structured_data')
+<script type="application/ld+json">
+{
+    "@@context": "https://schema.org",
+    "@@type": "WebSite",
+    "name": "Codemir IT Experts",
+    "url": "{{ route('home') }}",
+    "description": "Custom web development agency specialising in Laravel web apps, SaaS platforms, and AI integrations for founders in the US, UK and Australia."
+}
+</script>
+<script type="application/ld+json">
+{
+    "@@context": "https://schema.org",
+    "@@type": "FAQPage",
+    "mainEntity": [
+        @foreach($faqs as $index => $faq)
+        {
+            "@@type": "Question",
+            "name": {!! json_encode($faq['question']) !!},
+            "acceptedAnswer": {
+                "@@type": "Answer",
+                "text": {!! json_encode($faq['answer']) !!}
+            }
+        }{{ !$loop->last ? ',' : '' }}
+        @endforeach
+    ]
+}
+</script>
+@endsection
+
 @section('content')
+
 
 {{-- HERO --}}
 <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-brand-black pt-12 pb-16">

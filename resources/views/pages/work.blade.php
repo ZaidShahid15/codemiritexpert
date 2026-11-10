@@ -2,6 +2,29 @@
 @section('title', 'Web Development Portfolio & Case Studies | Codemir')
 @section('meta_description', 'Explore real Laravel web application case studies by Codemir IT Experts. Custom SaaS platforms, ERP systems, AI chatbots, and eCommerce stores.')
 
+@section('structured_data')
+<script type="application/ld+json">
+{
+    "@@context": "https://schema.org",
+    "@@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "{{ route('home') }}"
+        },
+        {
+            "@@type": "ListItem",
+            "position": 2,
+            "name": "Our Work",
+            "item": "{{ route('work') }}"
+        }
+    ]
+}
+</script>
+@endsection
+
 @section('content')
 @include('components.page-hero', [
     'eyebrow'     => 'Delivered Case Studies',
