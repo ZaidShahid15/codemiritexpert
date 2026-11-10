@@ -327,10 +327,10 @@
         </div>
 
         {{-- BOTTOM CTA --}}
-        <div class="text-center mt-16 bg-gradient-to-r from-brand-blue/10 to-brand-black border border-brand-blue/20 rounded-3xl p-10 md:p-14" data-aos="fade-up">
+        <div class="text-center mt-20 md:mt-24 bg-gradient-to-r from-brand-blue/10 to-brand-black border border-brand-blue/20 rounded-3xl p-10 md:p-14 pb-14 md:pb-16" data-aos="fade-up">
             <h3 class="font-playfair text-2xl md:text-4xl font-bold text-white mb-3">Ready to Upgrade Your Law Firm's Online Presence?</h3>
             <p class="font-inter text-brand-muted text-sm md:text-base max-w-xl mx-auto mb-8">Let's build a fast, prestigious website that wins high-value legal clients for your firm.</p>
-            <a href="{{ route('contact') }}" class="bg-brand-blue hover:bg-brand-blue-hover text-white font-semibold px-9 py-4 rounded-full transition-all duration-200 shadow-lg shadow-brand-blue/25 hover:shadow-brand-blue/40 hover:-translate-y-0.5 inline-block text-base">
+            <a href="{{ route('contact') }}" class="bg-brand-blue hover:bg-brand-blue-hover text-white font-semibold px-9 py-4 rounded-full transition-all duration-200 shadow-lg shadow-brand-blue/25 hover:shadow-brand-blue/40 hover:-translate-y-0.5 inline-block text-base mb-2">
                 Start Your Project Today →
             </a>
         </div>
